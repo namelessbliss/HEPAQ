@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">HEPAQ</string>
+    <string name="hint_dni">DNI</string>
+    <string name="hint_fecha_nacimiento">fecha de nacimiento</string>
+    <string name="btn_ingresar">Ingresar</string>
+
+    <string name="btn_resena">Reseña Historica</string>
+    <string name="btn_objetivos">Objetivos</string>
+    <string name="btn_participantes">Participantes</string>
+    <string name="btn_disenos">Diseños</string>
+    <string name="navigation_atenciones">Atenciones</string>
+    <string name="navigation_vacuna">vacuna</string>
+    <string name="navigation_resultados">Resultados</string>
+    <string name="navigation_acerca_de">Acerca de</string>
+</resources>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/navigation_atencion"
+        android:icon="@drawable/ic_atencion"
+        android:title="@string/navigation_atenciones" />
+
+    <item
+        android:id="@+id/navigation_vacuna"
+        android:icon="@drawable/ic_vacuna"
+        android:title="@string/navigation_vacuna" />
+
+    <item
+        android:id="@+id/navigation_resultados"
+        android:icon="@drawable/ic_resultados"
+        android:title="@string/navigation_resultados" />
+
+    <item
+        android:id="@+id/navigation_acerca"
+        android:icon="@drawable/ic_acerca"
+        android:title="@string/navigation_acerca_de" />
+
+</menu>
