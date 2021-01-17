@@ -88,7 +88,7 @@ public class LoginActivity extends AppCompatActivity {
                                 Toast.makeText(LoginActivity.this, "Acceso correcto", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
                                 startActivity(intent);
-                                finish();
+                                //finish();
 
                             }
                         }

@@ -1,8 +1,10 @@
-package com.example.prototipo;
+package com.example.prototipo.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.prototipo.R;
 
 public class ProfileActivity extends AppCompatActivity {
 
