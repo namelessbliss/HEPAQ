@@ -1,10 +1,10 @@
 
-package com.example.prototipo.retrofit.response;
+package com.example.prototipo.retrofit.response.atenciones;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class ResponseLogin {
+public class PacienteObj {
 
     @SerializedName("Documento")
     @Expose
@@ -47,16 +47,16 @@ public class ResponseLogin {
     private String estado;
     @SerializedName("Fecha_registro")
     @Expose
-    private Object fechaRegistro;
+    private String fechaRegistro;
     @SerializedName("Fecha_modificacion")
     @Expose
-    private Object fechaModificacion;
+    private String fechaModificacion;
     @SerializedName("Empleado_registro")
     @Expose
-    private Object empleadoRegistro;
+    private String empleadoRegistro;
     @SerializedName("Empleado_modificacion")
     @Expose
-    private Object empleadoModificacion;
+    private String empleadoModificacion;
     @SerializedName("Id_Sede")
     @Expose
     private Integer idSede;
@@ -64,7 +64,7 @@ public class ResponseLogin {
     @Expose
     private Object sedeObj;
 
-    public String getDocumento() {
+    public Object getDocumento() {
         return documento;
     }
 
@@ -104,7 +104,7 @@ public class ResponseLogin {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    public String getDireccion() {
+    public Object getDireccion() {
         return direccion;
     }
 
@@ -112,7 +112,7 @@ public class ResponseLogin {
         this.direccion = direccion;
     }
 
-    public String getTelefono() {
+    public Object getTelefono() {
         return telefono;
     }
 
@@ -120,7 +120,7 @@ public class ResponseLogin {
         this.telefono = telefono;
     }
 
-    public String getEmail() {
+    public Object getEmail() {
         return email;
     }
 
@@ -160,7 +160,7 @@ public class ResponseLogin {
         this.tipoAsegurado = tipoAsegurado;
     }
 
-    public String getEstado() {
+    public Object getEstado() {
         return estado;
     }
 
@@ -172,7 +172,7 @@ public class ResponseLogin {
         return fechaRegistro;
     }
 
-    public void setFechaRegistro(Object fechaRegistro) {
+    public void setFechaRegistro(String fechaRegistro) {
         this.fechaRegistro = fechaRegistro;
     }
 
@@ -180,7 +180,7 @@ public class ResponseLogin {
         return fechaModificacion;
     }
 
-    public void setFechaModificacion(Object fechaModificacion) {
+    public void setFechaModificacion(String fechaModificacion) {
         this.fechaModificacion = fechaModificacion;
     }
 
@@ -188,7 +188,7 @@ public class ResponseLogin {
         return empleadoRegistro;
     }
 
-    public void setEmpleadoRegistro(Object empleadoRegistro) {
+    public void setEmpleadoRegistro(String empleadoRegistro) {
         this.empleadoRegistro = empleadoRegistro;
     }
 
@@ -196,11 +196,11 @@ public class ResponseLogin {
         return empleadoModificacion;
     }
 
-    public void setEmpleadoModificacion(Object empleadoModificacion) {
+    public void setEmpleadoModificacion(String empleadoModificacion) {
         this.empleadoModificacion = empleadoModificacion;
     }
 
-    public Integer getIdSede() {
+    public Object getIdSede() {
         return idSede;
     }
 

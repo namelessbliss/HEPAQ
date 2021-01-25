@@ -3,6 +3,7 @@
     <dimen name="titulo_gigante">60sp</dimen>
     <dimen name="titulo">30sp</dimen>
     <dimen name="subtitulo">24sp</dimen>
+    <dimen name="subtitulo_pequeño">20sp</dimen>
     <dimen name="texto">16sp</dimen>
     <dimen name="texto_pequeño">12sp</dimen>
 </resources>

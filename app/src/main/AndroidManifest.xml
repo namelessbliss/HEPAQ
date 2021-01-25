@@ -15,7 +15,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Prototipo"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ui.ProfileActivity"></activity>
+        <activity android:name=".ui.atenciones.AtencionesActivity"></activity>
+        <activity android:name=".ui.ProfileActivity" />
         <activity android:name=".ui.DashboardActivity" />
         <activity android:name=".ui.LoginActivity">
             <intent-filter>

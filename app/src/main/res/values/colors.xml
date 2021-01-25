@@ -11,10 +11,12 @@
     <color name="colorAzul">#59DDEE</color>
     <color name="colorAzulDark">#0E5CA2</color>
     <color name="colorVariant">#8190A5</color>
+    <color name="colorVariant2">#C0CCDA</color>
     <color name="md_blue_800">#0E5CA2</color>
     <color name="md_green_600">#43a047</color>
     <color name="md_red_600">#e53935</color>
     <color name="md_yellow_800">#f9a825</color>
+
 
 
 </resources>

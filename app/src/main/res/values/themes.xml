@@ -44,6 +44,13 @@
         <item name="android:lineSpacingMultiplier">1.29</item>
     </style>
 
+    <style name="subtitulo_pequeño">
+        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/subtitulo_pequeño</item>
+        <item name="android:lineSpacingMultiplier">1.29</item>
+    </style>
+
     <style name="texto">
         <item name="android:textSize">@dimen/texto</item>
         <item name="android:textColor">@color/black</item>

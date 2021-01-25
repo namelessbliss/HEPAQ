@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.prototipo.R;
 import com.example.prototipo.common.Constants;
+import com.example.prototipo.common.SharedPreferencesManager;
 import com.example.prototipo.retrofit.HEPAQClient;
 import com.example.prototipo.retrofit.HEPAQService;
 import com.example.prototipo.retrofit.request.RequestLogin;
@@ -37,8 +38,9 @@ public class LoginActivity extends AppCompatActivity {
     private EditText etfechaNacimiento;
     private ImageView imgCalendario;
     private Button btnLogin;
-    HEPAQClient hepaqClient;
-    HEPAQService hepaqService;
+
+    private HEPAQClient hepaqClient;
+    private HEPAQService hepaqService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,7 +80,8 @@ public class LoginActivity extends AppCompatActivity {
                 } else if (fecha.isEmpty()) {
                     etfechaNacimiento.setError("Complete el campo requerido");
                 } else {
-                    RequestLogin requestLogin = new RequestLogin(dni, fecha);
+
+                    //RequestLogin requestLogin = new RequestLogin(dni, fecha);
 
                     Call<ResponseLogin> call = hepaqService.doLoginWithField(dni, fecha);
                     call.enqueue(new Callback<ResponseLogin>() {
@@ -86,6 +89,23 @@ public class LoginActivity extends AppCompatActivity {
                         public void onResponse(Call<ResponseLogin> call, Response<ResponseLogin> response) {
                             if (response.isSuccessful()) {
                                 Toast.makeText(LoginActivity.this, "Acceso correcto", Toast.LENGTH_SHORT).show();
+
+                                //Almacena preferences del login
+                                SharedPreferencesManager.setStringValue(Constants.PREF_DOCUMENTO, response.body().getDocumento());
+                                SharedPreferencesManager.setStringValue(Constants.PREF_APELLIDO, response.body().getApellidos());
+                                SharedPreferencesManager.setStringValue(Constants.PREF_NOMBRE, response.body().getNombres());
+                                SharedPreferencesManager.setStringValue(Constants.PREF_SEXO, response.body().getApellidos());
+                                SharedPreferencesManager.setStringValue(Constants.PREF_FECHA_NACIMIENTO, response.body().getFechaNacimiento());
+                                SharedPreferencesManager.setStringValue(Constants.PREF_DIRECCION, response.body().getDireccion());
+                                SharedPreferencesManager.setStringValue(Constants.PREF_TELEFONO, response.body().getTelefono());
+                                SharedPreferencesManager.setStringValue(Constants.PREF_CORREO, response.body().getEmail());
+                                SharedPreferencesManager.setStringValue(Constants.PREF_TIPO, response.body().getTipo());
+                                SharedPreferencesManager.setStringValue(Constants.PREF_TIPO_ASEGURADO, response.body().getTipoAsegurado());
+                                SharedPreferencesManager.setStringValue(Constants.PREF_N_HISTORIA_CLINICA, response.body().getNHistoriaClinica()+"");
+                                SharedPreferencesManager.setStringValue(Constants.PREF_AUTOGENERADO, response.body().getAutogenerado());
+                                SharedPreferencesManager.setStringValue(Constants.PREF_ESTADO, response.body().getEstado());
+                                SharedPreferencesManager.setStringValue(Constants.PREF_ID_SEDE, response.body().getIdSede()+"");
+
                                 Intent intent = new Intent(LoginActivity.this, DashboardActivity.class);
                                 startActivity(intent);
                                 //finish();
