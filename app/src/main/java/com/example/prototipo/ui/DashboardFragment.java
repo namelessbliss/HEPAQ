@@ -1,5 +1,7 @@
 package com.example.prototipo.ui;
 
+import android.Manifest;
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,6 +11,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.prototipo.R;
+import com.karumi.dexter.Dexter;
+import com.karumi.dexter.listener.single.CompositePermissionListener;
+import com.karumi.dexter.listener.single.DialogOnDeniedPermissionListener;
+import com.karumi.dexter.listener.single.PermissionListener;
 
 public class DashboardFragment extends Fragment {
 
@@ -26,4 +32,5 @@ public class DashboardFragment extends Fragment {
                              Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_dashboard, container, false);
     }
+
 }

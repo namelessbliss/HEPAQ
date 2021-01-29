@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.prototipo"
-        minSdkVersion 16
+        minSdkVersion 19
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -60,6 +60,8 @@ dependencies {
 
     //Dexter
     implementation 'com.karumi:dexter:6.0.0'
+    //PDFviewer
+    implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
 
     //Aesthetic Dialogs for Android
     implementation 'com.github.gabriel-TheCode:AestheticDialogs:1.3.4'

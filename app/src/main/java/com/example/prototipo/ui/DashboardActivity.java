@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -12,8 +14,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.prototipo.R;
+import com.example.prototipo.common.Utils;
 import com.example.prototipo.ui.atenciones.AtencionesActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.karumi.dexter.Dexter;
+import com.karumi.dexter.listener.single.CompositePermissionListener;
+import com.karumi.dexter.listener.single.DialogOnDeniedPermissionListener;
+import com.karumi.dexter.listener.single.PermissionListener;
 
 public class DashboardActivity extends AppCompatActivity implements View.OnClickListener {
     Toolbar toolbar;
@@ -90,4 +97,5 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
         startActivity(intent);
         overridePendingTransition(R.anim.slide_in_up, R.anim.slide_out_up);
     }
+
 }

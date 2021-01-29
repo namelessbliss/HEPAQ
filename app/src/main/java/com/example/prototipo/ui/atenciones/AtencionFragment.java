@@ -1,5 +1,6 @@
 package com.example.prototipo.ui.atenciones;
 
+import android.Manifest;
 import android.content.Context;
 import android.os.Bundle;
 
@@ -19,6 +20,10 @@ import com.example.prototipo.retrofit.HEPAQClient;
 import com.example.prototipo.retrofit.HEPAQService;
 import com.example.prototipo.retrofit.response.atenciones.ResponseAtenciones;
 import com.example.prototipo.ui.LoginActivity;
+import com.karumi.dexter.Dexter;
+import com.karumi.dexter.listener.single.CompositePermissionListener;
+import com.karumi.dexter.listener.single.DialogOnDeniedPermissionListener;
+import com.karumi.dexter.listener.single.PermissionListener;
 import com.thecode.aestheticdialogs.AestheticDialog;
 import com.thecode.aestheticdialogs.DialogStyle;
 import com.thecode.aestheticdialogs.DialogType;
@@ -42,6 +47,8 @@ public class AtencionFragment extends Fragment {
 
     private HEPAQService hepaqService;
     private HEPAQClient hepaqClient;
+
+    private PermissionListener permissionListener;
 
     public AtencionFragment() {
     }
@@ -120,5 +127,21 @@ public class AtencionFragment extends Fragment {
         });
 
 
+    }
+
+    private void checkPermissions() {
+        PermissionListener dialogOnDeniedPermissionListener = DialogOnDeniedPermissionListener.Builder.withContext(getActivity())
+                .withTitle("Permiso Rechazado")
+                .withMessage("El permiso es necesario para generar el PDF")
+                .withButtonText("Aceptar")
+                .withIcon(R.mipmap.ic_launcher)
+                .build();
+
+
+        permissionListener = new CompositePermissionListener((PermissionListener) ((Context) getActivity()), dialogOnDeniedPermissionListener);
+
+        Dexter.withActivity(getActivity()).withPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                .withListener(permissionListener)
+                .check();
     }
 }

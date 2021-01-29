@@ -1,17 +1,31 @@
 package com.example.prototipo.ui.atenciones;
 
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.prototipo.R;
 import com.example.prototipo.retrofit.response.atenciones.ResponseAtenciones;
+import com.example.prototipo.common.Utils;
+import com.example.prototipo.ui.PdfViewerActivity;
+import com.karumi.dexter.Dexter;
+import com.karumi.dexter.PermissionToken;
+import com.karumi.dexter.listener.PermissionDeniedResponse;
+import com.karumi.dexter.listener.PermissionGrantedResponse;
+import com.karumi.dexter.listener.PermissionRequest;
+import com.karumi.dexter.listener.single.PermissionListener;
 
+import java.io.File;
 import java.util.List;
 
 
@@ -20,9 +34,12 @@ public class MyAtencionRecyclerViewAdapter extends RecyclerView.Adapter<MyAtenci
     private Context ctx;
     private final List<ResponseAtenciones> mValues;
 
+    private Utils utils;
+
     public MyAtencionRecyclerViewAdapter(Context context, List<ResponseAtenciones> items) {
         mValues = items;
         ctx = context;
+        utils = new Utils();
     }
 
     @Override
@@ -43,6 +60,39 @@ public class MyAtencionRecyclerViewAdapter extends RecyclerView.Adapter<MyAtenci
             String nombreCompleto = holder.mItem.getPersonalObj().getNombre() + " " + holder.mItem.getPersonalObj().getApellido();
             holder.tvMedico.setText(nombreCompleto);
             holder.tvFecha.setText(holder.mItem.getFechaAtencion());
+
+            holder.btnPdf.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    Dexter.withActivity((Activity) ctx)
+                            .withPermission(Manifest.permission.CAMERA)
+                            .withListener(new PermissionListener() {
+                                @Override
+                                public void onPermissionGranted(PermissionGrantedResponse response) {
+                                    utils.createPdf();
+                                }
+
+                                @Override
+                                public void onPermissionDenied(PermissionDeniedResponse response) {
+                                    // check for permanent denial of permission
+                                    if (response.isPermanentlyDenied()) {
+                                        //TODO
+                                    }
+                                }
+
+                                @Override
+                                public void onPermissionRationaleShouldBeShown(PermissionRequest permission, PermissionToken token) {
+                                    token.continuePermissionRequest();
+                                }
+                            }).check();
+                    File file = utils.createPdf();
+                    Intent intent = new Intent(ctx, PdfViewerActivity.class);
+                    intent.putExtra("pdf", file.getAbsolutePath());
+                    ctx.startActivity(intent);
+
+                }
+            });
 
         }
     }

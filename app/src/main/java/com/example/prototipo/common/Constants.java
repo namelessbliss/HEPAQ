@@ -2,7 +2,7 @@ package com.example.prototipo.common;
 
 public class Constants {
 
-    public static final String API_BASE_URL = "http://192.168.1.101/Proyecto_Essalud/apiMovil/";
+    public static final String API_BASE_URL = "http://hepaq.net//apiMovil/";
     public static final String API_FILES_URL = "";
 
     //Preferences
