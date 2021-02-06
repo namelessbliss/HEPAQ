@@ -1,0 +1,11 @@
+<androidx.recyclerview.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/list"
+    android:name="com.example.prototipo.ui.resultados.EcografiaFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+    app:layoutManager="LinearLayoutManager"
+    tools:context="ui.resultados.EcografiaFragment"
+    tools:listitem="@layout/vacuna_list_item" />

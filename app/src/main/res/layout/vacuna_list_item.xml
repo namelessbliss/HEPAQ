@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="0.1dp"
+    android:background="@drawable/black"
+    android:orientation="horizontal"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/textViewUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/string_nombre"
+        android:textColor="@android:color/black"
+        android:textSize="14sp"
+        android:theme="@style/texto_pequeño"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/tipo"
+        android:textColor="@android:color/black"
+        android:theme="@style/texto_pequeño"
+        app:layout_constraintStart_toStartOf="@+id/tvDiaSemana"
+        app:layout_constraintTop_toBottomOf="@+id/tvDiaSemana" />
+
+    <Button
+        android:id="@+id/btnPdf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:background="@android:color/transparent"
+        android:drawableLeft="@drawable/ic_pdf"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:text="Ver PDF"
+        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/tvDiaSemana"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvFechaAtencion" />
+
+    <TextView
+        android:id="@+id/tvNombre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="XXXXXXXX"
+        android:theme="@style/texto_pequeño"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewUsername"
+        app:layout_constraintStart_toEndOf="@+id/textViewUsername"
+        app:layout_constraintTop_toTopOf="@+id/textViewUsername" />
+
+    <TextView
+        android:id="@+id/tvTipo"
+        android:layout_width="339dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="8dp"
+        android:theme="@style/texto_pequeño"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewMessage"
+        app:layout_constraintStart_toEndOf="@+id/textViewMessage"
+        app:layout_constraintTop_toTopOf="@+id/textViewMessage" />
+
+    <TextView
+        android:id="@+id/tvFechaAtencion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="SEP 28"
+        android:theme="@style/subtitulo"
+        app:layout_constraintStart_toStartOf="@+id/textViewUsername"
+        app:layout_constraintTop_toBottomOf="@+id/textViewUsername" />
+
+    <TextView
+        android:id="@+id/tvDiaSemana"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="MIERCOLES"
+        android:textAlignment="textStart"
+        android:theme="@style/texto"
+        app:layout_constraintStart_toStartOf="@+id/tvFechaAtencion"
+        app:layout_constraintTop_toBottomOf="@+id/tvFechaAtencion" />
+</androidx.constraintlayout.widget.ConstraintLayout>

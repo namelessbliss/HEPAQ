@@ -16,6 +16,8 @@ import android.widget.TextView;
 import com.example.prototipo.R;
 import com.example.prototipo.common.Utils;
 import com.example.prototipo.ui.atenciones.AtencionesActivity;
+import com.example.prototipo.ui.resultados.ResultadosActivity;
+import com.example.prototipo.ui.vacuna.VacunaActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.listener.single.CompositePermissionListener;
@@ -39,8 +41,10 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
                     goToActivity(new AtencionesActivity());
                     return true;
                 case R.id.navigation_vacuna:
+                    goToActivity(new VacunaActivity());
                     return true;
                 case R.id.navigation_resultados:
+                    goToActivity(new ResultadosActivity());
                     return true;
                 case R.id.navigation_acerca:
                     return true;

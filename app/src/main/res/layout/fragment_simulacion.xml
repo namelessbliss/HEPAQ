@@ -1,0 +1,71 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.resultados.SimulacionFragment">
+
+
+    <View
+        android:id="@+id/view4"
+        android:layout_width="0dp"
+        android:layout_height="350dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        android:background="@drawable/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.498" />
+
+    <Button
+        android:id="@+id/btnIMC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:background="@color/float_transparent"
+        android:drawableTop="@drawable/ic_balanza"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:text="@string/string_imc"
+        android:textColor="@color/black"
+        android:theme="@style/texto_pequeño"
+        app:layout_constraintStart_toStartOf="@+id/view4"
+        app:layout_constraintTop_toTopOf="@+id/view4" />
+
+    <Button
+        android:id="@+id/btnTestEstres"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="@color/float_transparent"
+        android:drawableTop="@drawable/ic_test1"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:text="@string/test_estres"
+        android:textColor="@color/black"
+        android:theme="@style/texto_pequeño"
+        app:layout_constraintBottom_toBottomOf="@+id/btnIMC"
+        app:layout_constraintEnd_toEndOf="@+id/view4"
+        app:layout_constraintStart_toEndOf="@+id/btnIMC"
+        app:layout_constraintTop_toTopOf="@+id/btnIMC" />
+
+    <Button
+        android:id="@+id/btnTestFantastico"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="@color/float_transparent"
+        android:drawableTop="@drawable/ic_test_2"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:text="@string/test_fant"
+        android:textColor="@color/black"
+        android:theme="@style/texto_pequeño"
+        app:layout_constraintEnd_toEndOf="@+id/btnIMC"
+        app:layout_constraintStart_toStartOf="@+id/btnIMC"
+        app:layout_constraintTop_toBottomOf="@+id/btnIMC" />
+</androidx.constraintlayout.widget.ConstraintLayout>

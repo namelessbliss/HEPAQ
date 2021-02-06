@@ -1,6 +1,5 @@
 package com.example.prototipo.ui.atenciones;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
@@ -12,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.prototipo.R;
 import com.example.prototipo.retrofit.response.atenciones.ResponseAtenciones;
@@ -45,7 +43,7 @@ public class MyAtencionRecyclerViewAdapter extends RecyclerView.Adapter<MyAtenci
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.fragment_atenciones, parent, false);
+                .inflate(R.layout.fragment_atenciones_item, parent, false);
         return new ViewHolder(view);
     }
 
@@ -59,7 +57,10 @@ public class MyAtencionRecyclerViewAdapter extends RecyclerView.Adapter<MyAtenci
             //holder.tvNumeroAtencion.setText(position + 1);
             String nombreCompleto = holder.mItem.getPersonalObj().getNombre() + " " + holder.mItem.getPersonalObj().getApellido();
             holder.tvMedico.setText(nombreCompleto);
-            holder.tvFecha.setText(holder.mItem.getFechaAtencion());
+
+            String[] fecha = utils.getDayOfWeek(holder.mItem.getFechaAtencion());
+            holder.tvFecha.setText(fecha[0]);
+            holder.tvDiaSemana.setText(fecha[1]);
 
             holder.btnPdf.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -86,7 +87,7 @@ public class MyAtencionRecyclerViewAdapter extends RecyclerView.Adapter<MyAtenci
                                     token.continuePermissionRequest();
                                 }
                             }).check();
-                    File file = utils.createPdf();
+                    File file = utils.createPDFAtencion();
                     Intent intent = new Intent(ctx, PdfViewerActivity.class);
                     intent.putExtra("pdf", file.getAbsolutePath());
                     ctx.startActivity(intent);
@@ -107,6 +108,7 @@ public class MyAtencionRecyclerViewAdapter extends RecyclerView.Adapter<MyAtenci
         public final TextView tvNumeroAtencion;
         public final TextView tvMedico;
         public final TextView tvFecha;
+        public final TextView tvDiaSemana;
         public final Button btnPdf;
         public ResponseAtenciones mItem;
 
@@ -116,6 +118,7 @@ public class MyAtencionRecyclerViewAdapter extends RecyclerView.Adapter<MyAtenci
             tvNumeroAtencion = (TextView) view.findViewById(R.id.tvNumeroAtencion);
             tvMedico = (TextView) view.findViewById(R.id.tvMedico);
             tvFecha = (TextView) view.findViewById(R.id.tvFechaAtencion);
+            tvDiaSemana = (TextView) view.findViewById(R.id.tvDiaSemana);
             btnPdf = (Button) view.findViewById(R.id.btnPdf);
         }
 

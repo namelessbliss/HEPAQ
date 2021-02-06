@@ -5,7 +5,6 @@ import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -24,13 +23,10 @@ import com.karumi.dexter.Dexter;
 import com.karumi.dexter.listener.single.CompositePermissionListener;
 import com.karumi.dexter.listener.single.DialogOnDeniedPermissionListener;
 import com.karumi.dexter.listener.single.PermissionListener;
-import com.thecode.aestheticdialogs.AestheticDialog;
-import com.thecode.aestheticdialogs.DialogStyle;
-import com.thecode.aestheticdialogs.DialogType;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -113,14 +109,14 @@ public class AtencionFragment extends Fragment {
             @Override
             public void onFailure(Call<List<ResponseAtenciones>> call, Throwable t) {
                 if (t.getMessage().equals(Constants.NET_ERROR)) {
-                    new AestheticDialog.Builder(getActivity(), DialogStyle.EMOTION, DialogType.ERROR)
-                            .setTitle("ERROR DE CONEXION")
-                            .setMessage("Revise su conexion a internet")
+                    new SweetAlertDialog(getActivity(), SweetAlertDialog.ERROR_TYPE)
+                            .setTitleText("ERROR DE CONEXION")
+                            .setContentText("Revise su conexion a internet")
                             .show();
                 } else {
-                    new AestheticDialog.Builder(getActivity(), DialogStyle.EMOTION, DialogType.ERROR)
-                            .setTitle("ERROR")
-                            .setMessage("Ocurrio un error")
+                    new SweetAlertDialog(getActivity(), SweetAlertDialog.ERROR_TYPE)
+                            .setTitleText("ERROR")
+                            .setContentText("Ocurrio un error")
                             .show();
                 }
             }
@@ -134,7 +130,7 @@ public class AtencionFragment extends Fragment {
                 .withTitle("Permiso Rechazado")
                 .withMessage("El permiso es necesario para generar el PDF")
                 .withButtonText("Aceptar")
-                .withIcon(R.mipmap.ic_launcher)
+                .withIcon(R.mipmap.ic_launcher_app)
                 .build();
 
 

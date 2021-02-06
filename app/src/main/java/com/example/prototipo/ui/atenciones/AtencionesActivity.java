@@ -13,8 +13,11 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.View;
+import android.widget.TextView;
 
 import com.example.prototipo.R;
+import com.example.prototipo.common.Constants;
+import com.example.prototipo.common.SharedPreferencesManager;
 import com.example.prototipo.common.Utils;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.PermissionToken;

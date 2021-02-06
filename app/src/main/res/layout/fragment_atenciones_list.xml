@@ -6,6 +6,7 @@
     android:name="com.example.prototipo.ui.atenciones.AtencionFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:textAppearance="@style/TextAppearance.AppCompat.Caption"
     app:layoutManager="LinearLayoutManager"
     tools:context=".ui.atenciones.AtencionFragment"
-    tools:listitem="@layout/fragment_atenciones" />
+    tools:listitem="@layout/fragment_atenciones_item" />
