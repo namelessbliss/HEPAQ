@@ -22,7 +22,7 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         //Ocultar barra de toolbar
-        getSupportActionBar().hide();
+        //getSupportActionBar().hide();
 
         bindViews();
         getSharedPreferencesData();

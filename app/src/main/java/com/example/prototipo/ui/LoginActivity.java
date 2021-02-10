@@ -86,13 +86,13 @@ public class LoginActivity extends AppCompatActivity implements ProgressGenerato
                 String fecha = etfechaNacimiento.getText().toString();
 
                 if (dni.isEmpty()) {
-                    etDNI.setError("Complete el campo requerido");
+                    etDNI.setError("");
                     loginCorrecto = false;
                     etfechaNacimiento.setEnabled(true);
                     etDNI.setEnabled(true);
                     btnLogin.setEnabled(true);
                 } else if (fecha.isEmpty()) {
-                    etfechaNacimiento.setError("Complete el campo requerido");
+                    etfechaNacimiento.setError("");
                     loginCorrecto = false;
                     etfechaNacimiento.setEnabled(true);
                     etDNI.setEnabled(true);

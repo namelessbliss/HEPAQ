@@ -26,26 +26,44 @@
     <style name="titulo_gigante">
         <item name="android:textSize">@dimen/titulo_gigante</item>
         <item name="android:textColor">@color/black</item>
-        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:fontFamily">@font/lato_bold</item>
+        <item name="android:lineSpacingMultiplier">1.29</item>
+    </style>
+    <style name="titulo_gigante_inverse">
+        <item name="android:textSize">@dimen/titulo_gigante</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/lato_bold</item>
         <item name="android:lineSpacingMultiplier">1.29</item>
     </style>
 
     <style name="titulo">
         <item name="android:textSize">@dimen/titulo</item>
         <item name="android:textColor">@color/black</item>
-        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:lineSpacingMultiplier">1.29</item>
+    </style>
+    <style name="titulo_inverse">
+        <item name="android:textSize">@dimen/titulo</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/roboto</item>
         <item name="android:lineSpacingMultiplier">1.29</item>
     </style>
 
     <style name="subtitulo">
-        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:fontFamily">@font/roboto</item>
         <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/subtitulo</item>
+        <item name="android:lineSpacingMultiplier">1.29</item>
+    </style>
+    <style name="subtitulo_inverse">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textColor">@color/white</item>
         <item name="android:textSize">@dimen/subtitulo</item>
         <item name="android:lineSpacingMultiplier">1.29</item>
     </style>
 
     <style name="subtitulo_pequeño">
-        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:fontFamily">@font/roboto</item>
         <item name="android:textColor">@color/black</item>
         <item name="android:textSize">@dimen/subtitulo_pequeño</item>
         <item name="android:lineSpacingMultiplier">1.29</item>
@@ -54,21 +72,21 @@
     <style name="texto">
         <item name="android:textSize">@dimen/texto</item>
         <item name="android:textColor">@color/black</item>
-        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:fontFamily">@font/roboto</item>
         <item name="android:lineSpacingMultiplier">1.29</item>
     </style>
 
     <style name="texto_inverse">
         <item name="android:textSize">@dimen/texto</item>
         <item name="android:textColor">@color/white</item>
-        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:fontFamily">@font/roboto</item>
         <item name="android:lineSpacingMultiplier">1.29</item>
     </style>
 
     <style name="texto_pequeño">
         <item name="android:textSize">@dimen/texto_pequeño</item>
         <item name="android:textColor">@color/black</item>
-        <item name="android:fontFamily">sans-serif</item>
+        <item name="android:fontFamily">@font/roboto</item>
         <item name="android:lineSpacingMultiplier">1.29</item>
     </style>
 
@@ -76,7 +94,14 @@
         <item name="android:textColor">@color/black</item>
         <item name="android:padding">10dp</item>
         <item name="android:typeface">monospace</item>
-        <item name="android:background">@android:drawable/editbox_background_normal</item>
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+    <style name="ETStyle_inverse" parent="android:Widget.EditText">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:typeface">monospace</item>
+        <item name="android:fontFamily">@font/roboto</item>
         <item name="android:textSize">20sp</item>
     </style>
 
@@ -107,6 +132,7 @@
     <style name="headerText" parent="parent">
         <item name="android:textSize">@dimen/headerTextSize</item>
         <item name="android:textColor">@color/blackTextColor</item>
+        <item name="android:fontFamily">@font/roboto</item>
         <item name="android:textStyle">bold</item>
     </style>
 
@@ -168,5 +194,13 @@
         <item name="android:layout_centerHorizontal">true</item>
         <item name="android:layout_alignParentTop">true</item>
         <item name="android:minWidth">250dp</item>
+    </style>
+
+    <style name="TextAppearance.Design.CollapsingToolbar.Expanded.Shadow">
+        <item name="android:shadowDy">2</item>
+        <item name="android:shadowDx">2</item>
+        <item name="android:shadowRadius">6</item>
+        <item name="android:shadowColor">@android:color/black</item>
+
     </style>
 </resources>

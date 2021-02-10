@@ -33,4 +33,6 @@
     <string name="string_kilogramos">Kilogramos</string>
     <string name="string_centimetros">Centimetros</string>
     <string name="pdf">PDF</string>
+    <string name="string_talla">Talla</string>
+    <string name="string_peso">Peso</string>
 </resources>
