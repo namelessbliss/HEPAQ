@@ -6,6 +6,8 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
+import android.provider.Settings;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +17,7 @@ import android.widget.TextView;
 import com.example.prototipo.R;
 import com.example.prototipo.retrofit.response.atenciones.ResponseAtenciones;
 import com.example.prototipo.common.Utils;
+import com.example.prototipo.ui.LoginActivity;
 import com.example.prototipo.ui.PdfViewerActivity;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.PermissionToken;
@@ -25,6 +28,10 @@ import com.karumi.dexter.listener.single.PermissionListener;
 
 import java.io.File;
 import java.util.List;
+
+import cn.pedant.SweetAlert.SweetAlertDialog;
+
+import static androidx.core.app.ActivityCompat.startActivityForResult;
 
 
 public class MyAtencionRecyclerViewAdapter extends RecyclerView.Adapter<MyAtencionRecyclerViewAdapter.ViewHolder> {
@@ -67,18 +74,34 @@ public class MyAtencionRecyclerViewAdapter extends RecyclerView.Adapter<MyAtenci
                 public void onClick(View v) {
 
                     Dexter.withActivity((Activity) ctx)
-                            .withPermission(Manifest.permission.CAMERA)
+                            .withPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
                             .withListener(new PermissionListener() {
                                 @Override
                                 public void onPermissionGranted(PermissionGrantedResponse response) {
-                                    utils.createPdf();
+                                    File file = utils.createPDFAtencion(mValues.get(position));
+                                    Intent intent = new Intent(ctx, PdfViewerActivity.class);
+                                    intent.putExtra("pdf", file.getAbsolutePath());
+                                    ctx.startActivity(intent);
                                 }
 
                                 @Override
                                 public void onPermissionDenied(PermissionDeniedResponse response) {
                                     // check for permanent denial of permission
                                     if (response.isPermanentlyDenied()) {
-                                        //TODO
+                                        new SweetAlertDialog(ctx, SweetAlertDialog.WARNING_TYPE)
+                                                .setTitleText("Se Requiere Permiso")
+                                                .setContentText("Esta aplicacion requiere el permiso para acceder a los archivos locales ")
+                                                .setConfirmText("Aceptar")
+                                                .showCancelButton(true)
+                                                .setCancelText("Cancelar")
+                                                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                                                    @Override
+                                                    public void onClick(SweetAlertDialog sDialog) {
+                                                        sDialog.dismiss();
+                                                        openSettings();
+                                                    }
+                                                })
+                                                .show();
                                     }
                                 }
 
@@ -87,11 +110,6 @@ public class MyAtencionRecyclerViewAdapter extends RecyclerView.Adapter<MyAtenci
                                     token.continuePermissionRequest();
                                 }
                             }).check();
-                    File file = utils.createPDFAtencion();
-                    Intent intent = new Intent(ctx, PdfViewerActivity.class);
-                    intent.putExtra("pdf", file.getAbsolutePath());
-                    ctx.startActivity(intent);
-
                 }
             });
 
@@ -122,5 +140,12 @@ public class MyAtencionRecyclerViewAdapter extends RecyclerView.Adapter<MyAtenci
             btnPdf = (Button) view.findViewById(R.id.btnPdf);
         }
 
+    }
+
+    private void openSettings() {
+        Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
+        Uri uri = Uri.fromParts("package", ctx.getPackageName(), null);
+        intent.setData(uri);
+        startActivityForResult((Activity) ctx, intent, 101, null);
     }
 }

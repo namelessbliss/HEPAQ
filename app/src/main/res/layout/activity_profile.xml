@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/app_bar_height"
         android:fitsSystemWindows="true"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:elevation="4dp">
 
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/toolbar_layout"
@@ -91,7 +91,7 @@
                         android:layout_marginTop="8dp"
                         android:layout_marginEnd="64dp"
                         android:layout_marginBottom="8dp"
-                        android:drawableStart="@drawable/ic_corazon_24"
+                        android:drawableStart="@drawable/ic_corazon"
                         android:text="@string/string_perfil"
                         android:textColor="@android:color/background_dark"
                         android:theme="@style/subtitulo"

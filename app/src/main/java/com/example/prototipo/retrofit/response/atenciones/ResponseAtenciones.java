@@ -1,8 +1,7 @@
 
 package com.example.prototipo.retrofit.response.atenciones;
 
-import com.example.prototipo.retrofit.response.atenciones.PacienteObj;
-import com.example.prototipo.retrofit.response.atenciones.PersonalObj;
+import java.util.List;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -10,58 +9,70 @@ public class ResponseAtenciones {
 
     @SerializedName("Numero_ActoMed")
     @Expose
-    private Integer numeroActoMed;
+    public Integer numeroActoMed;
     @SerializedName("Areas_Hosp")
     @Expose
-    private String areasHosp;
+    public String areasHosp;
     @SerializedName("Profesional")
     @Expose
-    private String profesional;
+    public String profesional;
     @SerializedName("Turno")
     @Expose
-    private String turno;
+    public String turno;
     @SerializedName("Especialidad")
     @Expose
-    private String especialidad;
+    public String especialidad;
     @SerializedName("Act_Hospit")
     @Expose
-    private String actHospit;
+    public String actHospit;
     @SerializedName("Act_Especifica")
     @Expose
-    private String actEspecifica;
+    public String actEspecifica;
     @SerializedName("Fecha_Atencion")
     @Expose
-    private String fechaAtencion;
+    public String fechaAtencion;
     @SerializedName("Estado")
     @Expose
-    private String estado;
+    public String estado;
     @SerializedName("Situacion")
     @Expose
-    private String situacion;
+    public String situacion;
     @SerializedName("Fecha_Registro")
     @Expose
-    private String fechaRegistro;
+    public String fechaRegistro;
     @SerializedName("Fecha_Modificacion")
     @Expose
-    private String fechaModificacion;
+    public String fechaModificacion;
     @SerializedName("Empleado_registro")
     @Expose
-    private String empleadoRegistro;
+    public String empleadoRegistro;
     @SerializedName("Empleado_modificacion")
     @Expose
-    private String empleadoModificacion;
+    public String empleadoModificacion;
     @SerializedName("Documento")
     @Expose
-    private String documento;
+    public String documento;
     @SerializedName("pacienteObj")
     @Expose
-    private PacienteObj pacienteObj;
+    public PacienteObj pacienteObj;
     @SerializedName("id_Personal")
     @Expose
-    private Integer idPersonal;
+    public Integer idPersonal;
     @SerializedName("personalObj")
     @Expose
-    private PersonalObj personalObj;
+    public PersonalObj personalObj;
+    @SerializedName("atencionMedicoObj")
+    @Expose
+    public AtencionMedicoObj atencionMedicoObj;
+    @SerializedName("diagnosticoObj")
+    @Expose
+    public List<DiagnosticoObj> diagnosticoObj = null;
+    @SerializedName("laboratorioObj")
+    @Expose
+    public LaboratorioObj laboratorioObj;
+
+    public ResponseAtenciones() {
+    }
 
     public Integer getNumeroActoMed() {
         return numeroActoMed;
@@ -79,7 +90,7 @@ public class ResponseAtenciones {
         this.areasHosp = areasHosp;
     }
 
-    public Object getProfesional() {
+    public String getProfesional() {
         return profesional;
     }
 
@@ -87,7 +98,7 @@ public class ResponseAtenciones {
         this.profesional = profesional;
     }
 
-    public Object getTurno() {
+    public String getTurno() {
         return turno;
     }
 
@@ -127,7 +138,7 @@ public class ResponseAtenciones {
         this.fechaAtencion = fechaAtencion;
     }
 
-    public Object getEstado() {
+    public String getEstado() {
         return estado;
     }
 
@@ -135,7 +146,7 @@ public class ResponseAtenciones {
         this.estado = estado;
     }
 
-    public Object getSituacion() {
+    public String getSituacion() {
         return situacion;
     }
 
@@ -143,7 +154,7 @@ public class ResponseAtenciones {
         this.situacion = situacion;
     }
 
-    public Object getFechaRegistro() {
+    public String getFechaRegistro() {
         return fechaRegistro;
     }
 
@@ -151,7 +162,7 @@ public class ResponseAtenciones {
         this.fechaRegistro = fechaRegistro;
     }
 
-    public Object getFechaModificacion() {
+    public String getFechaModificacion() {
         return fechaModificacion;
     }
 
@@ -159,7 +170,7 @@ public class ResponseAtenciones {
         this.fechaModificacion = fechaModificacion;
     }
 
-    public Object getEmpleadoRegistro() {
+    public String getEmpleadoRegistro() {
         return empleadoRegistro;
     }
 
@@ -167,7 +178,7 @@ public class ResponseAtenciones {
         this.empleadoRegistro = empleadoRegistro;
     }
 
-    public Object getEmpleadoModificacion() {
+    public String getEmpleadoModificacion() {
         return empleadoModificacion;
     }
 
@@ -191,7 +202,7 @@ public class ResponseAtenciones {
         this.pacienteObj = pacienteObj;
     }
 
-    public Object getIdPersonal() {
+    public Integer getIdPersonal() {
         return idPersonal;
     }
 
@@ -207,4 +218,27 @@ public class ResponseAtenciones {
         this.personalObj = personalObj;
     }
 
+    public AtencionMedicoObj getAtencionMedicoObj() {
+        return atencionMedicoObj;
+    }
+
+    public void setAtencionMedicoObj(AtencionMedicoObj atencionMedicoObj) {
+        this.atencionMedicoObj = atencionMedicoObj;
+    }
+
+    public List<DiagnosticoObj> getDiagnosticoObj() {
+        return diagnosticoObj;
+    }
+
+    public void setDiagnosticoObj(List<DiagnosticoObj> diagnosticoObj) {
+        this.diagnosticoObj = diagnosticoObj;
+    }
+
+    public LaboratorioObj getLaboratorioObj() {
+        return laboratorioObj;
+    }
+
+    public void setLaboratorioObj(LaboratorioObj laboratorioObj) {
+        this.laboratorioObj = laboratorioObj;
+    }
 }

@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:orientation="vertical"
+    tools:context=".ui.dashboard.VitalesFragment">
+
+    <!--    <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">-->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/frameCarga"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+
+                <ProgressBar
+                    android:id="@+id/progress"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_alignStart="@+id/tvCargando"
+                    android:layout_alignEnd="@+id/tvCargando"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginEnd="0dp" />
+
+                <TextView
+                    android:id="@+id/tvCargando"
+                    style="@style/texto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/progress"
+                    android:fontFamily="@font/lato_italic"
+                    android:text="Cargando datos..."
+                    android:textColor="@color/profileEditTextColor" />
+
+
+            </RelativeLayout>
+
+        </FrameLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/graficos"
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.github.anastr.speedviewlib.SpeedView
+                android:id="@+id/presSanguineaSys"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_marginStart="8dp"
+                android:padding="10dp"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView29"
+                app:sv_centerCircleColor="@android:color/transparent"
+                app:sv_endDegree="360"
+                app:sv_indicator="HalfLineIndicator"
+                app:sv_speedTextPosition="CENTER"
+                app:sv_startDegree="180"
+                app:sv_textSize="16sp"
+                app:sv_tickNumber="8"
+                app:sv_withIndicatorLight="true"
+                app:sv_withTremble="false" />
+
+            <com.github.anastr.speedviewlib.SpeedView
+                android:id="@+id/presSanguineaDia"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_marginEnd="8dp"
+                android:padding="10dp"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView29"
+                app:sv_centerCircleColor="@android:color/transparent"
+                app:sv_endDegree="360"
+                app:sv_indicator="HalfLineIndicator"
+                app:sv_speedTextPosition="CENTER"
+                app:sv_startDegree="180"
+                app:sv_textSize="16sp"
+                app:sv_tickNumber="8"
+                app:sv_withIndicatorLight="true"
+                app:sv_withTremble="false" />
+
+            <TextView
+                android:id="@+id/textView29"
+                style="@style/texto_pequeño"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato_bold"
+                android:text="Presion Sanguinea"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/text_gray"
+                app:layout_constraintEnd_toEndOf="@+id/frecResp"
+                app:layout_constraintStart_toStartOf="@+id/frecCardiaca"
+                app:layout_constraintTop_toBottomOf="@+id/imageView10" />
+
+            <TextView
+                android:id="@+id/textView30"
+                style="@style/texto_pequeño"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="64dp"
+                android:fontFamily="@font/lato_bold"
+                android:text="SYSTOLIC"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/text_gray"
+                app:layout_constraintBottom_toBottomOf="@+id/presSanguineaSys"
+                app:layout_constraintEnd_toEndOf="@+id/presSanguineaSys"
+                app:layout_constraintStart_toStartOf="@+id/presSanguineaSys" />
+
+            <TextView
+                android:id="@+id/textView31"
+                style="@style/texto_pequeño"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="64dp"
+                android:fontFamily="@font/lato_bold"
+                android:text="DIASTOLIC"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/text_gray"
+                app:layout_constraintBottom_toBottomOf="@+id/presSanguineaDia"
+                app:layout_constraintEnd_toEndOf="@+id/presSanguineaDia"
+                app:layout_constraintStart_toStartOf="@+id/presSanguineaDia" />
+
+            <ImageView
+                android:id="@+id/imageView10"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="32dp"
+                android:src="@drawable/ic_estetoscopio"
+                app:layout_constraintEnd_toEndOf="@+id/frecResp"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="@+id/frecCardiaca"
+                app:layout_constraintTop_toBottomOf="@+id/frecCardiaca" />
+
+            <ImageView
+                android:id="@+id/imageView9"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="32dp"
+                android:src="@drawable/ic_pulmon"
+                app:layout_constraintEnd_toEndOf="@+id/frecResp"
+                app:layout_constraintStart_toStartOf="@+id/frecResp"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView28"
+                style="@style/texto_pequeño"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato_bold"
+                android:text="Frecuencia Respiratoria"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/text_gray"
+                app:layout_constraintEnd_toEndOf="@+id/frecResp"
+                app:layout_constraintStart_toStartOf="@+id/frecResp"
+                app:layout_constraintTop_toBottomOf="@+id/imageView9" />
+
+            <com.github.anastr.speedviewlib.SpeedView
+                android:id="@+id/frecResp"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_marginEnd="8dp"
+                android:padding="10dp"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView28"
+                app:sv_centerCircleColor="@android:color/transparent"
+                app:sv_endDegree="360"
+                app:sv_indicator="HalfLineIndicator"
+                app:sv_speedTextPosition="CENTER"
+                app:sv_startDegree="180"
+                app:sv_textSize="16sp"
+                app:sv_tickNumber="8"
+                app:sv_withIndicatorLight="true"
+                app:sv_withTremble="false" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="32dp"
+                android:src="@drawable/ic_corazon_2"
+                app:layout_constraintEnd_toEndOf="@+id/frecCardiaca"
+                app:layout_constraintStart_toStartOf="@+id/frecCardiaca"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView24"
+                style="@style/texto_pequeño"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/lato_bold"
+                android:text="Frecuencia Cardiaca"
+                android:textAlignment="center"
+                android:textAllCaps="true"
+                android:textColor="@color/text_gray"
+                app:layout_constraintEnd_toEndOf="@+id/frecCardiaca"
+                app:layout_constraintStart_toStartOf="@+id/frecCardiaca"
+                app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+            <com.github.anastr.speedviewlib.SpeedView
+                android:id="@+id/frecCardiaca"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_marginStart="8dp"
+                android:padding="10dp"
+                android:visibility="visible"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView24"
+                app:sv_centerCircleColor="@android:color/transparent"
+                app:sv_endDegree="360"
+                app:sv_indicator="HalfLineIndicator"
+                app:sv_speedTextPosition="CENTER"
+                app:sv_startDegree="180"
+                app:sv_textSize="14sp"
+                app:sv_tickNumber="4"
+                app:sv_withIndicatorLight="true"
+                app:sv_withTremble="false" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+    <!--</androidx.core.widget.NestedScrollView>-->
+</androidx.core.widget.NestedScrollView>

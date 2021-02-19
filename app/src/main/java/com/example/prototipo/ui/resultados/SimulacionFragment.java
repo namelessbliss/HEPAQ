@@ -12,7 +12,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.prototipo.R;
-import com.example.prototipo.ui.DashboardActivity;
+import com.example.prototipo.ui.resultados.tests.TestEstresActivity;
+import com.example.prototipo.ui.resultados.tests.TestFantasticoActivity;
 
 public class SimulacionFragment extends Fragment implements View.OnClickListener {
 
@@ -64,8 +65,10 @@ public class SimulacionFragment extends Fragment implements View.OnClickListener
                 goToActivity(new ImcActivity());
                 break;
             case R.id.btnTestEstres:
+                goToActivity(new TestEstresActivity());
                 break;
             case R.id.btnTestFantastico:
+                goToActivity(new TestFantasticoActivity());
                 break;
             default:
                 break;

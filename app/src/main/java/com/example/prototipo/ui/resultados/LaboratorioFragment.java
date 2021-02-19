@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.example.prototipo.R;
 import com.example.prototipo.common.Ecografia;
@@ -20,6 +21,7 @@ import java.util.List;
 
 public class LaboratorioFragment extends Fragment {
 
+    private ProgressBar progressBar;
     private RecyclerView recyclerView;
     private MyLaboratorioRecyclerViewAdapter adapter;
     private List<Laboratorio> lista;
@@ -49,16 +51,11 @@ public class LaboratorioFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_laboratorio, container, false);
 
+        progressBar = view.findViewById(R.id.progressBar);
         // Set the adapter
-        if (view instanceof RecyclerView) {
-            Context context = view.getContext();
-            recyclerView = (RecyclerView) view;
-            recyclerView.setLayoutManager(new LinearLayoutManager(context));
-
-
-            retrofitInit();
-            loadAtencionesData();
-        }
+        Context context = view.getContext();
+        recyclerView = (RecyclerView) view.findViewById(R.id.list);
+        recyclerView.setLayoutManager(new LinearLayoutManager(context));
 
         return view;
     }
@@ -79,5 +76,23 @@ public class LaboratorioFragment extends Fragment {
 
         adapter = new MyLaboratorioRecyclerViewAdapter(getActivity(), lista);
         recyclerView.setAdapter(adapter);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        retrofitInit();
+        loadAtencionesData();
+        recyclerView.setVisibility(View.VISIBLE);
+        progressBar.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        lista = null;
+        adapter = null;
+        recyclerView.setVisibility(View.GONE);
+        progressBar.setVisibility(View.VISIBLE);
     }
 }

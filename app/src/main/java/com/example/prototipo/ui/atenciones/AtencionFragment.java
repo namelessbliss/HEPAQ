@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.example.prototipo.R;
 import com.example.prototipo.common.Constants;
@@ -35,6 +36,8 @@ public class AtencionFragment extends Fragment {
 
     private static final String ARG_COLUMN_COUNT = "column-count";
     private int mColumnCount = 1;
+
+    private ProgressBar progressBar;
     private RecyclerView recyclerView;
     private MyAtencionRecyclerViewAdapter adapter;
     private List<ResponseAtenciones> atencionesList;
@@ -69,17 +72,15 @@ public class AtencionFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_atenciones_list, container, false);
 
+        progressBar = view.findViewById(R.id.progressBar);
         // Set the adapter
-        if (view instanceof RecyclerView) {
-            Context context = view.getContext();
-            recyclerView = (RecyclerView) view;
-            recyclerView.setLayoutManager(new LinearLayoutManager(context));
+        Context context = view.getContext();
+        recyclerView = (RecyclerView) view.findViewById(R.id.list);
+        recyclerView.setLayoutManager(new LinearLayoutManager(context));
 
 
-            retrofitInit();
-            loadAtencionesData();
-
-        }
+        retrofitInit();
+        loadAtencionesData();
         return view;
     }
 
@@ -100,6 +101,8 @@ public class AtencionFragment extends Fragment {
                     atencionesList = response.body();
                     adapter = new MyAtencionRecyclerViewAdapter(getActivity(), atencionesList);
                     recyclerView.setAdapter(adapter);
+                    recyclerView.setVisibility(View.VISIBLE);
+                    progressBar.setVisibility(View.GONE);
                 }
 
             }
@@ -121,21 +124,5 @@ public class AtencionFragment extends Fragment {
         });
 
 
-    }
-
-    private void checkPermissions() {
-        PermissionListener dialogOnDeniedPermissionListener = DialogOnDeniedPermissionListener.Builder.withContext(getActivity())
-                .withTitle("Permiso Rechazado")
-                .withMessage("El permiso es necesario para generar el PDF")
-                .withButtonText("Aceptar")
-                .withIcon(R.mipmap.ic_launcher_app)
-                .build();
-
-
-        permissionListener = new CompositePermissionListener((PermissionListener) ((Context) getActivity()), dialogOnDeniedPermissionListener);
-
-        Dexter.withActivity(getActivity()).withPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                .withListener(permissionListener)
-                .check();
     }
 }

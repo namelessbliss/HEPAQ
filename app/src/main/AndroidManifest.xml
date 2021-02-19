@@ -18,7 +18,10 @@
         android:theme="@style/Theme.Prototipo"
         android:usesCleartextTraffic="true"
         tools:replace="android:icon">
-        <activity android:name=".ui.resultados.ImcActivity"></activity>
+        <activity android:name=".ui.resultados.tests.TestEstresActivity"></activity>
+        <activity android:name=".ui.resultados.tests.TestFantasticoActivity" />
+        <activity android:name=".ui.resultados.tests.TestFantastico" />
+        <activity android:name=".ui.resultados.ImcActivity" />
         <activity android:name=".ui.resultados.ResultadosActivity" />
         <activity android:name=".ui.vacuna.VacunaActivity" />
         <activity android:name=".ui.SplashScreen">
@@ -33,7 +36,7 @@
         <activity
             android:name=".ui.ProfileActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
-        <activity android:name=".ui.DashboardActivity" />
+        <activity android:name=".ui.dashboard.DashboardActivity" />
         <activity android:name=".ui.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

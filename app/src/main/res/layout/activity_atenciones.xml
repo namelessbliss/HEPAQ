@@ -37,7 +37,7 @@
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="64dp"
                     android:layout_marginBottom="8dp"
-                    android:drawableStart="@drawable/ic_corazon_24"
+                    android:drawableStart="@drawable/ic_corazon"
                     android:text="@string/string_atencion"
                     android:textColor="@android:color/background_dark"
                     android:theme="@style/subtitulo"

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.DashboardActivity">
+    tools:context=".ui.dashboard.DashboardActivity">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,7 +16,7 @@
             android:id="@+id/appBarLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:elevation="0dp"
+            app:elevation="0dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -26,27 +26,23 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="@android:color/white"
-                android:elevation="0dp"
-                app:navigationIcon="?attr/homeAsUpIndicator"
                 app:popupTheme="@style/AppTheme.PopupOverlay">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:paddingTop="8dp"
-                    android:paddingBottom="8dp">
+                    android:layout_height="wrap_content">
 
                     <TextView
                         android:id="@+id/textViewToolbar"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="16dp"
-                        android:drawableStart="@drawable/ic_corazon_24"
+                        android:layout_marginEnd="16dp"
+                        android:drawableStart="@drawable/ic_corazon"
                         android:text="@string/app_name"
                         android:textColor="@android:color/background_dark"
                         android:theme="@style/subtitulo"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/imageViewUser"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -74,6 +70,7 @@
                         android:layout_height="39dp"
                         android:layout_marginEnd="48dp"
                         android:layout_marginRight="48dp"
+                        android:foreground="?android:attr/selectableItemBackground"
                         android:src="@drawable/ic_account_circle_black_24dp"
                         app:layout_constraintBottom_toBottomOf="@+id/textViewToolbar"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -84,9 +81,32 @@
 
         </com.google.android.material.appbar.AppBarLayout>
 
-        <fragment
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
+            app:tabGravity="fill"
+            app:tabMode="auto"
+            app:tabSelectedTextColor="#000"
+            app:tabTextColor="@color/colorVariant" />
+
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:layout_constraintBottom_toTopOf="@+id/nav_view"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tabs" />
+
+        <!--<fragment
             android:id="@+id/fragmentData"
-            android:name="com.example.prototipo.ui.DashboardFragment"
+            android:name="com.example.prototipo.ui.dashboard.DashboardFragment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
@@ -94,7 +114,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
-            tools:layout="@layout/fragment_dashboard" />
+            tools:layout="@layout/fragment_dashboard" />-->
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/nav_view"

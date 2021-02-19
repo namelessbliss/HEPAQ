@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.widget.ProgressBar;
 
 import com.example.prototipo.R;
 import com.example.prototipo.common.Vacuna;
@@ -18,25 +18,19 @@ import com.example.prototipo.common.Vacuna;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link VacunaFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class VacunaFragment extends Fragment {
-
+public class HistorialVacunaFragment extends Fragment {
 
     private RecyclerView recyclerView;
+    private ProgressBar progressBar;
     private MyVacunaRecyclerViewAdapter adapter;
     private List<Vacuna> lista;
 
-    public VacunaFragment() {
+    public HistorialVacunaFragment() {
         // Required empty public constructor
     }
 
-
-    public static VacunaFragment newInstance(String param1, String param2) {
-        VacunaFragment fragment = new VacunaFragment();
+    public static HistorialVacunaFragment newInstance(String param1, String param2) {
+        HistorialVacunaFragment fragment = new HistorialVacunaFragment();
         Bundle args = new Bundle();
         fragment.setArguments(args);
         return fragment;
@@ -53,21 +47,15 @@ public class VacunaFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_vacuna_list, container, false);
-
+        View view = inflater.inflate(R.layout.fragment_historial_vacuna, container, false);
+        progressBar = view.findViewById(R.id.progressBar);
         // Set the adapter
-        if (view instanceof RecyclerView) {
-            Context context = view.getContext();
-            recyclerView = (RecyclerView) view;
-            recyclerView.setLayoutManager(new LinearLayoutManager(context));
+        Context context = view.getContext();
+        recyclerView = (RecyclerView) view.findViewById(R.id.list);
+        recyclerView.setLayoutManager(new LinearLayoutManager(context));
 
-
-            retrofitInit();
-            loadAtencionesData();
-        }
 
         return view;
-
     }
 
     private void retrofitInit() {
@@ -86,5 +74,25 @@ public class VacunaFragment extends Fragment {
 
         adapter = new MyVacunaRecyclerViewAdapter(getActivity(), lista);
         recyclerView.setAdapter(adapter);
+        recyclerView.setVisibility(View.VISIBLE);
+        progressBar.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        retrofitInit();
+        loadAtencionesData();
+        recyclerView.setVisibility(View.VISIBLE);
+        progressBar.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        lista = null;
+        adapter = null;
+        recyclerView.setVisibility(View.GONE);
+        progressBar.setVisibility(View.VISIBLE);
     }
 }

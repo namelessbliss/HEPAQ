@@ -28,6 +28,8 @@ import com.karumi.dexter.listener.single.CompositePermissionListener;
 import com.karumi.dexter.listener.single.DialogOnDeniedPermissionListener;
 import com.karumi.dexter.listener.single.PermissionListener;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
+
 public class AtencionesActivity extends AppCompatActivity {
 
     Toolbar toolbar;
@@ -76,23 +78,20 @@ public class AtencionesActivity extends AppCompatActivity {
 
 
     private void showSettingsDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(AtencionesActivity.this);
-        builder.setTitle("Se Requiere Permiso");
-        builder.setMessage("Esta aplicacion requiere el permiso para acceder a los archivos locales");
-        builder.setPositiveButton("IR A CONFIGURACION", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-                openSettings();
-            }
-        });
-        builder.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-            }
-        });
-        builder.show();
+        new SweetAlertDialog(AtencionesActivity.this, SweetAlertDialog.WARNING_TYPE)
+                .setTitleText("Se Requiere Permiso")
+                .setContentText("Esta aplicacion requiere el permiso para acceder a los archivos locales ")
+                .setConfirmText("Aceptar")
+                .showCancelButton(true)
+                .setCancelText("Cancelar")
+                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                    @Override
+                    public void onClick(SweetAlertDialog sDialog) {
+                        sDialog.dismiss();
+                        openSettings();
+                    }
+                })
+                .show();
 
     }
 

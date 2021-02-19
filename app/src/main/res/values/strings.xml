@@ -35,4 +35,222 @@
     <string name="pdf">PDF</string>
     <string name="string_talla">Talla</string>
     <string name="string_peso">Peso</string>
+
+
+    <!-- TEST FANTASTICO -->
+
+    <string name="message">¿Estás seguro que quieres abandonar la prueba?</string>
+    <string name="title">HEPAQ</string>
+
+    <string name="intro_title">Bienvenido al Test Fantástico</string>
+    <string name="intro_text">Contesta este cuestionario, recordando cómo ha sido tu vida este último mes</string>
+    <string name="intro_start">¡Empecemos!</string>
+
+
+    <string name="finish_question_title">¡Hecho!</string>
+    <string name="finish_question_text">Gracias por realizar la prueba</string>
+    <string name="finish_question_submit">Finalizar</string>
+
+    <string name="familia_amigos_title">Familia, Amigos</string>
+    <string name="familia_amigos_preg_1">¿Tengo con quién hablar de las cosas que son importantes para mí?</string>
+    <string name="familia_amigos_preg_1_op0">Casi siempre</string>
+    <string name="familia_amigos_preg_1_op1">A veces</string>
+    <string name="familia_amigos_preg_1_op2">Casi nunca</string>
+
+    <string name="familia_amigos_preg_2">Yo doy y recibo cariño</string>
+    <string name="familia_amigos_preg_2_op2">Casi siempre</string>
+    <string name="familia_amigos_preg_2_op1">A veces</string>
+    <string name="familia_amigos_preg_2_op0">Casi nunca</string>
+
+    <string name="familia_amigos_preg_3">¿Me cuesta decir, buenos días, perdón, gracias, lo siento?</string>
+    <string name="familia_amigos_preg_3_op0">Casi siempre</string>
+    <string name="familia_amigos_preg_3_op1">A veces</string>
+    <string name="familia_amigos_preg_3_op2">Casi nunca</string>
+
+    <string name="actividad_fisica_asociativa">Actividad Física Asociatividad</string>
+    <string name="actividad_fisica_asociativa_preg_1">Soy integrante activo de grupos de apoyo a la salud o sociales. Yo participo:</string>
+    <string name="actividad_fisica_asociativa_preg_1_op2">Casi siempre</string>
+    <string name="actividad_fisica_asociativa_preg_1_op1">A veces</string>
+    <string name="actividad_fisica_asociativa_preg_1_op0">Casi nunca</string>
+
+    <string name="actividad_fisica_asociativa_preg_2">Yo realizo actividad física  por 30 minutos cada vez.</string>
+    <string name="actividad_fisica_asociativa_preg_2_op2">Tres o más veces por semana</string>
+    <string name="actividad_fisica_asociativa_preg_2_op1">A veces</string>
+    <string name="actividad_fisica_asociativa_preg_2_op0">Casi nunca</string>
+
+    <string name="actividad_fisica_asociativa_preg_3">Yo camino, al menos 30 minutos diariamente.</string>
+    <string name="actividad_fisica_asociativa_preg_3_op2">Casi siempre</string>
+    <string name="actividad_fisica_asociativa_preg_3_op1">A veces</string>
+    <string name="actividad_fisica_asociativa_preg_3_op0">Casi nunca</string>
+
+    <string name="nutricion_alimentacion">Nutrición y Alimentación </string>
+    <string name="nutricion_alimentacion_preg_1">Como 2 porciones de frutas y 3 de verduras:</string>
+    <string name="nutricion_alimentacion_preg_1_op2">Todos los días</string>
+    <string name="nutricion_alimentacion_preg_1_op1">A veces</string>
+    <string name="nutricion_alimentacion_preg_1_op0">Casi nunca</string>
+
+    <string name="nutricion_alimentacion_preg_2">A menudo consumo  mucha azúcar, sal , comida chatarra, o grasas</string>
+    <string name="nutricion_alimentacion_preg_2_op2">Ninguna de éstas consumo</string>
+    <string name="nutricion_alimentacion_preg_2_op1">Algunas de éstas</string>
+    <string name="nutricion_alimentacion_preg_2_op0">Todas estas</string>
+
+    <string name="nutricion_alimentacion_preg_3">Estoy pasado en mi peso ideal en:</string>
+    <string name="nutricion_alimentacion_preg_3_op2">De 0 a 4 k más</string>
+    <string name="nutricion_alimentacion_preg_3_op1">De 5 a 8 k más</string>
+    <string name="nutricion_alimentacion_preg_3_op0">Más de 8 k</string>
+
+    <string name="tabaco_dependencia">Tabaco, dependencia </string>
+    <string name="tabaco_dependencia_preg_1">Yo fumo cigarrillos: </string>
+    <string name="tabaco_dependencia_preg_1_op2">Ninguno los últimos 5 años</string>
+    <string name="tabaco_dependencia_preg_1_op1">No el último año</string>
+    <string name="tabaco_dependencia_preg_1_op0">Sí éste año</string>
+
+    <string name="tabaco_dependencia_preg_2">Generalmente fumo ----- cigarrillos por día </string>
+    <string name="tabaco_dependencia_preg_2_op2">Ninguno</string>
+    <string name="tabaco_dependencia_preg_2_op1">De 0 a 10</string>
+    <string name="tabaco_dependencia_preg_2_op0">Más de 10</string>
+
+    <string name="tabaco_dependencia_preg_3">Usa excesivamente medicamentos sin prescripción médica o me automedico:</string>
+    <string name="tabaco_dependencia_preg_3_op2">Nunca</string>
+    <string name="tabaco_dependencia_preg_3_op1">Ocasional</string>
+    <string name="tabaco_dependencia_preg_3_op0">A menudo</string>
+
+    <string name="alcohol">Alcohol</string>
+    <string name="alcohol_preg_1">Mi número promedio de tragos a la semana es: </string>
+    <string name="alcohol_preg_1_op2">De 0 a 7</string>
+    <string name="alcohol_preg_1_op1">De 8 a 12</string>
+    <string name="alcohol_preg_1_op0">Más de 12</string>
+
+    <string name="alcohol_preg_2">Bebo 8 vasos con agua cada día </string>
+    <string name="alcohol_preg_2_op2">Casi Nunca</string>
+    <string name="alcohol_preg_2_op1">A menudo</string>
+    <string name="alcohol_preg_2_op0">Ocasional</string>
+
+    <string name="alcohol_preg_3">Bebo té, café, cola, gaseosa </string>
+    <string name="alcohol_preg_3_op2">Menos de 3/ día</string>
+    <string name="alcohol_preg_3_op1">De 3 a 6/día</string>
+    <string name="alcohol_preg_3_op0">Más de 6/día</string>
+
+    <string name="sueno_estres">Sueño, Estrés</string>
+    <string name="sueno_estres_preg_1">Duermo bien y me siento descansado: </string>
+    <string name="sueno_estres_preg_1_op2">Casi siempre</string>
+    <string name="sueno_estres_preg_1_op1">A veces</string>
+    <string name="sueno_estres_preg_1_op0">Casi nunca</string>
+
+    <string name="sueno_estres_preg_2">Yo me siento capaz de manejar el estrés o la tensión de mi vida: </string>
+    <string name="sueno_estres_preg_2_op2">Casi siempre</string>
+    <string name="sueno_estres_preg_2_op1">A veces</string>
+    <string name="sueno_estres_preg_2_op0">Casi nunca</string>
+
+    <string name="sueno_estres_preg_3">Yo me relajo y disfruto mi tiempo libre </string>
+    <string name="sueno_estres_preg_3_op2">Casi siempre</string>
+    <string name="sueno_estres_preg_3_op1">A veces</string>
+    <string name="sueno_estres_preg_3_op0">Casi nunca</string>
+
+    <string name="trabajo_personalidad">Trabajo y personalidad</string>
+    <string name="trabajo_personalidad_preg_1">Parece que ando acelerado/a</string>
+    <string name="trabajo_personalidad_preg_1_op2">Casi siempre</string>
+    <string name="trabajo_personalidad_preg_1_op1">A veces</string>
+    <string name="trabajo_personalidad_preg_1_op0">Casi nunca</string>
+
+    <string name="trabajo_personalidad_preg_2">Me siento enojado o agresivo</string>
+    <string name="trabajo_personalidad_preg_2_op2">Casi siempre</string>
+    <string name="trabajo_personalidad_preg_2_op1">A veces</string>
+    <string name="trabajo_personalidad_preg_2_op0">Casi nunca</string>
+
+    <string name="trabajo_personalidad_preg_3">Yo me siento contento con mi trabajo y actividades</string>
+    <string name="trabajo_personalidad_preg_3_op2">Casi siempre</string>
+    <string name="trabajo_personalidad_preg_3_op1">A veces</string>
+    <string name="trabajo_personalidad_preg_3_op0">Casi nunca</string>
+
+    <string name="introspeccion">Introspección</string>
+    <string name="introspeccion_preg_1">Yo soy un pensador positivo</string>
+    <string name="introspeccion_preg_1_op2">Casi siempre</string>
+    <string name="introspeccion_preg_1_op1">A veces</string>
+    <string name="introspeccion_preg_1_op0">Casi nunca</string>
+
+    <string name="introspeccion_preg_2">Me siento tenso o abrumado</string>
+    <string name="introspeccion_preg_2_op2">Casi siempre</string>
+    <string name="introspeccion_preg_2_op1">A veces</string>
+    <string name="introspeccion_preg_2_op0">Casi nunca</string>
+
+    <string name="introspeccion_preg_3">Me siento deprimido o triste </string>
+    <string name="introspeccion_preg_3_op2">Casi siempre</string>
+    <string name="introspeccion_preg_3_op1">A veces</string>
+    <string name="introspeccion_preg_3_op0">Casi nunca</string>
+
+    <string name="salud_sexualidad">Control de salud Sexualidad</string>
+    <string name="salud_sexualidad_preg_1">Me realizo controles de salud en forma periódica</string>
+    <string name="salud_sexualidad_preg_1_op2">Siempre</string>
+    <string name="salud_sexualidad_preg_1_op1">A veces</string>
+    <string name="salud_sexualidad_preg_1_op0">Casi nunca</string>
+
+    <string name="salud_sexualidad_preg_2">Converso con mi pareja o familia aspectos de sexualidad</string>
+    <string name="salud_sexualidad_preg_2_op2">Siempre</string>
+    <string name="salud_sexualidad_preg_2_op1">A veces</string>
+    <string name="salud_sexualidad_preg_2_op0">Casi nunca</string>
+
+    <string name="salud_sexualidad_preg_3">En mi conducta sexual me preocupo del autocuidado y del cuidado de mi pareja</string>
+    <string name="salud_sexualidad_preg_3_op2">Casi siempre</string>
+    <string name="salud_sexualidad_preg_3_op1">A veces</string>
+    <string name="salud_sexualidad_preg_3_op0">Casi nunca</string>
+
+    <string name="otros">Otros</string>
+    <string name="otros_preg_1">Como peatón, pasajero del transporte público, sigo las Reglas</string>
+    <string name="otros_preg_1_op2">Siempre</string>
+    <string name="otros_preg_1_op1">A veces</string>
+    <string name="otros_preg_1_op0">Casi nunca</string>
+
+    <string name="otros_preg_2">Uso cinturón de seguridad</string>
+    <string name="otros_preg_2_op2">Siempre</string>
+    <string name="otros_preg_2_op1">A veces</string>
+    <string name="otros_preg_2_op0">Casi nunca</string>
+
+    <string name="otros_preg_3">Tengo claro el objetivo de mi vida</string>
+    <string name="otros_preg_3_op2">Casi siempre</string>
+    <string name="otros_preg_3_op1">A veces</string>
+    <string name="otros_preg_3_op0">Casi nunca</string>
+    <string name="test_fantastico">Test Fantástico</string>
+
+    <!-- TEST ESTRES -->
+    <string name="estres_title">Bienvenido al Cuestionario de Estrés Percibido PSS – 14</string>
+    <string name="estres_text">Las preguntas de la siguiente escala se refieren a sus sentimientos y pensamientos durante el mes recién pasado. En cada caso, indique con que frecuencia o cuán a menudo usted se sintió o reaccionó de determinada manera. </string>
+
+    <string name="estres_pss1_title">PSS1</string>
+    <string name="estres_pss2_title">PSS2</string>
+    <string name="estres_pss3_title">PSS3</string>
+    <string name="estres_pss4_title">PSS4</string>
+    <string name="estres_pss5_title">PSS5</string>
+    <string name="estres_pss6_title">PSS6</string>
+    <string name="estres_pss7_title">PSS7</string>
+    <string name="estres_pss8_title">PSS8</string>
+    <string name="estres_pss9_title">PSS9</string>
+    <string name="estres_pss10_title">PSS10</string>
+    <string name="estres_pss11_title">PSS11</string>
+    <string name="estres_pss12_title">PSS12</string>
+    <string name="estres_pss13_title">PSS13</string>
+    <string name="estres_pss14_title">PSS14</string>
+
+    <string name="estres_pss1">¿En el ultimo mes, con que frecuencia has estado afectado por algo que te ha sucedido inesperadamente?</string>
+    <string name="estres_pss2">¿En el ultimo mes, con que frecuencia te has sentido incapaz de controlar las cosas importantes de tu vida?</string>
+    <string name="estres_pss3">¿En el ultimo mes, con que frecuencia te has sentido nervioso o estresado??</string>
+    <string name="estres_pss4">¿En el ultimo mes, con que frecuencia has manejado con éxito las pequeñas dificultades irritantes de la vida?</string>
+    <string name="estres_pss5">¿En el ultimo mes, con que frecuencia has sentido que has afrontado efectivamente los cambios importantes que han estado ocurriendo en tu vida?</string>
+    <string name="estres_pss6">¿En el ultimo mes, con que frecuencia has estado seguro sobre tu capacidad para manejar tus problemas personales?</string>
+    <string name="estres_pss7">¿En el ultimo mes, con que frecuencia has sentido que las cosas te van bien?</string>
+    <string name="estres_pss8">¿En el ultimo mes, con que frecuencia has sentido que no podías afrontar todas las cosas que tenias que hacer?</string>
+    <string name="estres_pss9">¿En el ultimo mes, con que frecuencia has podido controlar las dificultades de tu vida?</string>
+    <string name="estres_pss10">¿En el ultimo mes, con que frecuencia has sentido que tienes el control de todo?</string>
+    <string name="estres_pss11">¿En el ultimo mes, con que frecuencia has estado enfadado porque las cosas que te han ocurrido estaban fuera de tu control?</string>
+    <string name="estres_pss12">¿En el ultimo mes, con que frecuencia has pensado sobre las cosas que te quedan pendientes por lograr?</string>
+    <string name="estres_pss13">¿En el ultimo mes, con que frecuencia has podido controlar la forma de pasar el tiempo?</string>
+    <string name="estres_pss14">¿En el ultimo mes, con que frecuencia has sentido que las dificultades se acumulan tanto que no puedes superarlas?</string>
+
+    <string name="estres_pss_op0">Nunca</string>
+    <string name="estres_pss_op1">Casi nunca</string>
+    <string name="estres_pss_op2">De vez en cuando</string>
+    <string name="estres_pss_op3">A menudo</string>
+    <string name="estres_pss_op4">Muy a menudo</string>
+
+
 </resources>

@@ -10,75 +10,75 @@ public class PersonalObj {
 
     @SerializedName("id_Personal")
     @Expose
-    private Integer idPersonal;
+    public Integer idPersonal;
     @SerializedName("Apellido")
     @Expose
-    private String apellido;
+    public String apellido;
     @SerializedName("Nombre")
     @Expose
-    private String nombre;
+    public String nombre;
     @SerializedName("Sexo")
     @Expose
-    private String sexo;
+    public String sexo;
     @SerializedName("Fecha_Nacim")
     @Expose
-    private String fechaNacim;
+    public String fechaNacim;
     @SerializedName("Direccion")
     @Expose
-    private String direccion;
+    public String direccion;
     @SerializedName("Celular")
     @Expose
-    private String celular;
+    public String celular;
     @SerializedName("Email")
     @Expose
-    private String email;
+    public String email;
     @SerializedName("documento")
     @Expose
-    private String documento;
+    public String documento;
     @SerializedName("tipo")
     @Expose
-    private String tipo;
+    public String tipo;
     @SerializedName("Fecha_Ingreso")
     @Expose
-    private String fechaIngreso;
+    public String fechaIngreso;
     @SerializedName("Sueldo")
     @Expose
-    private Double sueldo;
+    public Double sueldo;
     @SerializedName("Estado")
     @Expose
-    private String estado;
+    public String estado;
     @SerializedName("CMP")
     @Expose
-    private String cMP;
+    public String cMP;
     @SerializedName("Usuario")
     @Expose
-    private String usuario;
+    public String usuario;
     @SerializedName("Contrasena")
     @Expose
-    private String contrasena;
+    public String contrasena;
     @SerializedName("Fecha_registro")
     @Expose
-    private String fechaRegistro;
+    public String fechaRegistro;
     @SerializedName("Fecha_modificacion")
     @Expose
-    private String fechaModificacion;
+    public String fechaModificacion;
     @SerializedName("Empleado_registro")
     @Expose
-    private String empleadoRegistro;
+    public String empleadoRegistro;
     @SerializedName("Empleado_modificacion")
     @Expose
-    private String empleadoModificacion;
+    public String empleadoModificacion;
     @SerializedName("Id_perfil")
     @Expose
-    private Integer idPerfil;
+    public Integer idPerfil;
     @SerializedName("perfilObj")
     @Expose
-    private PerfilObj perfilObj;
+    public PerfilObj perfilObj;
     @SerializedName("accesoObj")
     @Expose
-    private AccesoObj accesoObj;
+    public AccesoObj accesoObj;
 
-    public Object getIdPersonal() {
+    public Integer getIdPersonal() {
         return idPersonal;
     }
 
@@ -102,7 +102,7 @@ public class PersonalObj {
         this.nombre = nombre;
     }
 
-    public Object getSexo() {
+    public String getSexo() {
         return sexo;
     }
 
@@ -110,7 +110,7 @@ public class PersonalObj {
         this.sexo = sexo;
     }
 
-    public Object getFechaNacim() {
+    public String getFechaNacim() {
         return fechaNacim;
     }
 
@@ -118,7 +118,7 @@ public class PersonalObj {
         this.fechaNacim = fechaNacim;
     }
 
-    public Object getDireccion() {
+    public String getDireccion() {
         return direccion;
     }
 
@@ -126,7 +126,7 @@ public class PersonalObj {
         this.direccion = direccion;
     }
 
-    public Object getCelular() {
+    public String getCelular() {
         return celular;
     }
 
@@ -134,7 +134,7 @@ public class PersonalObj {
         this.celular = celular;
     }
 
-    public Object getEmail() {
+    public String getEmail() {
         return email;
     }
 
@@ -142,7 +142,7 @@ public class PersonalObj {
         this.email = email;
     }
 
-    public Object getDocumento() {
+    public String getDocumento() {
         return documento;
     }
 
@@ -150,7 +150,7 @@ public class PersonalObj {
         this.documento = documento;
     }
 
-    public Object getTipo() {
+    public String getTipo() {
         return tipo;
     }
 
@@ -158,7 +158,7 @@ public class PersonalObj {
         this.tipo = tipo;
     }
 
-    public Object getFechaIngreso() {
+    public String getFechaIngreso() {
         return fechaIngreso;
     }
 
@@ -166,7 +166,7 @@ public class PersonalObj {
         this.fechaIngreso = fechaIngreso;
     }
 
-    public Object getSueldo() {
+    public Double getSueldo() {
         return sueldo;
     }
 
@@ -174,7 +174,7 @@ public class PersonalObj {
         this.sueldo = sueldo;
     }
 
-    public Object getEstado() {
+    public String getEstado() {
         return estado;
     }
 
@@ -182,15 +182,15 @@ public class PersonalObj {
         this.estado = estado;
     }
 
-    public Object getCMP() {
+    public String getcMP() {
         return cMP;
     }
 
-    public void setCMP(String cMP) {
+    public void setcMP(String cMP) {
         this.cMP = cMP;
     }
 
-    public Object getUsuario() {
+    public String getUsuario() {
         return usuario;
     }
 
@@ -198,7 +198,7 @@ public class PersonalObj {
         this.usuario = usuario;
     }
 
-    public Object getContrasena() {
+    public String getContrasena() {
         return contrasena;
     }
 
@@ -206,7 +206,7 @@ public class PersonalObj {
         this.contrasena = contrasena;
     }
 
-    public Object getFechaRegistro() {
+    public String getFechaRegistro() {
         return fechaRegistro;
     }
 
@@ -214,7 +214,7 @@ public class PersonalObj {
         this.fechaRegistro = fechaRegistro;
     }
 
-    public Object getFechaModificacion() {
+    public String getFechaModificacion() {
         return fechaModificacion;
     }
 
@@ -222,7 +222,7 @@ public class PersonalObj {
         this.fechaModificacion = fechaModificacion;
     }
 
-    public Object getEmpleadoRegistro() {
+    public String getEmpleadoRegistro() {
         return empleadoRegistro;
     }
 
@@ -230,7 +230,7 @@ public class PersonalObj {
         this.empleadoRegistro = empleadoRegistro;
     }
 
-    public Object getEmpleadoModificacion() {
+    public String getEmpleadoModificacion() {
         return empleadoModificacion;
     }
 
@@ -238,7 +238,7 @@ public class PersonalObj {
         this.empleadoModificacion = empleadoModificacion;
     }
 
-    public Object getIdPerfil() {
+    public Integer getIdPerfil() {
         return idPerfil;
     }
 
@@ -246,7 +246,7 @@ public class PersonalObj {
         this.idPerfil = idPerfil;
     }
 
-    public Object getPerfilObj() {
+    public PerfilObj getPerfilObj() {
         return perfilObj;
     }
 
@@ -254,7 +254,7 @@ public class PersonalObj {
         this.perfilObj = perfilObj;
     }
 
-    public Object getAccesoObj() {
+    public AccesoObj getAccesoObj() {
         return accesoObj;
     }
 
@@ -262,4 +262,6 @@ public class PersonalObj {
         this.accesoObj = accesoObj;
     }
 
+    public PersonalObj() {
+    }
 }

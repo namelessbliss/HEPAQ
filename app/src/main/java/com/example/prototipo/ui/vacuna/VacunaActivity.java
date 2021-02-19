@@ -2,8 +2,12 @@ package com.example.prototipo.ui.vacuna;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -18,6 +22,11 @@ import com.example.prototipo.common.Vacuna;
 import com.example.prototipo.retrofit.response.atenciones.ResponseAtenciones;
 import com.example.prototipo.ui.LoginActivity;
 import com.example.prototipo.ui.atenciones.MyAtencionRecyclerViewAdapter;
+import com.example.prototipo.ui.resultados.EcografiaFragment;
+import com.example.prototipo.ui.resultados.LaboratorioFragment;
+import com.example.prototipo.ui.resultados.ResultadosActivity;
+import com.example.prototipo.ui.resultados.SimulacionFragment;
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,8 +36,8 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
 public class VacunaActivity extends AppCompatActivity {
 
     Toolbar toolbar;
-    private TextView tvMensaje, tvTipo, tvFecha;
-    private Button btnConfirmarAsistencia;
+    private TabLayout tabLayout;
+    public ViewPager viewPager;
 
     String fecha = "2021-03-01";
 
@@ -40,7 +49,6 @@ public class VacunaActivity extends AppCompatActivity {
         getSupportActionBar().hide();
 
         bindViews();
-        loadMensaje();
 
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,50 +58,48 @@ public class VacunaActivity extends AppCompatActivity {
         });
     }
 
-    private void loadMensaje() {
-        String nombre = SharedPreferencesManager.getStringValue(Constants.PREF_NOMBRE);
-        String apellido = SharedPreferencesManager.getStringValue(Constants.PREF_APELLIDO);
-
-        String mensaje = String.format("Hola %1$s %2$s", nombre, apellido);
-        tvMensaje.setText(mensaje);
-
-        String tipo = "xxxxxxxx";
-
-        tvFecha.setText(String.format("Su proxima vacuna es el  %1$s", fecha));
-        tvTipo.setText(String.format("El tipo de vacuna que corresponde es %1$s ", tipo));
-    }
-
     private void bindViews() {
         toolbar = findViewById(R.id.toolbar);
-        tvMensaje = findViewById(R.id.tvMensajeVacuna);
-        tvTipo = findViewById(R.id.tvTipo);
-        tvFecha = findViewById(R.id.tvFecha);
-        btnConfirmarAsistencia = findViewById(R.id.btnConfir);
+        viewPager = (ViewPager) findViewById(R.id.viewpager);
+        setupViewPager(viewPager);
 
-        btnConfirmarAsistencia.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                new SweetAlertDialog(VacunaActivity.this, SweetAlertDialog.WARNING_TYPE)
-                        .setTitleText("Asistencia")
-                        .setContentText("¿Asistira a la cita de inmunización en la fecha de " + fecha)
-                        .setConfirmText("Aceptar")
-                        .showCancelButton(true)
-                        .setCancelText("Cancelar")
-                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
-                            @Override
-                            public void onClick(SweetAlertDialog sDialog) {
-                                sDialog
-                                        .setTitleText("¡Registrado!")
-                                        .setContentText("La cita ha sido registrada")
-                                        .setConfirmText("OK")
-                                        .showCancelButton(false)
-                                        .setCancelText(null)
-                                        .setConfirmClickListener(null)
-                                        .changeAlertType(SweetAlertDialog.SUCCESS_TYPE);
-                            }
-                        })
-                        .show();
-            }
-        });
+        tabLayout = (TabLayout) findViewById(R.id.tabs);
+        tabLayout.setupWithViewPager(viewPager);
+    }
+
+    private void setupViewPager(ViewPager viewPager) {
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        adapter.addFragment(new VacunaAvisoFragment(), "Confirmación");
+        adapter.addFragment(new HistorialVacunaFragment(), "Historial");
+        viewPager.setAdapter(adapter);
+    }
+
+    static class ViewPagerAdapter extends FragmentPagerAdapter {
+        private final List<Fragment> mFragmentList = new ArrayList<>();
+        private final List<String> mFragmentTitleList = new ArrayList<>();
+
+        public ViewPagerAdapter(FragmentManager manager) {
+            super(manager, FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return mFragmentList.get(position);
+        }
+
+        @Override
+        public int getCount() {
+            return mFragmentList.size();
+        }
+
+        public void addFragment(Fragment fragment, String title) {
+            mFragmentList.add(fragment);
+            mFragmentTitleList.add(title);
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return mFragmentTitleList.get(position);
+        }
     }
 }

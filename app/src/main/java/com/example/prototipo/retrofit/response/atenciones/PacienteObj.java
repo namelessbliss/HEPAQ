@@ -8,63 +8,67 @@ public class PacienteObj {
 
     @SerializedName("Documento")
     @Expose
-    private String documento;
+    public String documento;
     @SerializedName("Apellidos")
     @Expose
-    private String apellidos;
+    public String apellidos;
     @SerializedName("Nombres")
     @Expose
-    private String nombres;
+    public String nombres;
     @SerializedName("Sexo")
     @Expose
-    private String sexo;
+    public String sexo;
     @SerializedName("Fecha_Nacimiento")
     @Expose
-    private String fechaNacimiento;
+    public String fechaNacimiento;
     @SerializedName("Direccion")
     @Expose
-    private String direccion;
+    public String direccion;
     @SerializedName("Telefono")
     @Expose
-    private String telefono;
+    public String telefono;
     @SerializedName("Email")
     @Expose
-    private String email;
+    public String email;
     @SerializedName("Tipo")
     @Expose
-    private String tipo;
+    public String tipo;
     @SerializedName("N_historia_Clinica")
     @Expose
-    private Integer nHistoriaClinica;
+    public Integer nHistoriaClinica;
     @SerializedName("Autogenerado")
     @Expose
-    private String autogenerado;
+    public String autogenerado;
     @SerializedName("Tipo_Asegurado")
     @Expose
-    private String tipoAsegurado;
+    public String tipoAsegurado;
     @SerializedName("Estado")
     @Expose
-    private String estado;
+    public String estado;
     @SerializedName("Fecha_registro")
     @Expose
-    private String fechaRegistro;
+    public String fechaRegistro;
     @SerializedName("Fecha_modificacion")
     @Expose
-    private String fechaModificacion;
+    public String fechaModificacion;
     @SerializedName("Empleado_registro")
     @Expose
-    private String empleadoRegistro;
+    public String empleadoRegistro;
     @SerializedName("Empleado_modificacion")
     @Expose
-    private String empleadoModificacion;
+    public String empleadoModificacion;
     @SerializedName("Id_Sede")
     @Expose
-    private Integer idSede;
+    public Integer idSede;
+
     @SerializedName("sedeObj")
     @Expose
-    private Object sedeObj;
+    public SedeObj sedeObj;
 
-    public Object getDocumento() {
+    public PacienteObj() {
+    }
+
+    public String getDocumento() {
         return documento;
     }
 
@@ -104,7 +108,7 @@ public class PacienteObj {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    public Object getDireccion() {
+    public String getDireccion() {
         return direccion;
     }
 
@@ -112,7 +116,7 @@ public class PacienteObj {
         this.direccion = direccion;
     }
 
-    public Object getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
@@ -120,7 +124,7 @@ public class PacienteObj {
         this.telefono = telefono;
     }
 
-    public Object getEmail() {
+    public String getEmail() {
         return email;
     }
 
@@ -136,11 +140,11 @@ public class PacienteObj {
         this.tipo = tipo;
     }
 
-    public Integer getNHistoriaClinica() {
+    public Integer getnHistoriaClinica() {
         return nHistoriaClinica;
     }
 
-    public void setNHistoriaClinica(Integer nHistoriaClinica) {
+    public void setnHistoriaClinica(Integer nHistoriaClinica) {
         this.nHistoriaClinica = nHistoriaClinica;
     }
 
@@ -160,7 +164,7 @@ public class PacienteObj {
         this.tipoAsegurado = tipoAsegurado;
     }
 
-    public Object getEstado() {
+    public String getEstado() {
         return estado;
     }
 
@@ -168,7 +172,7 @@ public class PacienteObj {
         this.estado = estado;
     }
 
-    public Object getFechaRegistro() {
+    public String getFechaRegistro() {
         return fechaRegistro;
     }
 
@@ -176,7 +180,7 @@ public class PacienteObj {
         this.fechaRegistro = fechaRegistro;
     }
 
-    public Object getFechaModificacion() {
+    public String getFechaModificacion() {
         return fechaModificacion;
     }
 
@@ -184,15 +188,23 @@ public class PacienteObj {
         this.fechaModificacion = fechaModificacion;
     }
 
-    public Object getEmpleadoRegistro() {
+    public String getEmpleadoRegistro() {
         return empleadoRegistro;
+    }
+
+    public SedeObj getSedeObj() {
+        return sedeObj;
+    }
+
+    public void setSedeObj(SedeObj sedeObj) {
+        this.sedeObj = sedeObj;
     }
 
     public void setEmpleadoRegistro(String empleadoRegistro) {
         this.empleadoRegistro = empleadoRegistro;
     }
 
-    public Object getEmpleadoModificacion() {
+    public String getEmpleadoModificacion() {
         return empleadoModificacion;
     }
 
@@ -200,20 +212,11 @@ public class PacienteObj {
         this.empleadoModificacion = empleadoModificacion;
     }
 
-    public Object getIdSede() {
+    public Integer getIdSede() {
         return idSede;
     }
 
     public void setIdSede(Integer idSede) {
         this.idSede = idSede;
     }
-
-    public Object getSedeObj() {
-        return sedeObj;
-    }
-
-    public void setSedeObj(Object sedeObj) {
-        this.sedeObj = sedeObj;
-    }
-
 }

@@ -3,7 +3,6 @@ package com.example.prototipo.ui.resultados;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
@@ -13,7 +12,8 @@ import android.widget.TextView;
 import com.example.prototipo.R;
 import com.github.anastr.speedviewlib.SpeedView;
 import com.github.anastr.speedviewlib.components.Section;
-import com.github.anastr.speedviewlib.components.Style;
+
+import java.util.ArrayList;
 
 public class ImcActivity extends AppCompatActivity implements View.OnKeyListener {
 
@@ -42,7 +42,7 @@ public class ImcActivity extends AppCompatActivity implements View.OnKeyListener
         tvTipoPeso = findViewById(R.id.tvTipoPeso);
         etPeso = findViewById(R.id.etPeso);
         etTalla = findViewById(R.id.etTalla);
-        speedometer = findViewById(R.id.speedView);
+        speedometer = findViewById(R.id.estres);
         speedometer.setMinSpeed(0);
         speedometer.setMaxSpeed(40);
         speedometer.setWithTremble(false);
@@ -59,6 +59,14 @@ public class ImcActivity extends AppCompatActivity implements View.OnKeyListener
                 , new Section(.625f, .75f, getResources().getColor(R.color.vivid_orange), 70)
                 , new Section(.75f, .875f, getResources().getColor(R.color.vivid_orange), 70)
                 , new Section(.875f, 1f, getResources().getColor(R.color.vivid_orange), 70));
+        ArrayList<Float> ticks1 = new ArrayList<>();
+        ticks1.add(.125f);
+        ticks1.add(.25f);
+        ticks1.add(.5f);
+        ticks1.add(.625f);
+        ticks1.add(.75f);
+        ticks1.add(.875f);
+        speedometer.setTicks(ticks1);
 
         etTalla.setOnKeyListener(this);
         etPeso.setOnKeyListener(this);

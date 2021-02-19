@@ -3,6 +3,7 @@ package com.example.prototipo.common;
 public class Constants {
 
     public static final String API_BASE_URL = "http://hepaq.net//apiMovil/";
+    //public static final String API_BASE_URL = "http:/192.168.1.101/Proyecto_Essalud/apiMovil/";
     public static final String API_FILES_URL = "";
 
     //Preferences
@@ -23,6 +24,16 @@ public class Constants {
     public static final String PREF_ID_SEDE = "PREF_ID_SEDE";
     public static final String PREF_FECHA_NACIMIENTO = "PREF_FECHA_NACIMIENTO";
     public static final String PREF_PHOTO_URL = "PREF_PHOTO_URL";
+
+    //DATOS MEDICOS:
+    public static final String TEST_FANTAS_SCORE = "TEST_FANTAS_SCORE";
+    public static final String TEST_ESTRES_SCORE = "TEST_ESTRES_SCORE";
+    public static final String FREC_CARDIACA = "FREC_CARDIACA";
+    public static final String FREC_RESP = "FREC_RESP";
+    public static final String PRES_SANGUINEA_SYS = "PRES_SANGUINEA_SYS";
+    public static final String PRES_SANGUINEA_DIA = "PRES_SANGUINEA_DIA";
+    public static final String IMC = "IMC";
+
 
 
     //startActivityForResult

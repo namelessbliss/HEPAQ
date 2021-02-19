@@ -18,6 +18,7 @@ import com.example.prototipo.common.SharedPreferencesManager;
 import com.example.prototipo.retrofit.HEPAQClient;
 import com.example.prototipo.retrofit.HEPAQService;
 import com.example.prototipo.retrofit.response.ResponseLogin;
+import com.example.prototipo.ui.dashboard.DashboardActivity;
 
 
 import java.text.SimpleDateFormat;

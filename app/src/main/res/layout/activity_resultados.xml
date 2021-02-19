@@ -39,7 +39,7 @@
                     android:text="@string/string_resultados"
                     android:textColor="@android:color/background_dark"
                     android:theme="@style/subtitulo"
-                    android:drawableStart="@drawable/ic_corazon_24"
+                    android:drawableStart="@drawable/ic_corazon"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.513"

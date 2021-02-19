@@ -1,4 +1,4 @@
-package com.example.prototipo.ui;
+package com.example.prototipo.ui.dashboard;
 
 import android.Manifest;
 import android.content.Context;
