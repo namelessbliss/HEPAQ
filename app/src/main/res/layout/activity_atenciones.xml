@@ -55,7 +55,7 @@
 
     <fragment
         android:id="@+id/fragmentData"
-        android:name="com.example.prototipo.ui.atenciones.AtencionFragment"
+        android:name="com.essaludapp.hepaq.ui.atenciones.AtencionFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"

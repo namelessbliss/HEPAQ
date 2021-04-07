@@ -8,11 +8,11 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.example.prototipo"
+        applicationId "com.essaludapp.hepaq"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -92,5 +92,7 @@ dependencies {
 
     //SurveyKit
     implementation 'com.quickbirdstudios:surveykit:1.1.0'
+
+    implementation 'com.github.khirr:Android-Privacy-Policy:1.0.1'
 
 }

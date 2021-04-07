@@ -57,14 +57,15 @@
             android:layout_height="match_parent">
 
             <com.github.anastr.speedviewlib.SpeedView
-                android:id="@+id/waist"
+                android:id="@+id/perimetroAbdomi"
                 sv_withIndicatorLight="true"
                 android:layout_width="200dp"
                 android:layout_height="200dp"
-                app:sv_withTremble="false"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
                 android:padding="10dp"
                 android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView29"
                 app:sv_centerCircleColor="@android:color/transparent"
@@ -73,7 +74,8 @@
                 app:sv_speedTextPosition="CENTER"
                 app:sv_startDegree="180"
                 app:sv_textSize="16sp"
-                app:sv_tickNumber="8" />
+                app:sv_tickNumber="8"
+                app:sv_withTremble="false" />
 
             <com.github.anastr.speedviewlib.SpeedView
                 android:id="@+id/body"
@@ -82,7 +84,7 @@
                 android:layout_height="200dp"
                 android:layout_marginEnd="8dp"
                 android:padding="10dp"
-                android:visibility="visible"
+                android:visibility="gone"
                 app:sv_withTremble="false"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView25"
@@ -100,7 +102,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lato_bold"
-                android:text="WAIST"
+                android:text="@string/perimetro_abdominal"
                 android:textAlignment="center"
                 android:textAllCaps="true"
                 android:textColor="@color/text_gray"
@@ -115,22 +117,22 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/lato_bold"
                 android:text="BODY SHAPE"
+                android:visibility="gone"
                 android:textAlignment="center"
                 android:textAllCaps="true"
                 android:textColor="@color/text_gray"
                 app:layout_constraintEnd_toEndOf="@+id/body"
-                app:layout_constraintStart_toEndOf="@+id/waist"
+                app:layout_constraintStart_toEndOf="@+id/perimetroAbdomi"
                 app:layout_constraintTop_toBottomOf="@+id/imageView10" />
 
             <ImageView
                 android:id="@+id/imageView10"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginTop="32dp"
                 android:src="@drawable/ic_estetoscopio"
-                app:layout_constraintEnd_toEndOf="@+id/tvCicularEdad"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintStart_toStartOf="@+id/imcGrafico"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imcGrafico" />
 
             <ImageView
@@ -162,6 +164,8 @@
                 style="@style/titulo"
                 android:layout_width="110dp"
                 android:layout_height="110dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
                 android:background="@drawable/circular_shape"
                 android:fontFamily="@font/lato_italic"
                 android:gravity="center"
@@ -169,8 +173,8 @@
                 android:text="20"
                 android:textAlignment="center"
                 android:visibility="visible"
-                app:layout_constraintEnd_toEndOf="@+id/body"
-                app:layout_constraintStart_toStartOf="@+id/body"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imcGrafico"
                 app:layout_constraintTop_toBottomOf="@+id/textView28" />
 
             <ImageView

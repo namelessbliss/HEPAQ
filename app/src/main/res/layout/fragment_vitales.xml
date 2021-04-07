@@ -63,9 +63,9 @@
 
             <com.github.anastr.speedviewlib.SpeedView
                 android:id="@+id/presSanguineaSys"
-                android:layout_width="200dp"
+                android:layout_width="185dp"
                 android:layout_height="200dp"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="6dp"
                 android:padding="10dp"
                 android:visibility="visible"
                 app:layout_constraintStart_toStartOf="parent"
@@ -82,9 +82,9 @@
 
             <com.github.anastr.speedviewlib.SpeedView
                 android:id="@+id/presSanguineaDia"
-                android:layout_width="200dp"
+                android:layout_width="185dp"
                 android:layout_height="200dp"
-                android:layout_marginEnd="8dp"
+                android:layout_marginEnd="6dp"
                 android:padding="10dp"
                 android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -147,7 +147,7 @@
                 android:id="@+id/imageView10"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="0dp"
                 android:src="@drawable/ic_estetoscopio"
                 app:layout_constraintEnd_toEndOf="@+id/frecResp"
                 app:layout_constraintHorizontal_bias="0.498"
@@ -180,9 +180,9 @@
 
             <com.github.anastr.speedviewlib.SpeedView
                 android:id="@+id/frecResp"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:layout_marginEnd="8dp"
+                android:layout_width="185dp"
+                android:layout_height="190dp"
+                android:layout_marginEnd="6dp"
                 android:padding="10dp"
                 android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -223,9 +223,9 @@
 
             <com.github.anastr.speedviewlib.SpeedView
                 android:id="@+id/frecCardiaca"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:layout_marginStart="8dp"
+                android:layout_width="185dp"
+                android:layout_height="185dp"
+                android:layout_marginStart="6dp"
                 android:padding="10dp"
                 android:visibility="visible"
                 app:layout_constraintStart_toStartOf="parent"

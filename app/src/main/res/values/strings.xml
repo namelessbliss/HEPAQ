@@ -212,6 +212,15 @@
     <string name="otros_preg_3_op0">Casi nunca</string>
     <string name="test_fantastico">Test Fantástico</string>
 
+    <string name="test_fantastico_puntaje1">Puntaje Final: </string>
+    <string name="test_fantastico_puntaje2">Suma de todos los resultados y multiplica el puntaje final por dos.  Mira lo que significa tu puntaje y sigue las recomendaciones</string>
+    <string name="test_fantastico_puntaje_0_46">• De 0 a 46   Estás en la zona de peligro</string>
+    <string name="test_fantastico_puntaje_47_72">• De   47 a 72 Algo bajo, podrías mejorar</string>
+    <string name="test_fantastico_puntaje_73_84">•De   73 a 84 Adecuado, estás bien.</string>
+    <string name="test_fantastico_puntaje_85_102">• De  85 a 102 Buen trabajo. Estás en el camino correcto.</string>
+    <string name="test_fantastico_puntaje_103_120">• De 103 a 120 Felicitaciones. Tienes un estilo de vida Fantástico</string>
+    <string name="test_fantastico_puntaje_nota">Nota: El puntaje total no significa que has fallado. Siempre es posible cambiar el estilo de vida, empezando ahora. Mira las áreas donde has tenido 0 ó 1 punto y decide por donde quieres empezar a cambiar. Buena suerte.</string>
+
     <!-- TEST ESTRES -->
     <string name="estres_title">Bienvenido al Cuestionario de Estrés Percibido PSS – 14</string>
     <string name="estres_text">Las preguntas de la siguiente escala se refieren a sus sentimientos y pensamientos durante el mes recién pasado. En cada caso, indique con que frecuencia o cuán a menudo usted se sintió o reaccionó de determinada manera. </string>
@@ -251,6 +260,92 @@
     <string name="estres_pss_op2">De vez en cuando</string>
     <string name="estres_pss_op3">A menudo</string>
     <string name="estres_pss_op4">Muy a menudo</string>
+    <string name="acerca_titulo">SISTEMA HEPAQ</string>
+    <string name="acerca_p1">Ante la necesidad de optimizar la oportunidad de la atención integral a los pacientes del hospital I Higos Urco Chachapoyas, nace la propuesta del Aplicativo y Web HEPAQ, sistemas informáticos basados en los pilares de la calidad de la atención siguiendo la sustentabilidad de las intervenciones con énfasis a la tecnología y el tiempo actual de pandemia.</string>
+    <string name="acerca_p2">Esta iniciativa nace en la investigación realizada en pacientes del  programa Reforma de Vida  2019, </string>
+    <string name="acerca_p2_1">(DOI: </string>
+    <string name="acerca_p2_2">),</string>
+    <string name="acerca_p3">es el mismo que da inicio  no solo a plasmar conclusiones y recomendaciones, sino el que motiva el desarrollo del presente Software que no solo brindara un sistema integral virtual, dinámico y de aprendizaje sino que plasma el cuidado del medio ambiente en  el uso de todo el material del programa en formatos digitales ligados a los distintos servicios que brindamos dentro de la red de Amazonas.</string>
+    <string name="acerca_p4">Es así que guiado por la Dra. Sonia Tejada Muñoz, el equipo de mejora de la Red Amazonas, ponemos a su disposición el presente software que salvaguarda y da inicio a la virtualización del programa Reforma de Vida Amazonas.</string>
+    <string name="acerca_url">https://doi.org/10.35383/cietna.v7i2.485</string>
+    <string name="acerca_p5">Agradecido. \n\nDr. Manuel Jesús Quispe Narváez. \n\nCoordinador Regional Programa Reforma de Vida Amazonas.\n\nEssalud.</string>
+    <string name="perimetro_abdominal">Perimetro abdominal</string>
+    <string name="fecha_hint">año-mes-día</string>
 
+    <!-- TEST CONOCIMIENTO -->
+    <string name="cono_title">Bienvenido al Cuestionario de Conocimiento</string>
+    <string name="cono_text">Consta de 10 preguntas, elige la opcion correcta</string>
+
+    <string name="cono_p1_t">Pregunta 1</string>
+    <string name="cono_p2_t">Pregunta 2</string>
+    <string name="cono_p3_t">Pregunta 3</string>
+    <string name="cono_p4_t">Pregunta 4</string>
+    <string name="cono_p5_t">Pregunta 5</string>
+    <string name="cono_p6_t">Pregunta 6</string>
+    <string name="cono_p7_t">Pregunta 7</string>
+    <string name="cono_p8_t">Pregunta 8</string>
+    <string name="cono_p9_t">Pregunta 9</string>
+    <string name="cono_p10_t">Pregunta 10</string>
+
+    <string name="cono_p1">1.	Los hábitos de vida que conducen a adquirir enfermedades cardiovasculares, diabetes y obesidad son:</string>
+    <string name="cono_p1_op1">a.	Alimentación rica en grasas</string>
+    <string name="cono_p1_op2">b.	Sedentarismo</string>
+    <string name="cono_p1_op3">c.	Tabaquismo</string>
+    <string name="cono_p1_op4">d.	Todas las anteriores</string>
+
+    <string name="cono_p2">2.	Para considerar que una persona es activa, debe realizar actividades físicas más de------------- al día por no menos de 3 veces por semana</string>
+    <string name="cono_p2_op1">a.	10 minutos </string>
+    <string name="cono_p2_op2">b.	30 minutos</string>
+    <string name="cono_p2_op3">c.	60 minutos</string>
+    <string name="cono_p2_op4">d.	Ninguna de las anteriores</string>
+
+    <string name="cono_p3">3.	Se consideran Alimentos poco saludables </string>
+    <string name="cono_p3_op1">a.	Consumo de azucares refinados </string>
+    <string name="cono_p3_op2">b.	Alto consumo de comida rápida</string>
+    <string name="cono_p3_op3">c.	Ver televisión mas de dos horas continuas </string>
+    <string name="cono_p3_op4">d.	a+b</string>
+
+    <string name="cono_p4">4.	Son fuentes de grasa malas o trans </string>
+    <string name="cono_p4_op1">a.	Margarinas</string>
+    <string name="cono_p4_op2">b.	Pasteles</string>
+    <string name="cono_p4_op3">c.	Snacks como papas fritas, en bolsa </string>
+    <string name="cono_p4_op4">d.	Todas</string>
+
+    <string name="cono_p5">5.	Son factores protectores de la salud marque lo cierto. </string>
+    <string name="cono_p5_op1">a.	Alimentación variada rica en frutas y verduras</string>
+    <string name="cono_p5_op2">b.	Relaciones personales armoniosas</string>
+    <string name="cono_p5_op3">c.	Tener objetivos de vida  </string>
+    <string name="cono_p5_op4">d.	Todas </string>
+
+    <string name="cono_p6">6.	Son alimentos que ayudan a proteger o favorecen la función del hígado </string>
+    <string name="cono_p6_op1">a.	Brócoli</string>
+    <string name="cono_p6_op2">b.	Granada</string>
+    <string name="cono_p6_op3">c.	Alcachofa  </string>
+    <string name="cono_p6_op4">d.	Todas </string>
+
+    <string name="cono_p7">7.	Los alimentos que ayudan a manejar los niveles de grasas son: </string>
+    <string name="cono_p7_op1">a.	Caigua, linaza</string>
+    <string name="cono_p7_op2">b.	Alcachofa, berenjena</string>
+    <string name="cono_p7_op3">c.	Nueces, ajonjolí   </string>
+    <string name="cono_p7_op4">d.	Todas </string>
+
+    <string name="cono_p8">8.	En su reforma de vida para disminuir el riesgo de tener colesterol alto y obesidad, usted además de actividad física puede consumir alimentos   marque lo cierto puede ser más de uno. </string>
+    <string name="cono_p8_op1">a.	Vegetales verdes coles: Brócolis, espinacas frutos secos</string>
+    <string name="cono_p8_op2">b.	Aceite de vegetales  </string>
+    <string name="cono_p8_op3">c.	Bebidas te verde sin azúcar.   </string>
+    <string name="cono_p8_op4">d.	Todas </string>
+
+    <string name="cono_p9">9.	De los hábitos de vida saludable, ¿Cuál considera que es poco saludable? </string>
+    <string name="cono_p9_op1">a.	Ejercicio físico</string>
+    <string name="cono_p9_op2">b.	Realizar caminatas  </string>
+    <string name="cono_p9_op3">c.	Dormir mínimo 6 horas   </string>
+    <string name="cono_p9_op4">d.	Consumir alimentos grasosos </string>
+
+    <string name="cono_p10">Cual de los siguientes son alimentos son saludables: </string>
+    <string name="cono_p10_op1">a.	Consumo de frutas</string>
+    <string name="cono_p10_op2">b.	Consumo de verduras  </string>
+    <string name="cono_p10_op3">c.	Consumo de aceite de oliva o sacha inchi   </string>
+    <string name="cono_p10_op4">d. Todas. </string>
+    <string name="test_conocimiento">Test conocimiento</string>
 
 </resources>
