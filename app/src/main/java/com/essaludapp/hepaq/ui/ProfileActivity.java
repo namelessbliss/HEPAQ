@@ -3,19 +3,24 @@ package com.essaludapp.hepaq.ui;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.essaludapp.hepaq.R;
 import com.essaludapp.hepaq.common.Constants;
 import com.essaludapp.hepaq.common.SharedPreferencesManager;
+import com.essaludapp.hepaq.common.Utils;
 
 public class ProfileActivity extends AppCompatActivity {
 
     TextView tvNombre, tvEdad, tvDni, tvTelefono, tvCorreo, tvHistoriaClinica, tvAutogenerado;
     Toolbar toolbar;
+    Button btnCerrarSesion;
+    private Utils utils;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,12 +32,21 @@ public class ProfileActivity extends AppCompatActivity {
         bindViews();
         getSharedPreferencesData();
 
+        utils = new Utils();
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
             }
         });
+
+        btnCerrarSesion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                utils.cerrarSession(ProfileActivity.this, new LoginActivity());
+            }
+        });
+
     }
 
     private void bindViews() {
@@ -44,6 +58,7 @@ public class ProfileActivity extends AppCompatActivity {
         tvCorreo = findViewById(R.id.tvCorreo);
         tvHistoriaClinica = findViewById(R.id.tvHistoriaClinica);
         tvAutogenerado = findViewById(R.id.tvAutogenerado);
+        btnCerrarSesion = findViewById(R.id.btnCerrarSesion);
     }
 
     private void getSharedPreferencesData() {

@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 
 import com.essaludapp.hepaq.R;
@@ -34,6 +35,7 @@ public class AtencionFragment extends Fragment {
 
     private ProgressBar progressBar;
     private RecyclerView recyclerView;
+    private FrameLayout frameCarga;
     private MyAtencionRecyclerViewAdapter adapter;
     private List<ResponseAtenciones> atencionesList;
 
@@ -68,6 +70,7 @@ public class AtencionFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_atenciones_list, container, false);
 
         progressBar = view.findViewById(R.id.progressBar);
+        frameCarga = view.findViewById(R.id.frameCarga);
         // Set the adapter
         Context context = view.getContext();
         recyclerView = (RecyclerView) view.findViewById(R.id.list);
@@ -98,6 +101,10 @@ public class AtencionFragment extends Fragment {
                     recyclerView.setAdapter(adapter);
                     recyclerView.setVisibility(View.VISIBLE);
                     progressBar.setVisibility(View.GONE);
+                    frameCarga.setVisibility(View.GONE);
+                    if (atencionesList.size() == 0){
+                        frameCarga.setVisibility(View.VISIBLE);
+                    }
                 }
 
             }

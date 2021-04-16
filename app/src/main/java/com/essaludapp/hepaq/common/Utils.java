@@ -2,13 +2,19 @@ package com.essaludapp.hepaq.common;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.pdf.PdfDocument;
 
 import android.os.Environment;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.essaludapp.hepaq.retrofit.response.atenciones.ResponseAtenciones;
+import com.essaludapp.hepaq.retrofit.response.vacunas.ResponseDosisVacuna;
+import com.essaludapp.hepaq.ui.LoginActivity;
+import com.essaludapp.hepaq.ui.ProfileActivity;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Element;
@@ -41,8 +47,123 @@ public class Utils {
     PdfPCell[] cells;
     float spacing = 0.2f;
 
+    public void cerrarSession(AppCompatActivity activity1, AppCompatActivity activity2) {
+        try {
+            if (!SharedPreferencesManager.getBooleanValue(Constants.PREF_RECORDAR)) {
+                SharedPreferencesManager.setStringValue(Constants.PREF_DOCUMENTO, null);
+                SharedPreferencesManager.setStringValue(Constants.PREF_FECHA_NACIMIENTO, null);
+            }
+            SharedPreferencesManager.setStringValue(Constants.PREF_NOMBRE, null);
+            SharedPreferencesManager.setStringValue(Constants.PREF_APELLIDO, null);
+            SharedPreferencesManager.setStringValue(Constants.PREF_SEXO, null);
+            SharedPreferencesManager.setStringValue(Constants.PREF_DIRECCION, null);
+            SharedPreferencesManager.setStringValue(Constants.PREF_TELEFONO, null);
+            SharedPreferencesManager.setStringValue(Constants.PREF_CORREO, null);
+            SharedPreferencesManager.setStringValue(Constants.PREF_TIPO, null);
+            SharedPreferencesManager.setStringValue(Constants.PREF_TIPO_ASEGURADO, null);
+            SharedPreferencesManager.setStringValue(Constants.PREF_N_HISTORIA_CLINICA, null);
+            SharedPreferencesManager.setStringValue(Constants.PREF_AUTOGENERADO, null);
+            SharedPreferencesManager.setStringValue(Constants.PREF_ESTADO, null);
+            SharedPreferencesManager.setStringValue(Constants.PREF_ID_SEDE, null);
+            SharedPreferencesManager.setStringValue(Constants.TEST_FANTAS_SCORE, null);
+            SharedPreferencesManager.setStringValue(Constants.TEST_ESTRES_SCORE, null);
+            SharedPreferencesManager.setStringValue(Constants.TEST_CONO_SCORE, null);
+            SharedPreferencesManager.setStringValue(Constants.FREC_CARDIACA, null);
+            SharedPreferencesManager.setStringValue(Constants.FREC_RESP, null);
+            SharedPreferencesManager.setStringValue(Constants.PRES_SANGUINEA_SYS, null);
+            SharedPreferencesManager.setStringValue(Constants.PRES_SANGUINEA_DIA, null);
+            SharedPreferencesManager.setStringValue(Constants.IMC, null);
+            SharedPreferencesManager.setStringValue(Constants.PERIMETRO_ABDOMINAL, null);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        Intent intent = new Intent(activity1, activity2.getClass());
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        activity1.startActivity(intent);
+    }
+
+    public File createPDFVacuna(Context context, ResponseDosisVacuna vacuna) {
+        //File carpeta = new File(context.getFilesDir().toString(), "HEPAQ_ESSALUD_APP");
+        File carpeta = new File(Environment.getExternalStorageDirectory().toString(), "HEPAQ_ESSALUD_APP");
+
+        if (!carpeta.exists())
+            carpeta.mkdirs();
+
+        File pdf = new File(carpeta, "vacuna.pdf");
+
+        Document document = new Document(PageSize.A4);
+
+        try {
+            PdfWriter.getInstance(document, new FileOutputStream(pdf));
+            document.open();
+
+/*            Paragraph paragraph = null;
+            try {
+                paragraph = new Paragraph("CARTA CIRCULAR N°" + atencion.getLaboratorioObj().getIdLabo() + "- PRVR-RAAM-ESSALUD-2020", fTitle);
+            } catch (Exception e) {
+                e.printStackTrace();
+                paragraph = new Paragraph("CARTA CIRCULAR N° 322 - PRVR-RAAM-ESSALUD-2020", fTitle);
+            }
+            paragraph.setAlignment(Element.ALIGN_CENTER);
+
+            document.add(paragraph);*/
+
+            Calendar currentTime = Calendar.getInstance();
+            String fech = currentTime.get(Calendar.YEAR) + "-" + (currentTime.get(Calendar.MONTH) + 1) + "-" + currentTime.get(Calendar.DAY_OF_MONTH);
+            String[] fechaActual = getMonthYear(fech);
+
+            Paragraph paragraph1 = new Paragraph("Chachapoyas, " + fechaActual[0] + " de " + fechaActual[1] + " del " + fechaActual[2], fFecha);
+            paragraph1.setAlignment(Element.ALIGN_RIGHT);
+
+            document.add(paragraph1);
+
+            Paragraph paragraph7 = new Paragraph("DATOS DE VACUNA", fNormalBold);
+
+            document.add(paragraph7);
+
+            String cabecera1[] = new String[]{"Descripcion", " "};
+            String examen[] = new String[]{" PRIMERA FECHA VACUNA", "SEGUNDA FECHA VACUNA", "TERCERA FECHA VACUNA", "DESCRIPCION", "CONFIRMACION", "FECHA DE ATENCION"};
+            String resultados[] = new String[]{vacuna.getFechaVacuna(),
+                    vacuna.getFechaVacuna2(), vacuna.getFechaVacuna3(), vacuna.getDescripcion(), vacuna.getConfirmacion(), vacuna.getFechaAtencion()};
+            Paragraph pt = new Paragraph("", fText);
+            pt.setSpacingBefore(spacing);
+            pt.setSpacingAfter(spacing);
+            PdfPTable table1 = new PdfPTable(cabecera1.length);
+            table1.getDefaultCell().setHorizontalAlignment(Element.ALIGN_CENTER);
+            for (int i = 0; i < cabecera1.length; i++) {
+                table1.addCell(cabecera1[i]);
+                //cells[i].setPadding(10);
+            }
+            table1.setHeaderRows(1);
+
+            for (int i = 0; i < examen.length; i++) {
+                if (i == 7) {
+                    table1.addCell(validaString(examen[i]));
+                    table1.addCell(validaString(resultados[i] + "/" + resultados[i + 1]));
+                    i++;
+                } else {
+                    table1.addCell(validaString(examen[i]));
+                    table1.addCell(validaString(resultados[i] + ""));
+                }
+            }
+
+
+            pt.add(table1);
+            document.add(pt);
+
+            document.close();
+        } catch (Exception e) {
+
+        }
+
+        return pdf;
+    }
+
     public File createPDFLaboratorio(Context context, ResponseAtenciones atencion) {
-        File carpeta = new File(context.getFilesDir().toString(), "HEPAQ_ESSALUD_APP");
+        //File carpeta = new File(context.getFilesDir().toString(), "HEPAQ_ESSALUD_APP");
+        File carpeta = new File(Environment.getExternalStorageDirectory().toString(), "HEPAQ_ESSALUD_APP");
 
         if (!carpeta.exists())
             carpeta.mkdirs();
@@ -167,7 +288,8 @@ public class Utils {
     }
 
     public File createPDFEcografia(Context context, ResponseAtenciones atencion) {
-        File carpeta = new File(context.getFilesDir().toString(), "HEPAQ_ESSALUD_APP");
+        //File carpeta = new File(context.getFilesDir().toString(), "HEPAQ_ESSALUD_APP");
+        File carpeta = new File(Environment.getExternalStorageDirectory().toString(), "HEPAQ_ESSALUD_APP");
 
         if (!carpeta.exists())
             carpeta.mkdirs();
@@ -260,8 +382,8 @@ public class Utils {
     }
 
     public File createPDFAtencion(Context context, ResponseAtenciones atencion) {
-        File carpeta = new File(context.getFilesDir().toString(), "HEPAQ_ESSALUD_APP");
-        //File carpeta = new File(Environment.getExternalStorageDirectory().toString(), "HEPAQ_ESSALUD_APP");
+        //File carpeta = new File(context.getFilesDir().toString(), "HEPAQ_ESSALUD_APP");
+        File carpeta = new File(Environment.getExternalStorageDirectory().toString(), "HEPAQ_ESSALUD_APP");
 
         if (!carpeta.exists())
             carpeta.mkdirs();
@@ -910,48 +1032,5 @@ public class Utils {
         return ageS;
     }
 
-    public File createPdf() {
-        PdfDocument pdfDocument = new PdfDocument();
-        Paint paint = new Paint();
-
-        PdfDocument.PageInfo pageInfo = new PdfDocument.PageInfo.Builder(250, 400, 1).create();
-        PdfDocument.Page page1 = pdfDocument.startPage(pageInfo);
-        Canvas canvas = page1.getCanvas();
-
-        paint.setTextAlign(Paint.Align.CENTER);
-        paint.setTextSize(12f);
-        paint.setFakeBoldText(true);
-        canvas.drawText("ORDEN DE ATENCIÓN", pageInfo.getPageWidth() / 2, 30, paint);
-
-        paint.setTextAlign(Paint.Align.LEFT);
-        paint.setTextSize(12f);
-        paint.setFakeBoldText(true);
-        canvas.drawText("I. DATOS DEL PAAD", 10, 40, paint);
-
-        paint.setTextAlign(Paint.Align.LEFT);
-        paint.setTextSize(12f);
-        paint.setFakeBoldText(true);
-        canvas.drawText("I. DATOS DEL PAAD", 10, 40, paint);
-
-
-        pdfDocument.finishPage(page1);
-
-        File carpeta = new File(Environment.getExternalStorageDirectory().toString(), "HEPAQ_ESSALUD_APP");
-
-        if (!carpeta.exists())
-            carpeta.mkdirs();
-
-        File file = new File(carpeta, "atencion.pdf");
-
-        try {
-            pdfDocument.writeTo(new FileOutputStream(file));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        pdfDocument.close();
-
-        return file;
-    }
 
 }

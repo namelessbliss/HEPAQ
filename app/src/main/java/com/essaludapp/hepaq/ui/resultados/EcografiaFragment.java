@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 
 import com.essaludapp.hepaq.R;
@@ -35,6 +36,7 @@ public class EcografiaFragment extends Fragment {
     private RecyclerView recyclerView;
     private MyEcografiaRecyclerViewAdapter adapter;
     private List<ResponseAtenciones> lista;
+    FrameLayout frameCarga;
 
     private HEPAQService hepaqService;
     private HEPAQClient hepaqClient;
@@ -64,6 +66,7 @@ public class EcografiaFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_ecografia, container, false);
 
         progressBar = view.findViewById(R.id.progressBar);
+        frameCarga = view.findViewById(R.id.frameCarga);
         // Set the adapter
         Context context = view.getContext();
         recyclerView = (RecyclerView) view.findViewById(R.id.list);
@@ -92,6 +95,10 @@ public class EcografiaFragment extends Fragment {
                     recyclerView.setAdapter(adapter);
                     recyclerView.setVisibility(View.VISIBLE);
                     progressBar.setVisibility(View.GONE);
+                    frameCarga.setVisibility(View.GONE);
+                    if (lista.size() == 0){
+                        frameCarga.setVisibility(View.VISIBLE);
+                    }
                 }
 
             }

@@ -8,8 +8,48 @@
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyle"
         android:layout_gravity="center"
-        android:layout_width="150dp"
-        android:layout_height="150dp" />
+        android:layout_marginBottom="10dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp" />
+
+    <FrameLayout
+        android:id="@+id/frameCarga"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <ProgressBar
+                android:id="@+id/progress"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignStart="@+id/tvCargando"
+                android:layout_alignEnd="@+id/tvCargando"
+                android:layout_marginStart="0dp"
+                android:layout_marginEnd="0dp" />
+
+            <TextView
+                android:id="@+id/tvCargando"
+                style="@style/texto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/progress"
+                android:fontFamily="@font/lato_italic"
+                android:text="@string/no_vacunas_registro"
+                android:textColor="@color/profileEditTextColor" />
+
+
+        </RelativeLayout>
+
+    </FrameLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list"

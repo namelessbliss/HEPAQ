@@ -4,6 +4,8 @@ package com.essaludapp.hepaq.retrofit;
 import com.essaludapp.hepaq.retrofit.request.RequestLogin;
 import com.essaludapp.hepaq.retrofit.response.ResponseLogin;
 import com.essaludapp.hepaq.retrofit.response.atenciones.ResponseAtenciones;
+import com.essaludapp.hepaq.retrofit.response.vacunas.ResponseConfirmarVacuna;
+import com.essaludapp.hepaq.retrofit.response.vacunas.ResponseDosisVacuna;
 
 import java.util.List;
 
@@ -33,4 +35,17 @@ public interface HEPAQService {
     @POST("seleccionarActoMedicoMovil.php")
     @FormUrlEncoded
     Call<List<ResponseAtenciones>> getAllAtenciones(@Field("id") String documento);
+
+    @POST("listarDosisPacientesConfirmados.php")
+    @FormUrlEncoded
+    Call<List<ResponseDosisVacuna>> getDosisConfirmados(@Field("id") String documento);
+
+    @POST("listarDosisPacientesNoConfirmados.php")
+    @FormUrlEncoded
+    Call<List<ResponseDosisVacuna>> getDosisNoConfirmados(@Field("id") String documento);
+
+    @POST("confirmarDosisPaciente.php")
+    @FormUrlEncoded
+    Call<ResponseConfirmarVacuna> confirmarDosisVacuna(@Field("id") String id, @Field("dni") String dni);
+
 }

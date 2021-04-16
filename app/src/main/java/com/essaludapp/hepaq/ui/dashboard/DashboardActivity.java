@@ -21,9 +21,11 @@ import android.widget.TextView;
 import com.essaludapp.hepaq.R;
 import com.essaludapp.hepaq.common.Constants;
 import com.essaludapp.hepaq.common.SharedPreferencesManager;
+import com.essaludapp.hepaq.common.Utils;
 import com.essaludapp.hepaq.retrofit.HEPAQClient;
 import com.essaludapp.hepaq.retrofit.HEPAQService;
 import com.essaludapp.hepaq.retrofit.response.atenciones.ResponseAtenciones;
+import com.essaludapp.hepaq.ui.LoginActivity;
 import com.essaludapp.hepaq.ui.ProfileActivity;
 import com.essaludapp.hepaq.ui.acerca.AcercaActivity;
 import com.essaludapp.hepaq.ui.atenciones.AtencionesActivity;
@@ -38,6 +40,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -52,6 +55,7 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
 
     private HEPAQClient hepaqClient;
     private HEPAQService hepaqService;
+    private Utils utils;
 
 
     private List<ResponseAtenciones> atencionesList;
@@ -90,6 +94,7 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
+        utils = new Utils();
         Calendar calendar = Calendar.getInstance();
         int mes = calendar.get(Calendar.MONTH);
         int ano = calendar.get(Calendar.YEAR);
@@ -114,7 +119,7 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
             }
         });
 
-        dialog.addPoliceLine("Yo, "+SharedPreferencesManager.getStringValue(Constants.PREF_NOMBRE) + " " + SharedPreferencesManager.getStringValue(Constants.PREF_APELLIDO) +" identificado con DNI No "+SharedPreferencesManager.getStringValue(Constants.PREF_DOCUMENTO)+", en mi condición de paciente, autorizo al Personal y/o Equipo del PROGRAMA DE REFORMA DE VIDA, a practicar los procedimientos de :");
+        dialog.addPoliceLine("Yo, " + SharedPreferencesManager.getStringValue(Constants.PREF_NOMBRE) + " " + SharedPreferencesManager.getStringValue(Constants.PREF_APELLIDO) + " identificado con DNI No " + SharedPreferencesManager.getStringValue(Constants.PREF_DOCUMENTO) + ", en mi condición de paciente, autorizo al Personal y/o Equipo del PROGRAMA DE REFORMA DE VIDA, a practicar los procedimientos de :");
         dialog.addPoliceLine("•\tTamizaje de Toma de muestra Sanguínea. /Valoración antropométrica/ Signos Vitales.\n" +
                 "•\tExámenes de Laboratorio de :\n" +
                 "•\tGlucosa, Trigliceridos, Colesterol, HDL, LDL, Hemoglobina, Hematocrito.\n" +
@@ -124,7 +129,7 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
         dialog.addPoliceLine("Conocedor de la resolución 090 de Gerencia General ESSALUD 2016, en donde se detalla las funciones y actividades del equipo de reforma de vida por lo que aceptó bajo mi voluntad ser parte de la iniciativa de trabajo Interinstitucional y conocedor de la firma de la alianza estratégica me comprometo a ser partícipe de todas las actividades que involucre el presente programa.\n" +
                 "Finalmente autorizo que durante el procedimiento el cual soy sometido, según sea el caso se puedan utilizar técnicas  e instrumentos  que garanticen evidencia científica y pedagógica porque también entiendo que  los hospitales de  ESSALUD como este, según  el nivel de atención  son instituciones docentes que trabajan con personal de salud en formación, capacitación y entrenamiento.\n" +
                 "En forma voluntaria y en pleno uso  de mis facultades mentales, físicas, y de mi entendimiento, libre de coerción o alguna otra influencia  indebida  y habiendo sido debidamente  informado sobre las actividades del programa REFORMA DE VIDA, por lo que firmo el presente consentimiento informado  entendiendo las declaraciones arriba descritas.\n");
-        dialog.addPoliceLine("Fecha: mes "+ (mes+1)+" , año "+ano+", hora "+hora+" : "+minuto+" ");
+        dialog.addPoliceLine("Fecha: mes " + (mes + 1) + " , año " + ano + ", hora " + hora + " : " + minuto + " ");
 
         //  Customizing (Optional)
         dialog.setTitleTextColor(Color.parseColor("#222222"));
@@ -279,60 +284,21 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
         });
     }
 
-    private int calcularResultado(int pregunta, String res){
-        switch (pregunta){
-            case 1:
-                if (res.equalsIgnoreCase(getString(R.string.cono_p1_op4)))
-                    return 2;
-                else
-                    return 0;
-            case 2:
-                if (res.equalsIgnoreCase(getString(R.string.cono_p1_op2)))
-                    return 2;
-                else
-                    return 0;
-            case 3:
-                if (res.equalsIgnoreCase(getString(R.string.cono_p3_op4)))
-                    return 2;
-                else
-                    return 0;
-            case 4:
-                if (res.equalsIgnoreCase(getString(R.string.cono_p4_op4)))
-                    return 2;
-                else
-                    return 0;
-            case 5:
-                if (res.equalsIgnoreCase(getString(R.string.cono_p5_op4)))
-                    return 2;
-                else
-                    return 0;
-            case 6:
-                if (res.equalsIgnoreCase(getString(R.string.cono_p6_op4)))
-                    return 2;
-                else
-                    return 0;
-            case 7:
-                if (res.equalsIgnoreCase(getString(R.string.cono_p7_op4)))
-                    return 2;
-                else
-                    return 0;
-            case 8:
-                if (res.equalsIgnoreCase(getString(R.string.cono_p8_op4)))
-                    return 2;
-                else
-                    return 0;
-            case 9:
-                if (res.equalsIgnoreCase(getString(R.string.cono_p9_op4)))
-                    return 2;
-                else
-                    return 0;
-            case 10:
-                if (res.equalsIgnoreCase(getString(R.string.cono_p10_op4)))
-                    return 2;
-                else
-                    return 0;
-            default:
-                return 0;
-        }
+    @Override
+    public void onBackPressed() {
+        new SweetAlertDialog(this, SweetAlertDialog.WARNING_TYPE)
+                .setTitleText("¿Desea Cerrar Sessión?")
+                .setContentText("Al aceptar tendrá que ingresar nuevamente su DNI y Fecha de Nacimiento ")
+                .setConfirmText("Aceptar")
+                .showCancelButton(true)
+                .setCancelText("Cancelar")
+                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                    @Override
+                    public void onClick(SweetAlertDialog sDialog) {
+                        utils.cerrarSession(DashboardActivity.this, new LoginActivity());
+                    }
+                })
+                .show();
+
     }
 }

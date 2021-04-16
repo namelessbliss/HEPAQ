@@ -10,20 +10,37 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 
 import com.essaludapp.hepaq.R;
+import com.essaludapp.hepaq.common.Constants;
+import com.essaludapp.hepaq.common.SharedPreferencesManager;
 import com.essaludapp.hepaq.common.Vacuna;
+import com.essaludapp.hepaq.retrofit.HEPAQClient;
+import com.essaludapp.hepaq.retrofit.HEPAQService;
+import com.essaludapp.hepaq.retrofit.response.atenciones.ResponseAtenciones;
+import com.essaludapp.hepaq.retrofit.response.vacunas.ResponseDosisVacuna;
+import com.essaludapp.hepaq.ui.atenciones.MyAtencionRecyclerViewAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import cn.pedant.SweetAlert.SweetAlertDialog;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class HistorialVacunaFragment extends Fragment {
 
     private RecyclerView recyclerView;
     private ProgressBar progressBar;
     private MyVacunaRecyclerViewAdapter adapter;
-    private List<Vacuna> lista;
+    private List<ResponseDosisVacuna> lista;
+    FrameLayout frameCarga;
+
+    private HEPAQService hepaqService;
+    private HEPAQClient hepaqClient;
 
     public HistorialVacunaFragment() {
         // Required empty public constructor
@@ -49,33 +66,62 @@ public class HistorialVacunaFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_historial_vacuna, container, false);
         progressBar = view.findViewById(R.id.progressBar);
+        frameCarga = view.findViewById(R.id.frameCarga);
         // Set the adapter
         Context context = view.getContext();
         recyclerView = (RecyclerView) view.findViewById(R.id.list);
         recyclerView.setLayoutManager(new LinearLayoutManager(context));
 
 
+        retrofitInit();
+        loadAtencionesData();
+
+
         return view;
     }
 
     private void retrofitInit() {
-
+        hepaqClient = HEPAQClient.getInstance();
+        hepaqService = hepaqClient.getHEPAQService();
     }
 
     private void loadAtencionesData() {
+        String documento = SharedPreferencesManager.getStringValue(Constants.PREF_DOCUMENTO);
 
-        lista = new ArrayList<>();
-        lista.add(new Vacuna("Alberto", "Jimenez", "2021-01-01", "xxxxxxxx", true));
-        lista.add(new Vacuna("Alberto", "Jimenez", "2021-01-02", "xxxxxxxx", true));
-        lista.add(new Vacuna("Alberto", "Jimenez", "2021-01-03", "xxxxxxxx", true));
-        lista.add(new Vacuna("Alberto", "Jimenez", "2021-01-04", "xxxxxxxx", true));
-        lista.add(new Vacuna("Alberto", "Jimenez", "2021-01-05", "xxxxxxxx", true));
-        lista.add(new Vacuna("Alberto", "Jimenez", "2021-01-06", "xxxxxxxx", true));
+        Call<List<ResponseDosisVacuna>> call = hepaqService.getDosisConfirmados(documento);
 
-        adapter = new MyVacunaRecyclerViewAdapter(getActivity(), lista);
-        recyclerView.setAdapter(adapter);
-        recyclerView.setVisibility(View.VISIBLE);
-        progressBar.setVisibility(View.GONE);
+        call.enqueue(new Callback<List<ResponseDosisVacuna>>() {
+            @Override
+            public void onResponse(Call<List<ResponseDosisVacuna>> call, Response<List<ResponseDosisVacuna>> response) {
+                if (response.isSuccessful()) {
+                    lista = response.body();
+                    adapter = new MyVacunaRecyclerViewAdapter(getActivity(), lista);
+                    recyclerView.setAdapter(adapter);
+                    recyclerView.setVisibility(View.VISIBLE);
+                    progressBar.setVisibility(View.GONE);
+                    frameCarga.setVisibility(View.GONE);
+                    if (lista.size() == 0){
+                        frameCarga.setVisibility(View.VISIBLE);
+                    }
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<List<ResponseDosisVacuna>> call, Throwable t) {
+                if (t.getMessage().equals(Constants.NET_ERROR)) {
+                    new SweetAlertDialog(getActivity(), SweetAlertDialog.ERROR_TYPE)
+                            .setTitleText("ERROR DE CONEXION")
+                            .setContentText("Revise su conexion a internet")
+                            .show();
+                } else {
+                    new SweetAlertDialog(getActivity(), SweetAlertDialog.ERROR_TYPE)
+                            .setTitleText("ERROR")
+                            .setContentText("Ocurrio un error")
+                            .show();
+                }
+            }
+        });
     }
 
     @Override

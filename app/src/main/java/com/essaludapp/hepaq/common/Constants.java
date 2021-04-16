@@ -2,11 +2,12 @@ package com.essaludapp.hepaq.common;
 
 public class Constants {
 
-    public static final String API_BASE_URL = "http://hepaq.net//apiMovil/";
-    //public static final String API_BASE_URL = "http:/192.168.1.101/Proyecto_Essalud/apiMovil/";
+    //public static final String API_BASE_URL = "http://hepaq.net//apiMovil/";
+    public static final String API_BASE_URL = "http://192.168.1.101/Proyecto_Essalud/apiMovil/";
     public static final String API_FILES_URL = "";
 
     //Preferences
+    public static final String PREF_RECORDAR = "PREF_RECORDAR";
     public static final String PREF_TOKEN = "PREF_TOKEN";
     public static final String PREF_USERNAME = "PREF_USERNAME";
     public static final String PREF_DOCUMENTO = "PREF_DOCUMENTO";

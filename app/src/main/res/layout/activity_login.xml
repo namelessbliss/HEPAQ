@@ -11,6 +11,7 @@
     <com.dd.processbutton.iml.ActionProcessButton
         android:id="@+id/btnConfir"
         android:layout_width="0dp"
+        android:fontFamily="@font/lato_bold"
         android:layout_height="wrap_content"
         android:layout_marginTop="128dp"
         android:layout_marginBottom="64dp"
@@ -38,6 +39,7 @@
         android:layout_marginTop="32dp"
         android:gravity="center"
         android:text="HEPAQ"
+        android:fontFamily="@font/lato_bold"
         android:textColor="#f7f7f7"
         android:textSize="56sp"
         android:theme="@style/titulo_gigante_inverse"
@@ -128,4 +130,17 @@
         app:srcCompat="@drawable/ic_calendar"
         app:tint="@color/colorEdt"
         tools:ignore="VectorDrawableCompat" />
+
+    <CheckBox
+        android:id="@+id/cbRecordar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:theme="@style/texto_inverse"
+        android:textColor="@color/md_white_1000"
+        android:checked="true"
+        android:layout_marginTop="8dp"
+        android:text="@string/recordar_datos"
+        app:layout_constraintStart_toStartOf="@+id/etFechaNacimiento"
+        app:layout_constraintTop_toBottomOf="@+id/etFechaNacimiento" />
 </androidx.constraintlayout.widget.ConstraintLayout>

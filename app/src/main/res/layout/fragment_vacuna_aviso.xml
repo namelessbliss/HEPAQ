@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,94 +7,62 @@
     xmlns:custom="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.vacuna.VacunaAvisoFragment">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:foreground="?android:attr/selectableItemBackground"
-        app:cardBackgroundColor="#E2E2E2"
-        app:cardCornerRadius="10dp"
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_gravity="center"
+        android:layout_marginBottom="10dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp" />
+
+    <FrameLayout
+        android:id="@+id/frameCarga"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="16dp"
-            android:background="@drawable/blue_gradient1">
+            android:gravity="center">
+
+            <ProgressBar
+                android:id="@+id/progress"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignStart="@+id/tvCargando"
+                android:layout_alignEnd="@+id/tvCargando"
+                android:layout_marginStart="0dp"
+                android:layout_marginEnd="0dp" />
 
             <TextView
-                android:id="@+id/tvMensajeVacuna"
-                style="@style/texto_inverse"
-                android:layout_width="0dp"
+                android:id="@+id/tvCargando"
+                style="@style/texto"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:fontFamily="@font/roboto_medium"
-                android:text="TextView"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:layout_below="@id/progress"
+                android:fontFamily="@font/lato_italic"
+                android:text="@string/no_vacunas"
+                android:textColor="@color/profileEditTextColor" />
 
-            <TextView
-                android:id="@+id/tvFecha"
-                style="@style/texto_inverse"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
-                android:text="TextView"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/tvMensajeVacuna"
-                app:layout_constraintTop_toBottomOf="@+id/tvMensajeVacuna" />
 
-            <TextView
-                android:id="@+id/tvTipo"
-                style="@style/texto_inverse"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
-                android:text="TextView"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/tvFecha"
-                app:layout_constraintTop_toBottomOf="@+id/tvFecha" />
+        </RelativeLayout>
 
-            <com.dd.processbutton.iml.ActionProcessButton
-                android:id="@+id/btnConfir"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="16dp"
-                android:background="@drawable/bg_btn_circular"
-                android:text="@string/string_confirmar_asistencia"
-                android:textAllCaps="false"
-                android:textColor="@android:color/white"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvTipo"
-                custom:pb_colorComplete="@color/green_complete"
-                custom:pb_colorError="@color/red_error"
-                custom:pb_colorNormal="@color/blue_normal"
-                custom:pb_colorPressed="@color/blue_pressed"
-                custom:pb_colorProgress="@color/purple_progress"
-                custom:pb_textComplete="CORRECTO"
-                custom:pb_textError="ERROR"
-                custom:pb_textProgress="INGRESANDO..." />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
 
-    </androidx.cardview.widget.CardView>
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list"
+        android:name="com.example.prototipo.ui.vacuna.VacunaAvisoFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:textAppearance="@style/TextAppearance.AppCompat.Caption"
+        app:layoutManager="LinearLayoutManager"
+        tools:context=".ui.vacuna.VacunaAvisoFragment"
+        tools:listitem="@layout/vacuna_aviso_list_item" />
+
+</FrameLayout>

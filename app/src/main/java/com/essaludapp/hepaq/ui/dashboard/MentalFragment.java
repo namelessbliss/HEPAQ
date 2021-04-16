@@ -23,7 +23,7 @@ public class MentalFragment extends Fragment {
 
     private SpeedView estres, fantastico, cono;
     private ViewGroup frameCarga, graficos;
-    private TextView tvCargando;
+    private TextView tvCargando, tvPuntajeFinal, tvResultado, tvNota;
     boolean lastError = true;
 
     private Button btnTests;
@@ -61,6 +61,9 @@ public class MentalFragment extends Fragment {
         frameCarga = view.findViewById(R.id.frameCarga);
         graficos = view.findViewById(R.id.graficos);
         tvCargando = view.findViewById(R.id.tvCargando);
+        tvPuntajeFinal = view.findViewById(R.id.tvPuntajeFinal);
+        tvResultado = view.findViewById(R.id.tvResultado);
+        tvNota = view.findViewById(R.id.tvNota);
         estres = view.findViewById(R.id.estres);
         fantastico = view.findViewById(R.id.fantastico);
         cono = view.findViewById(R.id.cono);
@@ -133,6 +136,29 @@ public class MentalFragment extends Fragment {
             Log.e("MentalFragment", e.getMessage());
         }
 
+
+        if (fantas >= 0 && fantas <= 46) {
+            tvResultado.setText(getString(R.string.test_fantastico_puntaje_0_46));
+            tvNota.setText(getString(R.string.test_fantastico_puntaje_nota));
+        }
+        if (fantas >= 47 && fantas <= 72) {
+            tvResultado.setText(getString(R.string.test_fantastico_puntaje_47_72));
+            tvNota.setVisibility(View.GONE);
+        }
+        if (fantas >= 73 && fantas <= 84) {
+            tvResultado.setText(getString(R.string.test_fantastico_puntaje_73_84));
+            tvNota.setVisibility(View.GONE);
+        }
+        if (fantas >= 85 && fantas <= 102) {
+            tvResultado.setText(getString(R.string.test_fantastico_puntaje_85_102));
+            tvNota.setVisibility(View.GONE);
+        }
+        if (fantas >= 103 && fantas <= 120) {
+            tvResultado.setText(getString(R.string.test_fantastico_puntaje_103_120));
+            tvNota.setVisibility(View.GONE);
+        }
+
+        tvPuntajeFinal.setText("Puntaje Final: " + fantas + "");
         estres.speedTo(estresIndice);
         fantastico.speedTo(fantas);
         cono.speedTo(con);

@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -41,6 +42,7 @@ public class LoginActivity extends AppCompatActivity implements ProgressGenerato
     private ActionProcessButton btnLogin;
     private ProgressGenerator progressGenerator;
     private boolean loginCorrecto = false;
+    private CheckBox cbRecordar;
 
 
     private HEPAQClient hepaqClient;
@@ -68,7 +70,7 @@ public class LoginActivity extends AppCompatActivity implements ProgressGenerato
         try {
             etDNI.setText(SharedPreferencesManager.getStringValue(Constants.PREF_DOCUMENTO));
             etfechaNacimiento.setText(SharedPreferencesManager.getStringValue(Constants.PREF_FECHA_NACIMIENTO));
-        }catch (Exception e){
+        } catch (Exception e) {
 
         }
 
@@ -83,6 +85,7 @@ public class LoginActivity extends AppCompatActivity implements ProgressGenerato
         etDNI = findViewById(R.id.etDNI);
         etfechaNacimiento = findViewById(R.id.etFechaNacimiento);
         imgCalendario = findViewById(R.id.imgCalendario);
+        cbRecordar = findViewById(R.id.cbRecordar);
 
         btnLogin = (ActionProcessButton) findViewById(R.id.btnConfir);
         btnLogin.setMode(ActionProcessButton.Mode.PROGRESS);
@@ -126,11 +129,16 @@ public class LoginActivity extends AppCompatActivity implements ProgressGenerato
                                     onFailure(call, new Throwable());
                                 } else {
                                     //Almacena preferences del login
-                                    SharedPreferencesManager.setStringValue(Constants.PREF_DOCUMENTO, response.body().getDocumento());
+                                    if (cbRecordar.isChecked()) {
+                                        SharedPreferencesManager.setBooleanValue(Constants.PREF_RECORDAR, true);
+                                        SharedPreferencesManager.setStringValue(Constants.PREF_DOCUMENTO, response.body().getDocumento());
+                                        SharedPreferencesManager.setStringValue(Constants.PREF_FECHA_NACIMIENTO, response.body().getFechaNacimiento());
+                                    }else {
+                                        SharedPreferencesManager.setBooleanValue(Constants.PREF_RECORDAR, false);
+                                    }
                                     SharedPreferencesManager.setStringValue(Constants.PREF_APELLIDO, response.body().getApellidos());
                                     SharedPreferencesManager.setStringValue(Constants.PREF_NOMBRE, response.body().getNombres());
                                     SharedPreferencesManager.setStringValue(Constants.PREF_SEXO, response.body().getApellidos());
-                                    SharedPreferencesManager.setStringValue(Constants.PREF_FECHA_NACIMIENTO, response.body().getFechaNacimiento());
                                     SharedPreferencesManager.setStringValue(Constants.PREF_DIRECCION, response.body().getDireccion());
                                     SharedPreferencesManager.setStringValue(Constants.PREF_TELEFONO, response.body().getTelefono());
                                     SharedPreferencesManager.setStringValue(Constants.PREF_CORREO, response.body().getEmail());

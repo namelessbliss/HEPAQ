@@ -217,6 +217,7 @@
                 android:layout_marginStart="32dp"
                 android:layout_marginTop="150dp"
                 android:layout_marginEnd="32dp"
+                android:padding="8dp"
                 android:visibility="visible"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -228,7 +229,7 @@
                     android:padding="8dp">
 
                     <TextView
-                        android:id="@+id/textView34"
+                        android:id="@+id/tvPuntajeFinal"
                         style="@style/texto_pequeño"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -241,20 +242,7 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/textView37"
-                        style="@style/texto_pequeño"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:text="@string/test_fantastico_puntaje2"
-                        android:textStyle="italic"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView34" />
-
-                    <TextView
-                        android:id="@+id/textView40"
+                        android:id="@+id/tvResultado"
                         style="@style/texto_pequeño"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -265,62 +253,10 @@
                         android:textStyle="italic"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView37" />
+                        app:layout_constraintTop_toBottomOf="@+id/tvPuntajeFinal" />
 
                     <TextView
-                        android:id="@+id/textView41"
-                        style="@style/texto_pequeño"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:text="@string/test_fantastico_puntaje_47_72"
-                        android:textStyle="italic"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView40" />
-
-                    <TextView
-                        android:id="@+id/textView42"
-                        style="@style/texto_pequeño"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:text="@string/test_fantastico_puntaje_73_84"
-                        android:textStyle="italic"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView41" />
-
-                    <TextView
-                        android:id="@+id/textView43"
-                        style="@style/texto_pequeño"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:text="@string/test_fantastico_puntaje_85_102"
-                        android:textStyle="italic"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView42" />
-
-                    <TextView
-                        android:id="@+id/textView44"
-                        style="@style/texto_pequeño"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:text="@string/test_fantastico_puntaje_103_120"
-                        android:textStyle="italic"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView43" />
-
-                    <TextView
-                        android:id="@+id/textView45"
+                        android:id="@+id/tvNota"
                         style="@style/texto_pequeño"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -330,7 +266,7 @@
                         android:text="@string/test_fantastico_puntaje_nota"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView44" />
+                        app:layout_constraintTop_toBottomOf="@+id/tvResultado" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 

@@ -214,12 +214,12 @@
 
     <string name="test_fantastico_puntaje1">Puntaje Final: </string>
     <string name="test_fantastico_puntaje2">Suma de todos los resultados y multiplica el puntaje final por dos.  Mira lo que significa tu puntaje y sigue las recomendaciones</string>
-    <string name="test_fantastico_puntaje_0_46">• De 0 a 46   Estás en la zona de peligro</string>
-    <string name="test_fantastico_puntaje_47_72">• De   47 a 72 Algo bajo, podrías mejorar</string>
-    <string name="test_fantastico_puntaje_73_84">•De   73 a 84 Adecuado, estás bien.</string>
-    <string name="test_fantastico_puntaje_85_102">• De  85 a 102 Buen trabajo. Estás en el camino correcto.</string>
-    <string name="test_fantastico_puntaje_103_120">• De 103 a 120 Felicitaciones. Tienes un estilo de vida Fantástico</string>
-    <string name="test_fantastico_puntaje_nota">Nota: El puntaje total no significa que has fallado. Siempre es posible cambiar el estilo de vida, empezando ahora. Mira las áreas donde has tenido 0 ó 1 punto y decide por donde quieres empezar a cambiar. Buena suerte.</string>
+    <string name="test_fantastico_puntaje_0_46">• Estás en la zona de peligro</string>
+    <string name="test_fantastico_puntaje_47_72">• Algo bajo, podrías mejorar</string>
+    <string name="test_fantastico_puntaje_73_84">• Adecuado, estás bien.</string>
+    <string name="test_fantastico_puntaje_85_102">• Buen trabajo. Estás en el camino correcto.</string>
+    <string name="test_fantastico_puntaje_103_120">• Felicitaciones. Tienes un estilo de vida Fantástico</string>
+    <string name="test_fantastico_puntaje_nota">Nota: El puntaje total no significa que has fallado. Siempre es posible cambiar el estilo de vida, empezando ahora.</string>
 
     <!-- TEST ESTRES -->
     <string name="estres_title">Bienvenido al Cuestionario de Estrés Percibido PSS – 14</string>
@@ -347,5 +347,13 @@
     <string name="cono_p10_op3">c.	Consumo de aceite de oliva o sacha inchi   </string>
     <string name="cono_p10_op4">d. Todas. </string>
     <string name="test_conocimiento">Test conocimiento</string>
+    <string name="cerrar_sesion">Cerrar Sesión</string>
+    <string name="recordar_datos">Recordar Datos</string>
+    <string name="compartir">Compartir</string>
+    <string name="no_atenciones">No hay atenciones registradas aun</string>
+    <string name="no_vacunas">No hay confirmaciones de vacunas registradas</string>
+    <string name="no_vacunas_registro">No hay vacunas registradas aun</string>
+    <string name="no_ecografias">No hay ecografias registradas aun</string>
+    <string name="no_laboratorios">No hay laboratorios registrados aun</string>
 
 </resources>
