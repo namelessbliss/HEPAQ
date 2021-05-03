@@ -71,16 +71,26 @@ public class MyAtencionRecyclerViewAdapter extends RecyclerView.Adapter<MyAtenci
             holder.btnPdf.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
+                    holder.btnPdf.setClickable(false);
                     Dexter.withActivity((Activity) ctx)
                             .withPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
                             .withListener(new PermissionListener() {
                                 @Override
                                 public void onPermissionGranted(PermissionGrantedResponse response) {
-                                    File file = utils.createPDFAtencion(ctx,mValues.get(position));
-                                    Intent intent = new Intent(ctx, PdfViewerActivity.class);
-                                    intent.putExtra("pdf", file.getAbsolutePath());
-                                    ctx.startActivity(intent);
+                                    new Thread(new Runnable() {
+                                        public void run() {
+                                            try {
+                                                File file = utils.createPDFAtencion(ctx, mValues.get(position));
+                                                Intent intent = new Intent(ctx, PdfViewerActivity.class);
+                                                intent.putExtra("pdf", file.getAbsolutePath());
+                                                holder.btnPdf.setClickable(true);
+                                                ctx.startActivity(intent);
+                                            } catch (Exception e) {
+
+                                            }
+
+                                        }
+                                    }).start();
                                 }
 
                                 @Override

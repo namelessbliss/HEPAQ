@@ -14,7 +14,6 @@ import com.essaludapp.hepaq.R;
 import com.essaludapp.hepaq.common.Constants;
 import com.essaludapp.hepaq.common.SharedPreferencesManager;
 import com.essaludapp.hepaq.common.Utils;
-import com.essaludapp.hepaq.common.Vacuna;
 import com.essaludapp.hepaq.retrofit.HEPAQClient;
 import com.essaludapp.hepaq.retrofit.HEPAQService;
 import com.essaludapp.hepaq.retrofit.response.vacunas.ResponseConfirmarVacuna;

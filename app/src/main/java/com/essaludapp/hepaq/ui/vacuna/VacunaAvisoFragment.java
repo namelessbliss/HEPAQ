@@ -18,14 +18,10 @@ import android.widget.TextView;
 import com.essaludapp.hepaq.R;
 import com.essaludapp.hepaq.common.Constants;
 import com.essaludapp.hepaq.common.SharedPreferencesManager;
-import com.essaludapp.hepaq.common.Vacuna;
 import com.essaludapp.hepaq.retrofit.HEPAQClient;
 import com.essaludapp.hepaq.retrofit.HEPAQService;
-import com.essaludapp.hepaq.retrofit.response.atenciones.ResponseAtenciones;
 import com.essaludapp.hepaq.retrofit.response.vacunas.ResponseDosisVacuna;
-import com.essaludapp.hepaq.ui.atenciones.MyAtencionRecyclerViewAdapter;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;

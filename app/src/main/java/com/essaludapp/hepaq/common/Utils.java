@@ -17,10 +17,13 @@ import com.essaludapp.hepaq.ui.LoginActivity;
 import com.essaludapp.hepaq.ui.ProfileActivity;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
+import com.itextpdf.text.List;
 import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
@@ -46,6 +49,7 @@ public class Utils {
         private Font fHighText = new Font(Font.FontFamily.COURIER, 16, Font.BOLD, BaseColor.RED);*/
     PdfPCell[] cells;
     float spacing = 0.2f;
+    int contadorEcografia = 0;
 
     public void cerrarSession(AppCompatActivity activity1, AppCompatActivity activity2) {
         try {
@@ -302,83 +306,218 @@ public class Utils {
             PdfWriter.getInstance(document, new FileOutputStream(pdf));
             document.open();
 
+            try {
+                Calendar currentTime = Calendar.getInstance();
+                String fech = currentTime.get(Calendar.YEAR) + "-" + (currentTime.get(Calendar.MONTH) + 1) + "-" + currentTime.get(Calendar.DAY_OF_MONTH);
+                String[] fechaActual = getMonthYear(fech);
+
+                Paragraph paragraph1 = new Paragraph("Chachapoyas, " + fechaActual[0] + " de " + fechaActual[1] + " del " + fechaActual[2], fFecha);
+                paragraph1.setAlignment(Element.ALIGN_RIGHT);
+
+                document.add(paragraph1);
+            } catch (DocumentException e) {
+                System.out.println(e.getMessage());
+            }
+
             Paragraph paragraph = null;
             try {
-                paragraph = new Paragraph("CARTA CIRCULAR N°" + atencion.getEcografiaObj().getIdEco() + "- PRVR-RAAM-ESSALUD-2020", fTitle);
+                paragraph = new Paragraph("DIAGNÓSTICO(ECOGRAFÍA).", fTitle);
             } catch (Exception e) {
                 e.printStackTrace();
-                paragraph = new Paragraph("CARTA CIRCULAR N° 322 - PRVR-RAAM-ESSALUD-2020", fTitle);
+                paragraph = new Paragraph("DIAGNÓSTICO(ECOGRAFÍA).", fTitle);
             }
-            paragraph.setAlignment(Element.ALIGN_CENTER);
+            paragraph.setAlignment(Element.ALIGN_LEFT);
 
             document.add(paragraph);
 
-            Calendar currentTime = Calendar.getInstance();
-            String fech = currentTime.get(Calendar.YEAR) + "-" + (currentTime.get(Calendar.MONTH) + 1) + "-" + currentTime.get(Calendar.DAY_OF_MONTH);
-            String[] fechaActual = getMonthYear(fech);
-
-            Paragraph paragraph1 = new Paragraph("Chachapoyas, " + fechaActual[0] + " de " + fechaActual[1] + " del " + fechaActual[2], fFecha);
-            paragraph1.setAlignment(Element.ALIGN_RIGHT);
-
-            document.add(paragraph1);
-
-            Paragraph paragraph2 = new Paragraph("SEÑOR(A):", fNormal);
-
-            document.add(paragraph2);
-
-            Paragraph paragraph3 = new Paragraph(atencion.getPacienteObj().getApellidos() + " " + atencion.getPacienteObj().getNombres(), fNormal);
-
-            document.add(paragraph3);
-
-            Paragraph paragraph4 = new Paragraph("Presente. -", fNormalBold);
-
-            document.add(paragraph4);
-
-            Paragraph paragraph5 = new Paragraph("ASUNTO: INFORMO RESULTADOS DE ATENCION DE SALUD", fNormal);
-
-            document.add(paragraph5);
-
-            String parr = "La presente lleva muestras de nuestro aprecio y a la vez nos permite compartir con usted la opinión de nuestro equipo de trabajo quienes han evaluado al detalle los registros con la información que usted mismo nos brindó junto a los resultados de los exámenes auxiliares llevados a cabo en el desarrollo de la Atención Preventiva realizada, siendo estas nuestras conclusiones:";
-            Paragraph paragraph6 = new Paragraph(parr, fNormal);
-
-            document.add(paragraph6);
-
-            Paragraph paragraph7 = new Paragraph("RESULTADOS DE ECOGRAFIA", fNormalBold);
-
-            document.add(paragraph7);
-
-
-            String cabecera1[] = new String[]{"DESCRIPCION", "RESULTADO"};
-            Paragraph pt = new Paragraph("", fText);
-            pt.setSpacingBefore(spacing);
-            pt.setSpacingAfter(spacing);
-            PdfPTable table1 = new PdfPTable(cabecera1.length);
+            String cabecera[] = new String[]{"A. IMAGEN", "AUSENCIA DE ESTEATOSIS"};
+            String cabecera1[] = new String[]{"B. IMAGEN", "ESTEATOSIS LEVE", "ESTEATOSIS MODERADO", "ESTEATOSIS GRAVE"};
+            Paragraph pt0 = new Paragraph("", fText);
+            pt0.setSpacingBefore(spacing);
+            pt0.setSpacingAfter(spacing);
+            PdfPTable table = new PdfPTable(new float[]{2.5f, 7.5f});
+            PdfPTable table1 = new PdfPTable(new float[]{2.5f, 2.5f, 2.5f, 2.5f});
+            table.getDefaultCell().setHorizontalAlignment(Element.ALIGN_CENTER);
+            table.setHorizontalAlignment(Element.ALIGN_JUSTIFIED_ALL);
             table1.getDefaultCell().setHorizontalAlignment(Element.ALIGN_CENTER);
+            table1.setHorizontalAlignment(Element.ALIGN_JUSTIFIED_ALL);
+            for (int i = 0; i < cabecera.length; i++) {
+                table.addCell(new Phrase(cabecera[i], fTitle));
+                //cells[i].setPadding(10);
+            }
+            table.setHeaderRows(1);
+
+            try {
+                table.addCell(validaString("Ecografía imagen significativa"));
+                table.addCell(validaString(""));
+            } catch (Exception e) {
+                e.printStackTrace();
+                table.addCell(validaString("Ecografía imagen significativa"));
+                table.addCell(validaString(""));
+            }
+
             for (int i = 0; i < cabecera1.length; i++) {
-                table1.addCell(cabecera1[i]);
+                table1.addCell(new Phrase(cabecera1[i], fTitle));
                 //cells[i].setPadding(10);
             }
             table1.setHeaderRows(1);
 
             try {
-                for (int i = 0; i < atencion.getEcografiaObj().getListaEcografiaCitas().size(); i++) {
-                    table1.addCell(validaString(atencion.getEcografiaObj().getListaEcografiaCitas().get(i).getDescripcion()));
-                    table1.addCell(validaString(atencion.getEcografiaObj().getListaEcografiaCitas().get(i).getResultado() + ""));
-                }
+                table1.addCell(validaString("Ecografía imagen significativa"));
+                table1.addCell(validaString(""));
+                table1.addCell(validaString(""));
+                table1.addCell(validaString(""));
             } catch (Exception e) {
                 e.printStackTrace();
+                table1.addCell(validaString("Ecografía imagen significativa"));
+                table1.addCell(validaString(""));
                 table1.addCell(validaString(""));
                 table1.addCell(validaString(""));
             }
 
-            pt.add(table1);
-            document.add(pt);
+            pt0.add(table);
+            pt0.add(table1);
+            document.add(pt0);
+
+            Paragraph par2 = null;
+            try {
+                par2 = new Paragraph("Ecografia imagen significativa", fTitle);
+            } catch (Exception e) {
+                e.printStackTrace();
+                par2 = new Paragraph("Ecografia imagen significativa", fTitle);
+            }
+            par2.setAlignment(Element.ALIGN_LEFT);
+
+            List lista1 = new List();
+            lista1.add("LEVE \nHipercogenicidad parénquima hepático (comparación con corteza renal y brazo).");
+            lista1.add("MODERADO \nAtenuación: Perdida definición/ no visualización estracturas profundas( diafragma, vasos, segmentos posteriores hepáticos).");
+            lista1.add("GRAVE \nMayor refracción, opacidad, infiltración grasa en el parénquima hepático.");
+
+            Paragraph par3 = null;
+            try {
+                par3 = new Paragraph("Ecografia Sin imagen significativa", fTitle);
+            } catch (Exception e) {
+                e.printStackTrace();
+                par3 = new Paragraph("Ecografia Sin imagen significativa", fTitle);
+            }
+            par3.setAlignment(Element.ALIGN_LEFT);
+
+            List lista2 = new List();
+            lista2.add("No se evidencia alteraciones según imagen.");
+
+            document.add(par2);
+            document.add(lista1);
+            document.add(par3);
+            document.add(lista2);
+
+            Paragraph par4 = null;
+            try {
+                par4 = new Paragraph("DIAGNÓSTIVO FINAL:", fTitle);
+            } catch (Exception e) {
+                e.printStackTrace();
+                par4 = new Paragraph("Ecografia Sin imagen significativa", fTitle);
+            }
+            par4.setAlignment(Element.ALIGN_LEFT);
+
+            document.add(par4);
+
+            String cabecera3[] = new String[]{"PARAMETROS", "ESTADO DE ESTEATOSIS"};
+            Paragraph pt3 = new Paragraph("", fText);
+            pt3.setSpacingBefore(spacing);
+            pt3.setSpacingAfter(spacing);
+            PdfPTable table3 = new PdfPTable(new float[]{7.5f, 2.5f});
+            table3.setHorizontalAlignment(Element.ALIGN_JUSTIFIED_ALL);
+            table3.getDefaultCell().setHorizontalAlignment(Element.ALIGN_CENTER);
+            for (int i = 0; i < cabecera3.length; i++) {
+                table3.addCell(new Phrase(cabecera3[i], fTitle));
+                //cells[i].setPadding(10);
+            }
+            table.setHeaderRows(1);
+
+            try {
+                Phrase frase = new Phrase(validaString(generarListado(atencion)));
+                PdfPCell celda = new PdfPCell(frase);
+                celda.setHorizontalAlignment(Element.ALIGN_LEFT);
+                table3.addCell(celda);
+                if (contadorEcografia >= 2)
+                    table3.addCell(validaString("ESTEATOSIS HEPATICA"));
+                else
+                    table3.addCell(validaString("NO ESTEATOSIS HEPATICA"));
+            } catch (Exception e) {
+                e.printStackTrace();
+                table3.addCell(validaString("Ecografía imagen significativa"));
+                table3.addCell(validaString(""));
+            }
+
+            pt3.add(table3);
+            document.add(pt3);
 
             document.close();
         } catch (Exception e) {
 
         }
         return pdf;
+    }
+
+    private String generarListado(ResponseAtenciones atencion) {
+        contadorEcografia = 0;
+        String listado = "";
+        try {
+            if (atencion.getAtencionMedicoObj().getPerAbdominal() >= 90) {
+                listado += "- Cicunferencia abdominal: " + atencion.getAtencionMedicoObj().getPerAbdominal() + " (> 90 cm)\n";
+                contadorEcografia++;
+            } else
+                listado += "- Cicunferencia abdominal: " + atencion.getAtencionMedicoObj().getPerAbdominal() + " (< 90 cm)\n";
+        } catch (Exception e) {
+            listado += "- Cicunferencia abdominal: -\n";
+        }
+
+        try {
+            if (Float.parseFloat(atencion.getAtencionMedicoObj().getPresionArterialMm()) >= 130 && Float.parseFloat(atencion.getAtencionMedicoObj().getPresionArterialHg()) >= 85) {
+                contadorEcografia++;
+                listado += "- Presión arterial: " + atencion.getAtencionMedicoObj().getPresionArterialMm() + "/" + atencion.getAtencionMedicoObj().getPresionArterialHg() + " (> 130/85 mmhg)\n";
+            } else
+                listado += "- Presión arterial: " + atencion.getAtencionMedicoObj().getPresionArterialMm() + "/" + atencion.getAtencionMedicoObj().getPresionArterialHg() + " (< 130/85 mmhg)\n";
+        } catch (Exception e) {
+            listado += "- Presión arterial: -\n";
+        }
+
+        float glucosa = 0, trigli = 0, hdl = 0;
+        try {
+            for (int i = 0; i < atencion.getLaboratorioObj().getListaLaboratorioCitas().size(); i++) {
+                if (atencion.getLaboratorioObj().getListaLaboratorioCitas().get(i).getDescripcion().startsWith("GLUCOSA") || atencion.getLaboratorioObj().getListaLaboratorioCitas().get(i).getDescripcion().endsWith("GLUCOSA"))
+                    glucosa = atencion.getLaboratorioObj().getListaLaboratorioCitas().get(i).getResultado();
+                else if (atencion.getLaboratorioObj().getListaLaboratorioCitas().get(i).getDescripcion().startsWith("TRIGLICERIDOS") || atencion.getLaboratorioObj().getListaLaboratorioCitas().get(i).getDescripcion().endsWith("TRIGLICERIDOS"))
+                    trigli = atencion.getLaboratorioObj().getListaLaboratorioCitas().get(i).getResultado();
+                else if (atencion.getLaboratorioObj().getListaLaboratorioCitas().get(i).getDescripcion().endsWith("HDL") || atencion.getLaboratorioObj().getListaLaboratorioCitas().get(i).getDescripcion().endsWith("HDL "))
+                    hdl = atencion.getLaboratorioObj().getListaLaboratorioCitas().get(i).getResultado();
+/*                else if (atencion.getLaboratorioObj().getListaLaboratorioCitas().get(i).getDescripcion().endsWith("LDL") || atencion.getLaboratorioObj().getListaLaboratorioCitas().get(i).getDescripcion().endsWith("LDL "))
+                    colesterolLdl = atencion.getLaboratorioObj().getListaLaboratorioCitas().get(i).getResultado();
+                else if (atencion.getLaboratorioObj().getListaLaboratorioCitas().get(i).getDescripcion().startsWith("HEMOGLOBINA") || atencion.getLaboratorioObj().getListaLaboratorioCitas().get(i).getDescripcion().endsWith("HEMOGLOBINA"))
+                    hemoglobina = atencion.getLaboratorioObj().getListaLaboratorioCitas().get(i).getResultado();*/
+            }
+            if (glucosa >= 100) {
+                contadorEcografia++;
+                listado += "- Glucosa: " + glucosa + " (> 100 mg/dl)\n";
+            } else
+                listado += "- Glucosa: " + glucosa + " (< 100 mg/dl)\n";
+            if (trigli >= 0) {
+                listado += "- Triglicéridos: " + trigli + "\n";
+            } else
+                listado += "- Triglicéridos: " + trigli + "\n";
+            if (hdl <= 40) {
+                contadorEcografia++;
+                listado += "- HDL reducido: " + hdl + " (< 40 mg/dl)\n";
+            } else
+                listado += "- HDL reducido: " + hdl + " (> 40 mg/dl)\n";
+        } catch (Exception e) {
+            listado += "- Glucosa: -\n";
+            listado += "- Triglicéridos: -\n";
+            listado += "- HDL reducido: -\n";
+        }
+
+
+        return listado;
     }
 
     public File createPDFAtencion(Context context, ResponseAtenciones atencion) {

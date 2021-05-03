@@ -20,7 +20,6 @@ import com.essaludapp.hepaq.R;
 import com.essaludapp.hepaq.common.Constants;
 import com.essaludapp.hepaq.common.SharedPreferencesManager;
 import com.essaludapp.hepaq.common.Utils;
-import com.essaludapp.hepaq.common.Vacuna;
 import com.essaludapp.hepaq.retrofit.response.vacunas.ResponseDosisVacuna;
 import com.essaludapp.hepaq.ui.PdfViewerActivity;
 import com.karumi.dexter.Dexter;
@@ -79,15 +78,21 @@ public class MyVacunaRecyclerViewAdapter extends RecyclerView.Adapter<MyVacunaRe
             holder.btnPdf.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    holder.btnPdf.setClickable(false);
                     Dexter.withActivity((Activity) ctx)
                             .withPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
                             .withListener(new PermissionListener() {
                                 @Override
                                 public void onPermissionGranted(PermissionGrantedResponse response) {
-                                    File file = utils.createPDFVacuna(ctx, mValues.get(position));
-                                    Intent intent = new Intent(ctx, PdfViewerActivity.class);
-                                    intent.putExtra("pdf", file.getAbsolutePath());
-                                    ctx.startActivity(intent);
+                                    new Thread(new Runnable() {
+                                        public void run() {
+                                            File file = utils.createPDFVacuna(ctx, mValues.get(position));
+                                            Intent intent = new Intent(ctx, PdfViewerActivity.class);
+                                            intent.putExtra("pdf", file.getAbsolutePath());
+                                            holder.btnPdf.setClickable(true);
+                                            ctx.startActivity(intent);
+                                        }
+                                    }).start();
                                 }
 
                                 @Override

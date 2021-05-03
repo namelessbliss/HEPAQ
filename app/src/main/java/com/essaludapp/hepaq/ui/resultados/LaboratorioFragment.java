@@ -15,15 +15,11 @@ import android.widget.ProgressBar;
 
 import com.essaludapp.hepaq.R;
 import com.essaludapp.hepaq.common.Constants;
-import com.essaludapp.hepaq.common.Laboratorio;
 import com.essaludapp.hepaq.common.SharedPreferencesManager;
 import com.essaludapp.hepaq.retrofit.HEPAQClient;
 import com.essaludapp.hepaq.retrofit.HEPAQService;
 import com.essaludapp.hepaq.retrofit.response.atenciones.ResponseAtenciones;
-import com.essaludapp.hepaq.ui.atenciones.MyAtencionRecyclerViewAdapter;
-import com.karumi.dexter.listener.single.PermissionListener;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;

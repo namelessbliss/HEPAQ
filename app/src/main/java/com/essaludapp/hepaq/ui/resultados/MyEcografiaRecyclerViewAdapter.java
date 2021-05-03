@@ -15,7 +15,6 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.essaludapp.hepaq.R;
-import com.essaludapp.hepaq.common.Ecografia;
 import com.essaludapp.hepaq.common.Utils;
 import com.essaludapp.hepaq.retrofit.response.atenciones.ResponseAtenciones;
 import com.essaludapp.hepaq.ui.PdfViewerActivity;
@@ -70,16 +69,21 @@ public class MyEcografiaRecyclerViewAdapter extends RecyclerView.Adapter<MyEcogr
             holder.btnPdf.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
+                    holder.btnPdf.setClickable(false);
                     Dexter.withActivity((Activity) ctx)
                             .withPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
                             .withListener(new PermissionListener() {
                                 @Override
                                 public void onPermissionGranted(PermissionGrantedResponse response) {
-                                    File file = utils.createPDFEcografia(ctx,mValues.get(position));
-                                    Intent intent = new Intent(ctx, PdfViewerActivity.class);
-                                    intent.putExtra("pdf", file.getAbsolutePath());
-                                    ctx.startActivity(intent);
+                                    new Thread(new Runnable() {
+                                        public void run() {
+                                            File file = utils.createPDFEcografia(ctx, mValues.get(position));
+                                            Intent intent = new Intent(ctx, PdfViewerActivity.class);
+                                            intent.putExtra("pdf", file.getAbsolutePath());
+                                            holder.btnPdf.setClickable(true);
+                                            ctx.startActivity(intent);
+                                        }
+                                    }).start();
                                 }
 
                                 @Override
