@@ -67,14 +67,14 @@ public class MyAvisoVacunaRecyclerViewAdapter extends RecyclerView.Adapter<MyAvi
             holder.tvTipo.setText("Descripción: " + holder.mItem.getDescripcion());
 
             String fechas = "";
-            if (!holder.mItem.getFechaVacuna().isEmpty() && holder.mItem.getFechaVacuna() != null) {
+            if (holder.mItem.getFechaVacuna() != null && !holder.mItem.getFechaVacuna().isEmpty()) {
                 fechas += "Fecha 1: " + holder.mItem.getFechaVacuna();
             }
-            if (!holder.mItem.getFechaVacuna2().isEmpty() && holder.mItem.getFechaVacuna2() != null) {
-                fechas += "\nFecha 2: " + holder.mItem.getFechaVacuna();
+            if (holder.mItem.getFechaVacuna2() != null && !holder.mItem.getFechaVacuna2().isEmpty()) {
+                fechas += "\nFecha 2: " + holder.mItem.getFechaVacuna2();
             }
-            if (!holder.mItem.getFechaVacuna3().isEmpty() && holder.mItem.getFechaVacuna3() != null) {
-                fechas += "\nFecha 3: " + holder.mItem.getFechaVacuna();
+            if (holder.mItem.getFechaVacuna3() != null && !holder.mItem.getFechaVacuna3().isEmpty()) {
+                fechas += "\nFecha 3: " + holder.mItem.getFechaVacuna3();
             }
             holder.tvFecha.setText(fechas);
 
@@ -159,7 +159,7 @@ public class MyAvisoVacunaRecyclerViewAdapter extends RecyclerView.Adapter<MyAvi
 
             @Override
             public void onFailure(Call<ResponseConfirmarVacuna> call, Throwable t) {
-                if (t.getMessage().equals(Constants.NET_ERROR)) {
+                if (t.getMessage().equalsIgnoreCase(Constants.NET_ERROR)) {
                     new SweetAlertDialog(ctx, SweetAlertDialog.ERROR_TYPE)
                             .setTitleText("ERROR DE CONEXION")
                             .setContentText("Revise su conexion a internet")

@@ -141,11 +141,11 @@ public class Utils {
             for (int i = 0; i < examen.length; i++) {
                 if (i == 7) {
                     table1.addCell(validaString(examen[i]));
-                    table1.addCell(validaString(resultados[i] + "/" + resultados[i + 1]));
+                    table1.addCell(validaString(resultados[i]));
                     i++;
                 } else {
                     table1.addCell(validaString(examen[i]));
-                    table1.addCell(validaString(resultados[i] + ""));
+                    table1.addCell(validaString(resultados[i]));
                 }
             }
 
@@ -989,7 +989,7 @@ public class Utils {
     }
 
     private String validaString(String s) {
-        if (s == null || s.isEmpty()) {
+        if (s == null || s.isEmpty() || s.equalsIgnoreCase("null")) {
             return "-";
         } else
             return s;

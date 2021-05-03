@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class ResponseConfirmarVacuna {
 
-    @SerializedName("confirmado")
+    @SerializedName("confirmacion")
     @Expose
     private boolean confirmado;
 

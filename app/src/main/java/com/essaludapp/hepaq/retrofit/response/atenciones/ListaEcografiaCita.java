@@ -12,7 +12,7 @@ public class ListaEcografiaCita {
     private Integer idEcoCita;
     @SerializedName("Resultado")
     @Expose
-    private float resultado;
+    private String resultado;
     @SerializedName("Documento")
     @Expose
     private String documento;
@@ -52,11 +52,11 @@ public class ListaEcografiaCita {
         this.idEcoCita = idEcoCita;
     }
 
-    public float getResultado() {
+    public String getResultado() {
         return resultado;
     }
 
-    public void setResultado(float resultado) {
+    public void setResultado(String resultado) {
         this.resultado = resultado;
     }
 

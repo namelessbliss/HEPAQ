@@ -52,7 +52,7 @@ public class ResultadosActivity extends AppCompatActivity {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new LaboratorioFragment(), "Laboratorio");
         adapter.addFragment(new EcografiaFragment(), "Ecografia");
-        adapter.addFragment(new SimulacionFragment(), "Simulación");
+        adapter.addFragment(new SimulacionFragment(), "Instrumentos PRV");
         viewPager.setAdapter(adapter);
     }
 

@@ -348,12 +348,12 @@ class TestFantasticoActivity : AppCompatActivity() {
                 ),
                 QuestionStep(
                         title = this.resources.getString(R.string.salud_sexualidad),
-                        text = this.resources.getString(R.string.salud_sexualidad_preg_2),
+                        text = this.resources.getString(R.string.salud_sexualidad_preg_3),
                         answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
                                 textChoices = listOf(
-                                        TextChoice(this.resources.getString(R.string.salud_sexualidad_preg_2_op0)),
-                                        TextChoice(this.resources.getString(R.string.salud_sexualidad_preg_2_op1)),
-                                        TextChoice(this.resources.getString(R.string.salud_sexualidad_preg_2_op2))
+                                        TextChoice(this.resources.getString(R.string.salud_sexualidad_preg_3_op0)),
+                                        TextChoice(this.resources.getString(R.string.salud_sexualidad_preg_3_op1)),
+                                        TextChoice(this.resources.getString(R.string.salud_sexualidad_preg_3_op2))
                                 )
                         )
                 ),
@@ -381,7 +381,7 @@ class TestFantasticoActivity : AppCompatActivity() {
                 ),
                 QuestionStep(
                         title = this.resources.getString(R.string.otros),
-                        text = this.resources.getString(R.string.otros_preg_1),
+                        text = this.resources.getString(R.string.otros_preg_3),
                         answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
                                 textChoices = listOf(
                                         TextChoice(this.resources.getString(R.string.otros_preg_3_op0)),
