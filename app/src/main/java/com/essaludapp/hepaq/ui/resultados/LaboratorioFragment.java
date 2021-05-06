@@ -89,14 +89,18 @@ public class LaboratorioFragment extends Fragment {
             public void onResponse(Call<List<ResponseAtenciones>> call, Response<List<ResponseAtenciones>> response) {
                 if (response.isSuccessful()) {
                     lista = response.body();
-                    adapter = new MyLaboratorioRecyclerViewAdapter(getActivity(), lista);
-                    recyclerView.setAdapter(adapter);
-                    recyclerView.setVisibility(View.VISIBLE);
-                    progressBar.setVisibility(View.GONE);
-                    frameCarga.setVisibility(View.GONE);
-                    if (lista.size()==0){
+                    if (lista.get(0).getLaboratorioObj() == null ||
+                            lista.get(0).getLaboratorioObj().getListaLaboratorioCitas().size() == 0) {
                         frameCarga.setVisibility(View.VISIBLE);
+                    } else {
+                        adapter = new MyLaboratorioRecyclerViewAdapter(getActivity(), lista);
+                        recyclerView.setAdapter(adapter);
+                        recyclerView.setVisibility(View.VISIBLE);
+                        progressBar.setVisibility(View.GONE);
+                        frameCarga.setVisibility(View.GONE);
                     }
+
+
                 }
 
             }
@@ -104,6 +108,7 @@ public class LaboratorioFragment extends Fragment {
             @Override
             public void onFailure(Call<List<ResponseAtenciones>> call, Throwable t) {
                 if (t.getMessage().equals(Constants.NET_ERROR)) {
+                    frameCarga.setVisibility(View.VISIBLE);
                     new SweetAlertDialog(getActivity(), SweetAlertDialog.ERROR_TYPE)
                             .setTitleText("ERROR DE CONEXION")
                             .setContentText("Revise su conexion a internet")

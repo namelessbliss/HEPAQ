@@ -57,6 +57,7 @@ public class Utils {
                 SharedPreferencesManager.setStringValue(Constants.PREF_DOCUMENTO, null);
                 SharedPreferencesManager.setStringValue(Constants.PREF_FECHA_NACIMIENTO, null);
             }
+            SharedPreferencesManager.setBooleanValue(Constants.PREF_LOGIN, false);
             SharedPreferencesManager.setStringValue(Constants.PREF_NOMBRE, null);
             SharedPreferencesManager.setStringValue(Constants.PREF_APELLIDO, null);
             SharedPreferencesManager.setStringValue(Constants.PREF_SEXO, null);

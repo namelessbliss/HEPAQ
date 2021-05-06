@@ -12,12 +12,20 @@ import androidx.core.content.ContextCompat
 import com.essaludapp.hepaq.R
 import com.essaludapp.hepaq.common.Constants
 import com.essaludapp.hepaq.common.SharedPreferencesManager
+import com.essaludapp.hepaq.retrofit.HEPAQClient
+import com.essaludapp.hepaq.retrofit.HEPAQService
+import com.essaludapp.hepaq.retrofit.request.RequestRegistrarTest
+import com.essaludapp.hepaq.retrofit.response.tests.Dataform
+import com.essaludapp.hepaq.retrofit.response.tests.ResponseRegistrarTests
 import com.quickbirdstudios.surveykit.*
 import com.quickbirdstudios.surveykit.result.TaskResult
 import com.quickbirdstudios.surveykit.steps.CompletionStep
 import com.quickbirdstudios.surveykit.steps.InstructionStep
 import com.quickbirdstudios.surveykit.steps.QuestionStep
 import com.quickbirdstudios.surveykit.survey.SurveyView
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class TestEstresActivity : AppCompatActivity() {
     private lateinit var survey: SurveyView
@@ -27,6 +35,9 @@ class TestEstresActivity : AppCompatActivity() {
     private lateinit var tvPuntaje: TextView
     private lateinit var tvMensaje: TextView
     private lateinit var btnRegresar: Button
+
+    private lateinit var hepaqService: HEPAQService
+    private lateinit var hepaqClient: HEPAQClient
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -269,6 +280,14 @@ class TestEstresActivity : AppCompatActivity() {
                 tvMensaje.text = getMensajeSegun(suma)
 
                 resultado.visibility = View.VISIBLE
+
+                hepaqClient = HEPAQClient.getInstance()
+                hepaqService = hepaqClient.getHEPAQService()
+
+                val doc = SharedPreferencesManager.getStringValue(Constants.PREF_DOCUMENTO)
+                val test = RequestRegistrarTest(Dataform(doc, suma, 3))
+
+                registrarTest(test)
             }
         }
 
@@ -286,6 +305,32 @@ class TestEstresActivity : AppCompatActivity() {
 
 
         surveyView.start(task, configuration)
+    }
+
+    open fun registrarTest(registrarTest: RequestRegistrarTest) {
+        val s = registrarTest.getDataform().toString()
+        val call: Call<ResponseRegistrarTests> = hepaqService.registrarTest(s)
+        call.enqueue(object : Callback<ResponseRegistrarTests> {
+            override fun onResponse(call: Call<ResponseRegistrarTests>, responseRegistrar: Response<ResponseRegistrarTests>) {
+                if (responseRegistrar.isSuccessful) {
+                    if (responseRegistrar.body()!!.isConfirmado) {
+                        //TODO
+                    } else {
+                        //TODO
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseRegistrarTests>, t: Throwable) {
+                if (t.message.equals(Constants.NET_ERROR, ignoreCase = true)) {
+                    //TODO
+                    println("ERROR DE CONEXION")
+                } else {
+                    //TODO
+                    println("No se pudo confirmar, contacte al administrador")
+                }
+            }
+        })
     }
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {

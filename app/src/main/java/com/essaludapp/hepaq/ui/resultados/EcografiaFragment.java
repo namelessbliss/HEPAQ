@@ -89,20 +89,22 @@ public class EcografiaFragment extends Fragment {
             public void onResponse(Call<List<ResponseAtenciones>> call, Response<List<ResponseAtenciones>> response) {
                 if (response.isSuccessful()) {
                     lista = response.body();
-                    adapter = new MyEcografiaRecyclerViewAdapter(getActivity(), lista);
-                    recyclerView.setAdapter(adapter);
-                    recyclerView.setVisibility(View.VISIBLE);
-                    progressBar.setVisibility(View.GONE);
-                    frameCarga.setVisibility(View.GONE);
-                    if (lista.size() == 0){
+                    if (lista.get(0).getEcografiaObj() == null ||
+                            lista.get(0).getEcografiaObj().getListaEcografiaCitas().size() == 0) {
                         frameCarga.setVisibility(View.VISIBLE);
+                    }else {
+                        adapter = new MyEcografiaRecyclerViewAdapter(getActivity(), lista);
+                        recyclerView.setAdapter(adapter);
+                        recyclerView.setVisibility(View.VISIBLE);
+                        progressBar.setVisibility(View.GONE);
+                        frameCarga.setVisibility(View.GONE);
                     }
                 }
-
             }
 
             @Override
             public void onFailure(Call<List<ResponseAtenciones>> call, Throwable t) {
+                frameCarga.setVisibility(View.VISIBLE);
                 if (t.getMessage().equals(Constants.NET_ERROR)) {
                     new SweetAlertDialog(getActivity(), SweetAlertDialog.ERROR_TYPE)
                             .setTitleText("ERROR DE CONEXION")

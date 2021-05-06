@@ -4,6 +4,8 @@ package com.essaludapp.hepaq.retrofit;
 import com.essaludapp.hepaq.retrofit.request.RequestLogin;
 import com.essaludapp.hepaq.retrofit.response.ResponseLogin;
 import com.essaludapp.hepaq.retrofit.response.atenciones.ResponseAtenciones;
+import com.essaludapp.hepaq.retrofit.response.tests.ResponseListarTest;
+import com.essaludapp.hepaq.retrofit.response.tests.ResponseRegistrarTests;
 import com.essaludapp.hepaq.retrofit.response.vacunas.ResponseConfirmarVacuna;
 import com.essaludapp.hepaq.retrofit.response.vacunas.ResponseDosisVacuna;
 
@@ -48,4 +50,15 @@ public interface HEPAQService {
     @FormUrlEncoded
     Call<ResponseConfirmarVacuna> confirmarDosisVacuna(@Field("id") String id, @Field("dni") String dni);
 
+    @POST("registrarTest.php")
+    @FormUrlEncoded
+    Call<ResponseRegistrarTests> registrarTest(@Field("dataForm") String requestTest);
+
+/*    @POST("registrarTest.php")
+    @FormUrlEncoded
+    Call<ResponseTests> registrarTest(@Body RequestTest requestTest);*/
+
+    @POST("listarTest.php")
+    @FormUrlEncoded
+    Call<ResponseListarTest> getTest(@Field("dni") String dni, @Field("tipo") int tipo);
 }

@@ -37,6 +37,14 @@ public class Constants {
     public static final String IMC = "IMC";
     public static final String PERIMETRO_ABDOMINAL = "PERIMETRO_ABDOMINAL";
 
+    //TEST
+    public static final int TEST_FANTASTICO = 2;
+    public static final int TEST_ESTRES = 3;
+    public static final int TEST_CONOCIMIENTO = 1;
+
+    //LOGIN
+    public static final String PREF_LOGIN = "PREF_LOGIN";
+
 
 
     //startActivityForResult

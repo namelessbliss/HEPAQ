@@ -25,6 +25,7 @@ import com.essaludapp.hepaq.common.Utils;
 import com.essaludapp.hepaq.retrofit.HEPAQClient;
 import com.essaludapp.hepaq.retrofit.HEPAQService;
 import com.essaludapp.hepaq.retrofit.response.atenciones.ResponseAtenciones;
+import com.essaludapp.hepaq.retrofit.response.tests.ResponseListarTest;
 import com.essaludapp.hepaq.ui.LoginActivity;
 import com.essaludapp.hepaq.ui.ProfileActivity;
 import com.essaludapp.hepaq.ui.acerca.AcercaActivity;
@@ -164,6 +165,7 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
         bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         retrofitInit();
         setDatosMedicos();
+        getValoresTest();
     }
 
     private void bindViews() {
@@ -282,6 +284,99 @@ public class DashboardActivity extends AppCompatActivity implements View.OnClick
                 fisicoFragment.visibilidad(false);
             }
         });
+    }
+
+    private void getValoresTest() {
+        String documento = SharedPreferencesManager.getStringValue(Constants.PREF_DOCUMENTO);
+
+        Call<ResponseListarTest> callTestCono = hepaqService.getTest(documento, Constants.TEST_CONOCIMIENTO);
+        Call<ResponseListarTest> callTestFantas = hepaqService.getTest(documento, Constants.TEST_FANTASTICO);
+        Call<ResponseListarTest> callTestEstres = hepaqService.getTest(documento, Constants.TEST_ESTRES);
+
+        if (!(SharedPreferencesManager.getStringValue(Constants.TEST_CONO_SCORE) == null)) {
+            callTestCono.cancel();
+        } else {
+            callTestCono.enqueue(new Callback<ResponseListarTest>() {
+                @Override
+                public void onResponse(Call<ResponseListarTest> call, Response<ResponseListarTest> response) {
+                    if (response.isSuccessful()) {
+
+                        ResponseListarTest test = response.body();
+                        try {
+                            if (test.getResultado() != null) {
+                                SharedPreferencesManager.setStringValue(Constants.TEST_CONO_SCORE, test.getResultado() + "");
+                            } else {
+                                SharedPreferencesManager.setStringValue(Constants.TEST_CONO_SCORE, 0 + "");
+                            }
+                        } catch (Exception e) {
+                            System.out.println(e.getMessage());
+                        }
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<ResponseListarTest> call, Throwable t) {
+                    System.out.println(t.getMessage());
+                }
+            });
+        }
+
+        if (!(SharedPreferencesManager.getStringValue(Constants.TEST_FANTAS_SCORE) == null)) {
+            callTestFantas.cancel();
+        } else {
+            callTestFantas.enqueue(new Callback<ResponseListarTest>() {
+                @Override
+                public void onResponse(Call<ResponseListarTest> call, Response<ResponseListarTest> response) {
+                    if (response.isSuccessful()) {
+
+                        ResponseListarTest test = response.body();
+                        try {
+                            if (test.getResultado() != null) {
+                                SharedPreferencesManager.setStringValue(Constants.TEST_FANTAS_SCORE, test.getResultado() + "");
+                            } else {
+                                SharedPreferencesManager.setStringValue(Constants.TEST_FANTAS_SCORE, 0 + "");
+                            }
+                        } catch (Exception e) {
+                            System.out.println(e.getMessage());
+                        }
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<ResponseListarTest> call, Throwable t) {
+                    System.out.println(t.getMessage());
+                }
+            });
+        }
+
+
+        if (!(SharedPreferencesManager.getStringValue(Constants.TEST_ESTRES_SCORE) == null)) {
+            callTestEstres.cancel();
+        } else {
+            callTestEstres.enqueue(new Callback<ResponseListarTest>() {
+                @Override
+                public void onResponse(Call<ResponseListarTest> call, Response<ResponseListarTest> response) {
+                    if (response.isSuccessful()) {
+                        ResponseListarTest test = response.body();
+                        try {
+                            if (test.getResultado() != null) {
+                                SharedPreferencesManager.setStringValue(Constants.TEST_ESTRES_SCORE, test.getResultado() + "");
+                            } else {
+                                SharedPreferencesManager.setStringValue(Constants.TEST_ESTRES_SCORE, 0 + "");
+                            }
+
+                        } catch (Exception e) {
+                            System.out.println(e.getMessage());
+                        }
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<ResponseListarTest> call, Throwable t) {
+                    System.out.println(t.getMessage());
+                }
+            });
+        }
     }
 
     @Override

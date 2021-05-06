@@ -133,9 +133,10 @@ public class LoginActivity extends AppCompatActivity implements ProgressGenerato
                                         SharedPreferencesManager.setBooleanValue(Constants.PREF_RECORDAR, true);
                                         SharedPreferencesManager.setStringValue(Constants.PREF_DOCUMENTO, response.body().getDocumento());
                                         SharedPreferencesManager.setStringValue(Constants.PREF_FECHA_NACIMIENTO, response.body().getFechaNacimiento());
-                                    }else {
+                                    } else {
                                         SharedPreferencesManager.setBooleanValue(Constants.PREF_RECORDAR, false);
                                     }
+                                    SharedPreferencesManager.setBooleanValue(Constants.PREF_LOGIN, true);
                                     SharedPreferencesManager.setStringValue(Constants.PREF_APELLIDO, response.body().getApellidos());
                                     SharedPreferencesManager.setStringValue(Constants.PREF_NOMBRE, response.body().getNombres());
                                     SharedPreferencesManager.setStringValue(Constants.PREF_SEXO, response.body().getApellidos());
@@ -150,11 +151,14 @@ public class LoginActivity extends AppCompatActivity implements ProgressGenerato
                                     SharedPreferencesManager.setStringValue(Constants.PREF_ID_SEDE, response.body().getIdSede() + "");
                                     loginCorrecto = true;
                                 }
+                            } else {
+                                SharedPreferencesManager.setBooleanValue(Constants.PREF_LOGIN, false);
                             }
                         }
 
                         @Override
                         public void onFailure(Call<ResponseLogin> call, Throwable t) {
+                            SharedPreferencesManager.setBooleanValue(Constants.PREF_LOGIN, false);
                             if (t.getMessage() == null) {
                                 new SweetAlertDialog(LoginActivity.this, SweetAlertDialog.ERROR_TYPE)
                                         .setTitleText("ERROR")
