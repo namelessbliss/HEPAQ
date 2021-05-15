@@ -3,14 +3,18 @@ package com.essaludapp.hepaq.common;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.graphics.pdf.PdfDocument;
 
 import android.os.Environment;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.essaludapp.hepaq.R;
 import com.essaludapp.hepaq.retrofit.response.atenciones.ResponseAtenciones;
 import com.essaludapp.hepaq.retrofit.response.vacunas.ResponseDosisVacuna;
 import com.essaludapp.hepaq.ui.LoginActivity;
@@ -20,6 +24,7 @@ import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
+import com.itextpdf.text.Image;
 import com.itextpdf.text.List;
 import com.itextpdf.text.PageSize;
 import com.itextpdf.text.Paragraph;
@@ -28,6 +33,7 @@ import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -42,6 +48,7 @@ public class Utils {
 
     private Font fTitle = new Font(Font.FontFamily.COURIER, 14, Font.BOLD);
     private Font fText = new Font(Font.FontFamily.COURIER, 12, Font.NORMAL);
+    private Font fEncabezado = new Font(Font.FontFamily.COURIER, 10, Font.NORMAL, BaseColor.GRAY);
     private Font fNormal = new Font(Font.FontFamily.TIMES_ROMAN, 12, Font.NORMAL);
     private Font fNormalBold = new Font(Font.FontFamily.TIMES_ROMAN, 12, Font.BOLD);
     private Font fFecha = new Font(Font.FontFamily.TIMES_ROMAN, 12, Font.NORMAL);
@@ -181,6 +188,38 @@ public class Utils {
             PdfWriter.getInstance(document, new FileOutputStream(pdf));
             document.open();
 
+            try {
+                Drawable d = context.getResources().getDrawable(R.drawable.essalud_logo);
+                BitmapDrawable bitDw = ((BitmapDrawable) d);
+                Bitmap bmp = bitDw.getBitmap();
+                ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                bmp.compress(Bitmap.CompressFormat.PNG, 50, stream);
+                try {
+                    Image image = Image.getInstance(stream.toByteArray());
+                    image.scaleToFit(180, 180);
+                    image.setAlignment(Element.ALIGN_LEFT);
+                    document.add(image);
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+
+            Paragraph lemaSuperior = null;
+            try {
+                lemaSuperior = new Paragraph();
+                lemaSuperior.setFont(fEncabezado);
+                lemaSuperior.add("“AÑO DEL BICENTENARIO DEL PERÚ: 200 AÑOS DE INDEPENDENCIA”\n");
+                lemaSuperior.add("“Decenio de la Igualdad de Oportunidades Para Mujeres y Hombres”");
+            } catch (Exception e) {
+                e.printStackTrace();
+                lemaSuperior = new Paragraph("", fTitle);
+            }
+            lemaSuperior.setAlignment(Element.ALIGN_CENTER);
+
+            document.add(lemaSuperior);
+
             Paragraph paragraph = null;
             try {
                 paragraph = new Paragraph("CARTA CIRCULAR N°" + atencion.getLaboratorioObj().getIdLabo() + "- PRVR-RAAM-ESSALUD-2020", fTitle);
@@ -254,8 +293,11 @@ public class Utils {
             String cabecera1[] = new String[]{"EXAMENES", "RESULTADOS", "VALORES NORMALES"};
             String valores[] = new String[]{"H: < 90    M: <80 CM", "< 100 MG/DL", "25-150 MG/DL", "135-200 MG/DL", "M:  >50   H:    >40 MG/DL", "< 130", "18.5- 24.9 ", "< 130/85 MM hg", "H= 12- 18 g/dl    M=11- 16 g/dl",};
             String examen[] = new String[]{"CIRCUNFERENCIA ABDOMINAL", "GLUCOSA", "TRIGLICERIDOS", "COLESTEROL", "COLESTEROL HDL", "COLESTEROL LDL", "INDICE DE MASA CORPORAL", "PRESIÓN ARTERIAL", "HEMOGLOBINA"};
-            double resultados[] = new double[]{atencion.getAtencionMedicoObj().getPerAbdominal(),
-                    glucosa, trigliceridos, colesterol, colesterolHdl, colesterolLdl, imc, presionArtmm, presionArthg, hemoglobina
+            double resultados[] = new double[]{truncarDosDecimales(atencion.getAtencionMedicoObj().getPerAbdominal()),
+                    truncarDosDecimales(glucosa), truncarDosDecimales(trigliceridos),
+                    truncarDosDecimales(colesterol), truncarDosDecimales(colesterolHdl),
+                    truncarDosDecimales(colesterolLdl), truncarDosDecimales(imc),
+                    truncarDosDecimales(presionArtmm), truncarDosDecimales(presionArthg), truncarDosDecimales(hemoglobina)
             };
             Paragraph pt = new Paragraph("", fText);
             pt.setSpacingBefore(spacing);
@@ -284,6 +326,45 @@ public class Utils {
 
             pt.add(table1);
             document.add(pt);
+
+            String parr2 = "A la fecha de la evaluación estamos visualizando una necesidad de brindar una orientación Medica a través de una llamada telefónica para determinar si existe el diagnóstico definitivo de SÍNDROME METABÓLICO, por lo cual le invitamos a participar voluntariamente de los talleres correspondientes al programa.";
+            Paragraph paragraph8 = new Paragraph(parr2, fNormal);
+
+            document.add(paragraph8);
+
+            String parr3 = "Finalmente quedamos agradecidos de su participación y motivación por el interés mostrado";
+            Paragraph paragraph9 = new Paragraph(parr3, fNormal);
+
+            document.add(paragraph9);
+
+            String parr4 = "Atentamente,";
+            Paragraph paragraph10 = new Paragraph(parr4, fNormal);
+
+            document.add(paragraph10);
+
+            String parr5 = "EQUIPO DE TRABAJO DEL PROGRAMA REFORMA DE VIDA\n" +
+                    "RED ASISTENCIAL AMAZONAS – SISTEMA HEPAQ\n";
+            Paragraph paragraph11 = new Paragraph(parr5, fNormal);
+            paragraph11.setAlignment(Element.ALIGN_CENTER);
+            document.add(paragraph11);
+
+            try {
+                Drawable d = context.getResources().getDrawable(R.drawable.logo_abajo);
+                BitmapDrawable bitDw = ((BitmapDrawable) d);
+                Bitmap bmp = bitDw.getBitmap();
+                ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                bmp.compress(Bitmap.CompressFormat.PNG, 50, stream);
+                try {
+                    Image image = Image.getInstance(stream.toByteArray());
+                    image.scaleToFit(180, 180);
+                    image.setAlignment(Element.ALIGN_CENTER);
+                    document.add(image);
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
 
             document.close();
         } catch (Exception e) {
@@ -499,18 +580,18 @@ public class Utils {
             }
             if (glucosa >= 100) {
                 contadorEcografia++;
-                listado += "- Glucosa: " + glucosa + " (> 100 mg/dl)\n";
+                listado += "- Glucosa: " + truncarDosDecimales(glucosa) + " (> 100 mg/dl)\n";
             } else
-                listado += "- Glucosa: " + glucosa + " (< 100 mg/dl)\n";
+                listado += "- Glucosa: " + truncarDosDecimales(glucosa) + " (< 100 mg/dl)\n";
             if (trigli >= 0) {
-                listado += "- Triglicéridos: " + trigli + "\n";
+                listado += "- Triglicéridos: " + truncarDosDecimales(trigli) + "\n";
             } else
-                listado += "- Triglicéridos: " + trigli + "\n";
+                listado += "- Triglicéridos: " + truncarDosDecimales(trigli) + "\n";
             if (hdl <= 40) {
                 contadorEcografia++;
-                listado += "- HDL reducido: " + hdl + " (< 40 mg/dl)\n";
+                listado += "- HDL reducido: " + truncarDosDecimales(hdl) + " (< 40 mg/dl)\n";
             } else
-                listado += "- HDL reducido: " + hdl + " (> 40 mg/dl)\n";
+                listado += "- HDL reducido: " + truncarDosDecimales(hdl) + " (> 40 mg/dl)\n";
         } catch (Exception e) {
             listado += "- Glucosa: -\n";
             listado += "- Triglicéridos: -\n";
@@ -705,12 +786,12 @@ public class Utils {
             table5.setHeaderRows(1);
 
             try {
-                table5.addCell(validaString(atencion.getAtencionMedicoObj().getPresionArterialHg()));
+                table5.addCell(validaString(truncarDosDecimales(Double.parseDouble(atencion.getAtencionMedicoObj().getPresionArterialHg())) + ""));
             } catch (Exception e) {
                 table5.addCell(" ");
             }
             try {
-                table5.addCell(validaString(atencion.getAtencionMedicoObj().getPeso() + ""));
+                table5.addCell(validaString(truncarDosDecimales(atencion.getAtencionMedicoObj().getPeso()) + ""));
             } catch (Exception e) {
                 table5.addCell(" ");
             }
@@ -720,7 +801,7 @@ public class Utils {
                 table5.addCell(" ");
             }
             try {
-                table5.addCell(validaString(atencion.getAtencionMedicoObj().getTalla() + ""));
+                table5.addCell(validaString(truncarDosDecimales(atencion.getAtencionMedicoObj().getTalla()) + ""));
             } catch (Exception e) {
                 table5.addCell(" ");
             }
@@ -1170,6 +1251,12 @@ public class Utils {
         String ageS = ageInt.toString();
 
         return ageS;
+    }
+
+    public double truncarDosDecimales(double decimal) {
+        decimal = (int) (decimal * 100);
+        double truncado = decimal / 100.0f;
+        return truncado;
     }
 
 
