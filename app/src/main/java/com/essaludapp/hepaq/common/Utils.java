@@ -10,6 +10,7 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.pdf.PdfDocument;
 
+import android.os.Build;
 import android.os.Environment;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -97,8 +98,12 @@ public class Utils {
     }
 
     public File createPDFVacuna(Context context, ResponseDosisVacuna vacuna) {
-        //File carpeta = new File(context.getFilesDir().toString(), "HEPAQ_ESSALUD_APP");
-        File carpeta = new File(Environment.getExternalStorageDirectory().toString(), "HEPAQ_ESSALUD_APP");
+        File carpeta;
+        if (android.os.Build.VERSION.SDK_INT == Build.VERSION_CODES.R) {
+            carpeta = new File(context.getExternalCacheDir().toString(), "HEPAQ_ESSALUD_APP");
+        }else{
+            carpeta = new File(Environment.getExternalStorageDirectory().toString(), "HEPAQ_ESSALUD_APP");
+        }
 
         if (!carpeta.exists())
             carpeta.mkdirs();
@@ -174,8 +179,12 @@ public class Utils {
     }
 
     public File createPDFLaboratorio(Context context, ResponseAtenciones atencion) {
-        //File carpeta = new File(context.getFilesDir().toString(), "HEPAQ_ESSALUD_APP");
-        File carpeta = new File(Environment.getExternalStorageDirectory().toString(), "HEPAQ_ESSALUD_APP");
+        File carpeta;
+        if (android.os.Build.VERSION.SDK_INT == Build.VERSION_CODES.R) {
+            carpeta = new File(context.getExternalCacheDir().toString(), "HEPAQ_ESSALUD_APP");
+        }else{
+            carpeta = new File(Environment.getExternalStorageDirectory().toString(), "HEPAQ_ESSALUD_APP");
+        }
 
         if (!carpeta.exists())
             carpeta.mkdirs();
@@ -222,7 +231,10 @@ public class Utils {
 
             Paragraph paragraph = null;
             try {
-                paragraph = new Paragraph("CARTA CIRCULAR N°" + atencion.getLaboratorioObj().getIdLabo() + "- PRVR-RAAM-ESSALUD-2020", fTitle);
+                Calendar currentTime = Calendar.getInstance();
+                String fech = currentTime.get(Calendar.YEAR) + "-" + (currentTime.get(Calendar.MONTH) + 1) + "-" + currentTime.get(Calendar.DAY_OF_MONTH);
+                String[] fechaActual = getMonthYear(fech);
+                paragraph = new Paragraph("CARTA CIRCULAR N°" + atencion.getLaboratorioObj().getIdLabo() + "- PRVR-RAAM-ESSALUD-"+fechaActual[2], fTitle);
             } catch (Exception e) {
                 e.printStackTrace();
                 paragraph = new Paragraph("CARTA CIRCULAR N° 322 - PRVR-RAAM-ESSALUD-2020", fTitle);
@@ -271,7 +283,8 @@ public class Utils {
                 for (int i = 0; i < atencion.getLaboratorioObj().getListaLaboratorioCitas().size(); i++) {
                     if (atencion.getLaboratorioObj().getListaLaboratorioCitas().get(i).getDescripcion().startsWith("GLUCOSA") || atencion.getLaboratorioObj().getListaLaboratorioCitas().get(i).getDescripcion().endsWith("GLUCOSA"))
                         glucosa = atencion.getLaboratorioObj().getListaLaboratorioCitas().get(i).getResultado();
-                    else if (atencion.getLaboratorioObj().getListaLaboratorioCitas().get(i).getDescripcion().startsWith("TRIGLICERIDOS") || atencion.getLaboratorioObj().getListaLaboratorioCitas().get(i).getDescripcion().endsWith("TRIGLICERIDOS"))
+                    else if (atencion.getLaboratorioObj().getListaLaboratorioCitas().get(i).getDescripcion().startsWith("TRIGLICERIDOS")
+                            || atencion.getLaboratorioObj().getListaLaboratorioCitas().get(i).getDescripcion().equalsIgnoreCase("TRIGLICÉRIDOS"))
                         trigliceridos = atencion.getLaboratorioObj().getListaLaboratorioCitas().get(i).getResultado();
                     else if (atencion.getLaboratorioObj().getListaLaboratorioCitas().get(i).getDescripcion().endsWith("COLESTEROL") || atencion.getLaboratorioObj().getListaLaboratorioCitas().get(i).getDescripcion().endsWith("COLESTEROL "))
                         colesterol = atencion.getLaboratorioObj().getListaLaboratorioCitas().get(i).getResultado();
@@ -374,8 +387,12 @@ public class Utils {
     }
 
     public File createPDFEcografia(Context context, ResponseAtenciones atencion) {
-        //File carpeta = new File(context.getFilesDir().toString(), "HEPAQ_ESSALUD_APP");
-        File carpeta = new File(Environment.getExternalStorageDirectory().toString(), "HEPAQ_ESSALUD_APP");
+        File carpeta;
+        if (android.os.Build.VERSION.SDK_INT == Build.VERSION_CODES.R) {
+            carpeta = new File(context.getExternalCacheDir().toString(), "HEPAQ_ESSALUD_APP");
+        }else{
+            carpeta = new File(Environment.getExternalStorageDirectory().toString(), "HEPAQ_ESSALUD_APP");
+        }
 
         if (!carpeta.exists())
             carpeta.mkdirs();
@@ -603,8 +620,12 @@ public class Utils {
     }
 
     public File createPDFAtencion(Context context, ResponseAtenciones atencion) {
-        //File carpeta = new File(context.getFilesDir().toString(), "HEPAQ_ESSALUD_APP");
-        File carpeta = new File(Environment.getExternalStorageDirectory().toString(), "HEPAQ_ESSALUD_APP");
+        File carpeta;
+        if (android.os.Build.VERSION.SDK_INT == Build.VERSION_CODES.R) {
+            carpeta = new File(context.getExternalCacheDir().toString(), "HEPAQ_ESSALUD_APP");
+        }else{
+            carpeta = new File(Environment.getExternalStorageDirectory().toString(), "HEPAQ_ESSALUD_APP");
+        }
 
         if (!carpeta.exists())
             carpeta.mkdirs();

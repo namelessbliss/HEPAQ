@@ -11,8 +11,8 @@ android {
         applicationId "com.essaludapp.hepaq"
         minSdkVersion 21
         targetSdkVersion 30
-        versionCode 8
-        versionName "1.6"
+        versionCode 10
+        versionName "1.7.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

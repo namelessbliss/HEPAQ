@@ -23,7 +23,7 @@ public class MentalFragment extends Fragment {
 
     private SpeedView estres, fantastico, cono;
     private ViewGroup frameCarga, graficos;
-    private TextView tvCargando, tvPuntajeFinal, tvResultado, tvNota;
+    private TextView tvCargando, tvPuntajeFinal, tvResultado, tvNota, tvPuntajeEstres, tvResultadoEstres, tvPuntajeCono;
     boolean lastError = true;
 
     private Button btnTests;
@@ -62,6 +62,9 @@ public class MentalFragment extends Fragment {
         graficos = view.findViewById(R.id.graficos);
         tvCargando = view.findViewById(R.id.tvCargando);
         tvPuntajeFinal = view.findViewById(R.id.tvPuntajeFinal);
+        tvPuntajeEstres = view.findViewById(R.id.tvPuntajeEstres);
+        tvResultadoEstres = view.findViewById(R.id.tvResultadoEstres);
+        tvPuntajeCono = view.findViewById(R.id.tvPuntajeCono);
         tvResultado = view.findViewById(R.id.tvResultado);
         tvNota = view.findViewById(R.id.tvNota);
         estres = view.findViewById(R.id.estres);
@@ -159,6 +162,21 @@ public class MentalFragment extends Fragment {
         }
 
         tvPuntajeFinal.setText("Puntaje Final: " + fantas + "");
+
+        if (estresIndice >= 0 && estresIndice <= 20) {
+            tvPuntajeEstres.setText("Puntaje Final: " + estresIndice);
+            tvResultadoEstres.setText("• Indice bajo de estrés percibido");
+        }
+        if (estresIndice >= 21 && estresIndice <= 38) {
+            tvPuntajeEstres.setText("Puntaje Final: " + estresIndice);
+            tvResultadoEstres.setText("• Indice medio de estrés percibido");
+        }
+        if (estresIndice >= 39 && estresIndice <= 56) {
+            tvPuntajeEstres.setText("Puntaje Final: " + estresIndice);
+            tvResultadoEstres.setText("• Indice alto de estrés percibido");
+        }
+
+        tvPuntajeCono.setText("Puntaje Final: " + con);
         estres.speedTo(estresIndice);
         fantastico.speedTo(fantas);
         cono.speedTo(con);

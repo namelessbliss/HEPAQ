@@ -6,6 +6,8 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.FileProvider;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
@@ -18,6 +20,7 @@ import com.essaludapp.hepaq.R;
 import com.github.barteksc.pdfviewer.PDFView;
 
 import java.io.File;
+import java.util.List;
 
 public class PdfViewerActivity extends AppCompatActivity {
 
@@ -80,7 +83,7 @@ public class PdfViewerActivity extends AppCompatActivity {
     }
 
     private String crearMensaje() {
-        return "Le envio su boleta de compra, gracias por su preferencia.";
+        return "Compartir documento";
     }
 
 }
