@@ -61,7 +61,8 @@ public class MyAtencionRecyclerViewAdapter extends RecyclerView.Adapter<MyAtenci
             holder.mItem = mValues.get(position);
 
             //holder.tvNumeroAtencion.setText(position + 1);
-            String nombreCompleto = holder.mItem.getPersonalObj().getNombre() + " " + holder.mItem.getPersonalObj().getApellido();
+            //String nombreCompleto = holder.mItem.getPersonalObj().getNombre() + " " + holder.mItem.getPersonalObj().getApellido();
+            String nombreCompleto = holder.mItem.getPersonalObj().getNombre_completo();
             holder.tvMedico.setText(nombreCompleto);
 
             String[] fecha = utils.getDayOfWeek(holder.mItem.getFechaAtencion());

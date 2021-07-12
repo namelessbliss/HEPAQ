@@ -5,11 +5,10 @@
     android:layout_height="match_parent"
     tools:context=".ui.resultados.SimulacionFragment">
 
-
     <View
         android:id="@+id/view4"
         android:layout_width="0dp"
-        android:layout_height="350dp"
+        android:layout_height="450dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
@@ -83,4 +82,19 @@
         app:layout_constraintEnd_toEndOf="@+id/view4"
         app:layout_constraintStart_toEndOf="@+id/btnTestFantastico"
         app:layout_constraintTop_toBottomOf="@+id/btnTestEstres" />
+
+    <Button
+        android:id="@+id/btnEncuesta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="@color/float_transparent"
+        android:drawableTop="@drawable/ic_encuesta"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:text="@string/encuesta"
+        android:textColor="@color/black"
+        android:theme="@style/texto_pequeño"
+        app:layout_constraintEnd_toEndOf="@+id/btnTestEstres"
+        app:layout_constraintStart_toStartOf="@+id/btnIMC"
+        app:layout_constraintTop_toBottomOf="@+id/btnTestFantastico" />
 </androidx.constraintlayout.widget.ConstraintLayout>

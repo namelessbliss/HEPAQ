@@ -65,348 +65,378 @@ class TestFantasticoActivity : AppCompatActivity() {
 
     private fun setupSurvey(surveyView: SurveyView?) {
         val steps = listOf(
-                InstructionStep(
-                        title = this.resources.getString(R.string.intro_title),
-                        text = this.resources.getString(R.string.intro_text),
-                        buttonText = this.resources.getString(R.string.intro_start)
-                ),
-                QuestionStep(
-                        title = this.resources.getString(R.string.familia_amigos_title),
-                        text = this.resources.getString(R.string.familia_amigos_preg_1),
-                        answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
-                                textChoices = listOf(
-                                        TextChoice(this.resources.getString(R.string.familia_amigos_preg_1_op0)),
-                                        TextChoice(this.resources.getString(R.string.familia_amigos_preg_1_op1)),
-                                        TextChoice(this.resources.getString(R.string.familia_amigos_preg_1_op2))
-                                )
-                        )
-                ),
-                QuestionStep(
-                        title = this.resources.getString(R.string.familia_amigos_title),
-                        text = this.resources.getString(R.string.familia_amigos_preg_2),
-                        answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
-                                textChoices = listOf(
-                                        TextChoice(this.resources.getString(R.string.familia_amigos_preg_2_op0)),
-                                        TextChoice(this.resources.getString(R.string.familia_amigos_preg_2_op1)),
-                                        TextChoice(this.resources.getString(R.string.familia_amigos_preg_2_op2))
-                                )
-                        )
-                ),
-                QuestionStep(
-                        title = this.resources.getString(R.string.familia_amigos_title),
-                        text = this.resources.getString(R.string.familia_amigos_preg_3),
-                        answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
-                                textChoices = listOf(
-                                        TextChoice(this.resources.getString(R.string.familia_amigos_preg_3_op0)),
-                                        TextChoice(this.resources.getString(R.string.familia_amigos_preg_3_op1)),
-                                        TextChoice(this.resources.getString(R.string.familia_amigos_preg_3_op2))
-                                )
-                        )
-                ),
-                QuestionStep(
-                        title = this.resources.getString(R.string.actividad_fisica_asociativa),
-                        text = this.resources.getString(R.string.actividad_fisica_asociativa_preg_1),
-                        answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
-                                textChoices = listOf(
-                                        TextChoice(this.resources.getString(R.string.actividad_fisica_asociativa_preg_1_op0)),
-                                        TextChoice(this.resources.getString(R.string.actividad_fisica_asociativa_preg_1_op1)),
-                                        TextChoice(this.resources.getString(R.string.actividad_fisica_asociativa_preg_1_op2))
-                                )
-                        )
-                ),
-
-                QuestionStep(
-                        title = this.resources.getString(R.string.actividad_fisica_asociativa),
-                        text = this.resources.getString(R.string.actividad_fisica_asociativa_preg_2),
-                        answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
-                                textChoices = listOf(
-                                        TextChoice(this.resources.getString(R.string.actividad_fisica_asociativa_preg_2_op0)),
-                                        TextChoice(this.resources.getString(R.string.actividad_fisica_asociativa_preg_2_op1)),
-                                        TextChoice(this.resources.getString(R.string.actividad_fisica_asociativa_preg_2_op2))
-                                )
-                        )
-                ),
-                QuestionStep(
-                        title = this.resources.getString(R.string.actividad_fisica_asociativa),
-                        text = this.resources.getString(R.string.actividad_fisica_asociativa_preg_3),
-                        answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
-                                textChoices = listOf(
-                                        TextChoice(this.resources.getString(R.string.actividad_fisica_asociativa_preg_3_op0)),
-                                        TextChoice(this.resources.getString(R.string.actividad_fisica_asociativa_preg_3_op1)),
-                                        TextChoice(this.resources.getString(R.string.actividad_fisica_asociativa_preg_3_op2))
-                                )
-                        )
-                ),
-                QuestionStep(
-                        title = this.resources.getString(R.string.nutricion_alimentacion),
-                        text = this.resources.getString(R.string.nutricion_alimentacion_preg_1),
-                        answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
-                                textChoices = listOf(
-                                        TextChoice(this.resources.getString(R.string.nutricion_alimentacion_preg_1_op0)),
-                                        TextChoice(this.resources.getString(R.string.nutricion_alimentacion_preg_1_op1)),
-                                        TextChoice(this.resources.getString(R.string.nutricion_alimentacion_preg_1_op2))
-                                )
-                        )
-                ),
-                QuestionStep(
-                        title = this.resources.getString(R.string.nutricion_alimentacion),
-                        text = this.resources.getString(R.string.nutricion_alimentacion_preg_2),
-                        answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
-                                textChoices = listOf(
-                                        TextChoice(this.resources.getString(R.string.nutricion_alimentacion_preg_2_op0)),
-                                        TextChoice(this.resources.getString(R.string.nutricion_alimentacion_preg_2_op1)),
-                                        TextChoice(this.resources.getString(R.string.nutricion_alimentacion_preg_2_op2))
-                                )
-                        )
-                ),
-                QuestionStep(
-                        title = this.resources.getString(R.string.nutricion_alimentacion),
-                        text = this.resources.getString(R.string.nutricion_alimentacion_preg_3),
-                        answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
-                                textChoices = listOf(
-                                        TextChoice(this.resources.getString(R.string.nutricion_alimentacion_preg_3_op0)),
-                                        TextChoice(this.resources.getString(R.string.nutricion_alimentacion_preg_3_op1)),
-                                        TextChoice(this.resources.getString(R.string.nutricion_alimentacion_preg_3_op2))
-                                )
-                        )
-                ),
-                QuestionStep(
-                        title = this.resources.getString(R.string.tabaco_dependencia),
-                        text = this.resources.getString(R.string.tabaco_dependencia_preg_1),
-                        answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
-                                textChoices = listOf(
-                                        TextChoice(this.resources.getString(R.string.tabaco_dependencia_preg_1_op0)),
-                                        TextChoice(this.resources.getString(R.string.tabaco_dependencia_preg_1_op1)),
-                                        TextChoice(this.resources.getString(R.string.tabaco_dependencia_preg_1_op2))
-                                )
-                        )
-                ),
-                QuestionStep(
-                        title = this.resources.getString(R.string.tabaco_dependencia),
-                        text = this.resources.getString(R.string.tabaco_dependencia_preg_2),
-                        answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
-                                textChoices = listOf(
-                                        TextChoice(this.resources.getString(R.string.tabaco_dependencia_preg_2_op0)),
-                                        TextChoice(this.resources.getString(R.string.tabaco_dependencia_preg_2_op1)),
-                                        TextChoice(this.resources.getString(R.string.tabaco_dependencia_preg_2_op2))
-                                )
-                        )
-                ),
-                QuestionStep(
-                        title = this.resources.getString(R.string.tabaco_dependencia),
-                        text = this.resources.getString(R.string.tabaco_dependencia_preg_3),
-                        answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
-                                textChoices = listOf(
-                                        TextChoice(this.resources.getString(R.string.tabaco_dependencia_preg_3_op0)),
-                                        TextChoice(this.resources.getString(R.string.tabaco_dependencia_preg_3_op1)),
-                                        TextChoice(this.resources.getString(R.string.tabaco_dependencia_preg_3_op2))
-                                )
-                        )
-                ),
-                QuestionStep(
-                        title = this.resources.getString(R.string.alcohol),
-                        text = this.resources.getString(R.string.alcohol_preg_1),
-                        answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
-                                textChoices = listOf(
-                                        TextChoice(this.resources.getString(R.string.alcohol_preg_1_op0)),
-                                        TextChoice(this.resources.getString(R.string.alcohol_preg_1_op1)),
-                                        TextChoice(this.resources.getString(R.string.alcohol_preg_1_op2))
-                                )
-                        )
-                ),
-                QuestionStep(
-                        title = this.resources.getString(R.string.alcohol),
-                        text = this.resources.getString(R.string.alcohol_preg_2),
-                        answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
-                                textChoices = listOf(
-                                        TextChoice(this.resources.getString(R.string.alcohol_preg_2_op0)),
-                                        TextChoice(this.resources.getString(R.string.alcohol_preg_2_op1)),
-                                        TextChoice(this.resources.getString(R.string.alcohol_preg_2_op2))
-                                )
-                        )
-                ),
-                QuestionStep(
-                        title = this.resources.getString(R.string.alcohol),
-                        text = this.resources.getString(R.string.alcohol_preg_3),
-                        answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
-                                textChoices = listOf(
-                                        TextChoice(this.resources.getString(R.string.alcohol_preg_3_op0)),
-                                        TextChoice(this.resources.getString(R.string.alcohol_preg_3_op1)),
-                                        TextChoice(this.resources.getString(R.string.alcohol_preg_3_op2))
-                                )
-                        )
-                ),
-                QuestionStep(
-                        title = this.resources.getString(R.string.sueno_estres),
-                        text = this.resources.getString(R.string.sueno_estres_preg_1),
-                        answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
-                                textChoices = listOf(
-                                        TextChoice(this.resources.getString(R.string.sueno_estres_preg_1_op0)),
-                                        TextChoice(this.resources.getString(R.string.sueno_estres_preg_1_op1)),
-                                        TextChoice(this.resources.getString(R.string.sueno_estres_preg_1_op2))
-                                )
-                        )
-                ),
-                QuestionStep(
-                        title = this.resources.getString(R.string.sueno_estres),
-                        text = this.resources.getString(R.string.sueno_estres_preg_2),
-                        answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
-                                textChoices = listOf(
-                                        TextChoice(this.resources.getString(R.string.sueno_estres_preg_2_op0)),
-                                        TextChoice(this.resources.getString(R.string.sueno_estres_preg_2_op1)),
-                                        TextChoice(this.resources.getString(R.string.sueno_estres_preg_2_op2))
-                                )
-                        )
-                ),
-                QuestionStep(
-                        title = this.resources.getString(R.string.sueno_estres),
-                        text = this.resources.getString(R.string.sueno_estres_preg_3),
-                        answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
-                                textChoices = listOf(
-                                        TextChoice(this.resources.getString(R.string.sueno_estres_preg_3_op0)),
-                                        TextChoice(this.resources.getString(R.string.sueno_estres_preg_3_op1)),
-                                        TextChoice(this.resources.getString(R.string.sueno_estres_preg_3_op2))
-                                )
-                        )
-                ),
-                QuestionStep(
-                        title = this.resources.getString(R.string.trabajo_personalidad),
-                        text = this.resources.getString(R.string.trabajo_personalidad_preg_1),
-                        answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
-                                textChoices = listOf(
-                                        TextChoice(this.resources.getString(R.string.trabajo_personalidad_preg_1_op0)),
-                                        TextChoice(this.resources.getString(R.string.trabajo_personalidad_preg_1_op1)),
-                                        TextChoice(this.resources.getString(R.string.trabajo_personalidad_preg_1_op2))
-                                )
-                        )
-                ),
-                QuestionStep(
-                        title = this.resources.getString(R.string.trabajo_personalidad),
-                        text = this.resources.getString(R.string.trabajo_personalidad_preg_2),
-                        answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
-                                textChoices = listOf(
-                                        TextChoice(this.resources.getString(R.string.trabajo_personalidad_preg_2_op0)),
-                                        TextChoice(this.resources.getString(R.string.trabajo_personalidad_preg_2_op1)),
-                                        TextChoice(this.resources.getString(R.string.trabajo_personalidad_preg_2_op2))
-                                )
-                        )
-                ),
-                QuestionStep(
-                        title = this.resources.getString(R.string.trabajo_personalidad),
-                        text = this.resources.getString(R.string.trabajo_personalidad_preg_3),
-                        answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
-                                textChoices = listOf(
-                                        TextChoice(this.resources.getString(R.string.trabajo_personalidad_preg_3_op0)),
-                                        TextChoice(this.resources.getString(R.string.trabajo_personalidad_preg_3_op1)),
-                                        TextChoice(this.resources.getString(R.string.trabajo_personalidad_preg_3_op2))
-                                )
-                        )
-                ),
-                QuestionStep(
-                        title = this.resources.getString(R.string.introspeccion),
-                        text = this.resources.getString(R.string.introspeccion_preg_1),
-                        answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
-                                textChoices = listOf(
-                                        TextChoice(this.resources.getString(R.string.introspeccion_preg_1_op0)),
-                                        TextChoice(this.resources.getString(R.string.introspeccion_preg_1_op1)),
-                                        TextChoice(this.resources.getString(R.string.introspeccion_preg_1_op2))
-                                )
-                        )
-                ),
-                QuestionStep(
-                        title = this.resources.getString(R.string.introspeccion),
-                        text = this.resources.getString(R.string.introspeccion_preg_2),
-                        answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
-                                textChoices = listOf(
-                                        TextChoice(this.resources.getString(R.string.introspeccion_preg_2_op0)),
-                                        TextChoice(this.resources.getString(R.string.introspeccion_preg_2_op1)),
-                                        TextChoice(this.resources.getString(R.string.introspeccion_preg_2_op2))
-                                )
-                        )
-                ),
-                QuestionStep(
-                        title = this.resources.getString(R.string.introspeccion),
-                        text = this.resources.getString(R.string.introspeccion_preg_3),
-                        answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
-                                textChoices = listOf(
-                                        TextChoice(this.resources.getString(R.string.introspeccion_preg_3_op0)),
-                                        TextChoice(this.resources.getString(R.string.introspeccion_preg_3_op1)),
-                                        TextChoice(this.resources.getString(R.string.introspeccion_preg_3_op2))
-                                )
-                        )
-                ),
-                QuestionStep(
-                        title = this.resources.getString(R.string.salud_sexualidad),
-                        text = this.resources.getString(R.string.salud_sexualidad_preg_1),
-                        answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
-                                textChoices = listOf(
-                                        TextChoice(this.resources.getString(R.string.salud_sexualidad_preg_1_op0)),
-                                        TextChoice(this.resources.getString(R.string.salud_sexualidad_preg_1_op1)),
-                                        TextChoice(this.resources.getString(R.string.salud_sexualidad_preg_1_op2))
-                                )
-                        )
-                ),
-                QuestionStep(
-                        title = this.resources.getString(R.string.salud_sexualidad),
-                        text = this.resources.getString(R.string.salud_sexualidad_preg_2),
-                        answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
-                                textChoices = listOf(
-                                        TextChoice(this.resources.getString(R.string.salud_sexualidad_preg_2_op0)),
-                                        TextChoice(this.resources.getString(R.string.salud_sexualidad_preg_2_op1)),
-                                        TextChoice(this.resources.getString(R.string.salud_sexualidad_preg_2_op2))
-                                )
-                        )
-                ),
-                QuestionStep(
-                        title = this.resources.getString(R.string.salud_sexualidad),
-                        text = this.resources.getString(R.string.salud_sexualidad_preg_3),
-                        answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
-                                textChoices = listOf(
-                                        TextChoice(this.resources.getString(R.string.salud_sexualidad_preg_3_op0)),
-                                        TextChoice(this.resources.getString(R.string.salud_sexualidad_preg_3_op1)),
-                                        TextChoice(this.resources.getString(R.string.salud_sexualidad_preg_3_op2))
-                                )
-                        )
-                ),
-                QuestionStep(
-                        title = this.resources.getString(R.string.otros),
-                        text = this.resources.getString(R.string.otros_preg_1),
-                        answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
-                                textChoices = listOf(
-                                        TextChoice(this.resources.getString(R.string.otros_preg_1_op0)),
-                                        TextChoice(this.resources.getString(R.string.otros_preg_1_op1)),
-                                        TextChoice(this.resources.getString(R.string.otros_preg_1_op2))
-                                )
-                        )
-                ),
-                QuestionStep(
-                        title = this.resources.getString(R.string.otros),
-                        text = this.resources.getString(R.string.otros_preg_2),
-                        answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
-                                textChoices = listOf(
-                                        TextChoice(this.resources.getString(R.string.otros_preg_2_op0)),
-                                        TextChoice(this.resources.getString(R.string.otros_preg_2_op1)),
-                                        TextChoice(this.resources.getString(R.string.otros_preg_2_op2))
-                                )
-                        )
-                ),
-                QuestionStep(
-                        title = this.resources.getString(R.string.otros),
-                        text = this.resources.getString(R.string.otros_preg_3),
-                        answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
-                                textChoices = listOf(
-                                        TextChoice(this.resources.getString(R.string.otros_preg_3_op0)),
-                                        TextChoice(this.resources.getString(R.string.otros_preg_3_op1)),
-                                        TextChoice(this.resources.getString(R.string.otros_preg_3_op2))
-                                )
-                        )
-                ),
-
-                CompletionStep(
-                        title = this.resources.getString(R.string.finish_question_title),
-                        text = this.resources.getString(R.string.finish_question_text),
-                        buttonText = this.resources.getString(R.string.finish_question_submit)
+            InstructionStep(
+                title = this.resources.getString(R.string.intro_title),
+                text = this.resources.getString(R.string.intro_text),
+                buttonText = this.resources.getString(R.string.intro_start)
+            ),
+            QuestionStep(
+                title = this.resources.getString(R.string.familia_amigos_title),
+                text = this.resources.getString(R.string.familia_amigos_preg_1),
+                nextButton = this.resources.getString(R.string.survey_next_button_text),
+                answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
+                    textChoices = listOf(
+                        TextChoice(this.resources.getString(R.string.familia_amigos_preg_1_op0)),
+                        TextChoice(this.resources.getString(R.string.familia_amigos_preg_1_op1)),
+                        TextChoice(this.resources.getString(R.string.familia_amigos_preg_1_op2))
+                    )
                 )
+            ),
+            QuestionStep(
+                title = this.resources.getString(R.string.familia_amigos_title),
+                text = this.resources.getString(R.string.familia_amigos_preg_2),
+                nextButton = this.resources.getString(R.string.survey_next_button_text),
+                answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
+                    textChoices = listOf(
+                        TextChoice(this.resources.getString(R.string.familia_amigos_preg_2_op0)),
+                        TextChoice(this.resources.getString(R.string.familia_amigos_preg_2_op1)),
+                        TextChoice(this.resources.getString(R.string.familia_amigos_preg_2_op2))
+                    )
+                )
+            ),
+            QuestionStep(
+                title = this.resources.getString(R.string.familia_amigos_title),
+                text = this.resources.getString(R.string.familia_amigos_preg_3),
+                nextButton = this.resources.getString(R.string.survey_next_button_text),
+                answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
+                    textChoices = listOf(
+                        TextChoice(this.resources.getString(R.string.familia_amigos_preg_3_op0)),
+                        TextChoice(this.resources.getString(R.string.familia_amigos_preg_3_op1)),
+                        TextChoice(this.resources.getString(R.string.familia_amigos_preg_3_op2))
+                    )
+                )
+            ),
+            QuestionStep(
+                title = this.resources.getString(R.string.actividad_fisica_asociativa),
+                text = this.resources.getString(R.string.actividad_fisica_asociativa_preg_1),
+                nextButton = this.resources.getString(R.string.survey_next_button_text),
+                answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
+                    textChoices = listOf(
+                        TextChoice(this.resources.getString(R.string.actividad_fisica_asociativa_preg_1_op0)),
+                        TextChoice(this.resources.getString(R.string.actividad_fisica_asociativa_preg_1_op1)),
+                        TextChoice(this.resources.getString(R.string.actividad_fisica_asociativa_preg_1_op2))
+                    )
+                )
+            ),
+
+            QuestionStep(
+                title = this.resources.getString(R.string.actividad_fisica_asociativa),
+                text = this.resources.getString(R.string.actividad_fisica_asociativa_preg_2),
+                nextButton = this.resources.getString(R.string.survey_next_button_text),
+                answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
+                    textChoices = listOf(
+                        TextChoice(this.resources.getString(R.string.actividad_fisica_asociativa_preg_2_op0)),
+                        TextChoice(this.resources.getString(R.string.actividad_fisica_asociativa_preg_2_op1)),
+                        TextChoice(this.resources.getString(R.string.actividad_fisica_asociativa_preg_2_op2))
+                    )
+                )
+            ),
+            QuestionStep(
+                title = this.resources.getString(R.string.actividad_fisica_asociativa),
+                text = this.resources.getString(R.string.actividad_fisica_asociativa_preg_3),
+                nextButton = this.resources.getString(R.string.survey_next_button_text),
+                answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
+                    textChoices = listOf(
+                        TextChoice(this.resources.getString(R.string.actividad_fisica_asociativa_preg_3_op0)),
+                        TextChoice(this.resources.getString(R.string.actividad_fisica_asociativa_preg_3_op1)),
+                        TextChoice(this.resources.getString(R.string.actividad_fisica_asociativa_preg_3_op2))
+                    )
+                )
+            ),
+            QuestionStep(
+                title = this.resources.getString(R.string.nutricion_alimentacion),
+                text = this.resources.getString(R.string.nutricion_alimentacion_preg_1),
+                nextButton = this.resources.getString(R.string.survey_next_button_text),
+                answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
+                    textChoices = listOf(
+                        TextChoice(this.resources.getString(R.string.nutricion_alimentacion_preg_1_op0)),
+                        TextChoice(this.resources.getString(R.string.nutricion_alimentacion_preg_1_op1)),
+                        TextChoice(this.resources.getString(R.string.nutricion_alimentacion_preg_1_op2))
+                    )
+                )
+            ),
+            QuestionStep(
+                title = this.resources.getString(R.string.nutricion_alimentacion),
+                text = this.resources.getString(R.string.nutricion_alimentacion_preg_2),
+                nextButton = this.resources.getString(R.string.survey_next_button_text),
+                answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
+                    textChoices = listOf(
+                        TextChoice(this.resources.getString(R.string.nutricion_alimentacion_preg_2_op0)),
+                        TextChoice(this.resources.getString(R.string.nutricion_alimentacion_preg_2_op1)),
+                        TextChoice(this.resources.getString(R.string.nutricion_alimentacion_preg_2_op2))
+                    )
+                )
+            ),
+            QuestionStep(
+                title = this.resources.getString(R.string.nutricion_alimentacion),
+                text = this.resources.getString(R.string.nutricion_alimentacion_preg_3),
+                nextButton = this.resources.getString(R.string.survey_next_button_text),
+                answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
+                    textChoices = listOf(
+                        TextChoice(this.resources.getString(R.string.nutricion_alimentacion_preg_3_op0)),
+                        TextChoice(this.resources.getString(R.string.nutricion_alimentacion_preg_3_op1)),
+                        TextChoice(this.resources.getString(R.string.nutricion_alimentacion_preg_3_op2))
+                    )
+                )
+            ),
+            QuestionStep(
+                title = this.resources.getString(R.string.tabaco_dependencia),
+                text = this.resources.getString(R.string.tabaco_dependencia_preg_1),
+                nextButton = this.resources.getString(R.string.survey_next_button_text),
+                answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
+                    textChoices = listOf(
+                        TextChoice(this.resources.getString(R.string.tabaco_dependencia_preg_1_op0)),
+                        TextChoice(this.resources.getString(R.string.tabaco_dependencia_preg_1_op1)),
+                        TextChoice(this.resources.getString(R.string.tabaco_dependencia_preg_1_op2))
+                    )
+                )
+            ),
+            QuestionStep(
+                title = this.resources.getString(R.string.tabaco_dependencia),
+                text = this.resources.getString(R.string.tabaco_dependencia_preg_2),
+                nextButton = this.resources.getString(R.string.survey_next_button_text),
+                answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
+                    textChoices = listOf(
+                        TextChoice(this.resources.getString(R.string.tabaco_dependencia_preg_2_op0)),
+                        TextChoice(this.resources.getString(R.string.tabaco_dependencia_preg_2_op1)),
+                        TextChoice(this.resources.getString(R.string.tabaco_dependencia_preg_2_op2))
+                    )
+                )
+            ),
+            QuestionStep(
+                title = this.resources.getString(R.string.tabaco_dependencia),
+                text = this.resources.getString(R.string.tabaco_dependencia_preg_3),
+                nextButton = this.resources.getString(R.string.survey_next_button_text),
+                answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
+                    textChoices = listOf(
+                        TextChoice(this.resources.getString(R.string.tabaco_dependencia_preg_3_op0)),
+                        TextChoice(this.resources.getString(R.string.tabaco_dependencia_preg_3_op1)),
+                        TextChoice(this.resources.getString(R.string.tabaco_dependencia_preg_3_op2))
+                    )
+                )
+            ),
+            QuestionStep(
+                title = this.resources.getString(R.string.alcohol),
+                text = this.resources.getString(R.string.alcohol_preg_1),
+                nextButton = this.resources.getString(R.string.survey_next_button_text),
+                answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
+                    textChoices = listOf(
+                        TextChoice(this.resources.getString(R.string.alcohol_preg_1_op0)),
+                        TextChoice(this.resources.getString(R.string.alcohol_preg_1_op1)),
+                        TextChoice(this.resources.getString(R.string.alcohol_preg_1_op2))
+                    )
+                )
+            ),
+            QuestionStep(
+                title = this.resources.getString(R.string.alcohol),
+                text = this.resources.getString(R.string.alcohol_preg_2),
+                nextButton = this.resources.getString(R.string.survey_next_button_text),
+                answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
+                    textChoices = listOf(
+                        TextChoice(this.resources.getString(R.string.alcohol_preg_2_op0)),
+                        TextChoice(this.resources.getString(R.string.alcohol_preg_2_op1)),
+                        TextChoice(this.resources.getString(R.string.alcohol_preg_2_op2))
+                    )
+                )
+            ),
+            QuestionStep(
+                title = this.resources.getString(R.string.alcohol),
+                text = this.resources.getString(R.string.alcohol_preg_3),
+                nextButton = this.resources.getString(R.string.survey_next_button_text),
+                answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
+                    textChoices = listOf(
+                        TextChoice(this.resources.getString(R.string.alcohol_preg_3_op0)),
+                        TextChoice(this.resources.getString(R.string.alcohol_preg_3_op1)),
+                        TextChoice(this.resources.getString(R.string.alcohol_preg_3_op2))
+                    )
+                )
+            ),
+            QuestionStep(
+                title = this.resources.getString(R.string.sueno_estres),
+                text = this.resources.getString(R.string.sueno_estres_preg_1),
+                nextButton = this.resources.getString(R.string.survey_next_button_text),
+                answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
+                    textChoices = listOf(
+                        TextChoice(this.resources.getString(R.string.sueno_estres_preg_1_op0)),
+                        TextChoice(this.resources.getString(R.string.sueno_estres_preg_1_op1)),
+                        TextChoice(this.resources.getString(R.string.sueno_estres_preg_1_op2))
+                    )
+                )
+            ),
+            QuestionStep(
+                title = this.resources.getString(R.string.sueno_estres),
+                text = this.resources.getString(R.string.sueno_estres_preg_2),
+                nextButton = this.resources.getString(R.string.survey_next_button_text),
+                answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
+                    textChoices = listOf(
+                        TextChoice(this.resources.getString(R.string.sueno_estres_preg_2_op0)),
+                        TextChoice(this.resources.getString(R.string.sueno_estres_preg_2_op1)),
+                        TextChoice(this.resources.getString(R.string.sueno_estres_preg_2_op2))
+                    )
+                )
+            ),
+            QuestionStep(
+                title = this.resources.getString(R.string.sueno_estres),
+                text = this.resources.getString(R.string.sueno_estres_preg_3),
+                nextButton = this.resources.getString(R.string.survey_next_button_text),
+                answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
+                    textChoices = listOf(
+                        TextChoice(this.resources.getString(R.string.sueno_estres_preg_3_op0)),
+                        TextChoice(this.resources.getString(R.string.sueno_estres_preg_3_op1)),
+                        TextChoice(this.resources.getString(R.string.sueno_estres_preg_3_op2))
+                    )
+                )
+            ),
+            QuestionStep(
+                title = this.resources.getString(R.string.trabajo_personalidad),
+                text = this.resources.getString(R.string.trabajo_personalidad_preg_1),
+                nextButton = this.resources.getString(R.string.survey_next_button_text),
+                answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
+                    textChoices = listOf(
+                        TextChoice(this.resources.getString(R.string.trabajo_personalidad_preg_1_op0)),
+                        TextChoice(this.resources.getString(R.string.trabajo_personalidad_preg_1_op1)),
+                        TextChoice(this.resources.getString(R.string.trabajo_personalidad_preg_1_op2))
+                    )
+                )
+            ),
+            QuestionStep(
+                title = this.resources.getString(R.string.trabajo_personalidad),
+                text = this.resources.getString(R.string.trabajo_personalidad_preg_2),
+                nextButton = this.resources.getString(R.string.survey_next_button_text),
+                answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
+                    textChoices = listOf(
+                        TextChoice(this.resources.getString(R.string.trabajo_personalidad_preg_2_op0)),
+                        TextChoice(this.resources.getString(R.string.trabajo_personalidad_preg_2_op1)),
+                        TextChoice(this.resources.getString(R.string.trabajo_personalidad_preg_2_op2))
+                    )
+                )
+            ),
+            QuestionStep(
+                title = this.resources.getString(R.string.trabajo_personalidad),
+                text = this.resources.getString(R.string.trabajo_personalidad_preg_3),
+                nextButton = this.resources.getString(R.string.survey_next_button_text),
+                answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
+                    textChoices = listOf(
+                        TextChoice(this.resources.getString(R.string.trabajo_personalidad_preg_3_op0)),
+                        TextChoice(this.resources.getString(R.string.trabajo_personalidad_preg_3_op1)),
+                        TextChoice(this.resources.getString(R.string.trabajo_personalidad_preg_3_op2))
+                    )
+                )
+            ),
+            QuestionStep(
+                title = this.resources.getString(R.string.introspeccion),
+                text = this.resources.getString(R.string.introspeccion_preg_1),
+                nextButton = this.resources.getString(R.string.survey_next_button_text),
+                answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
+                    textChoices = listOf(
+                        TextChoice(this.resources.getString(R.string.introspeccion_preg_1_op0)),
+                        TextChoice(this.resources.getString(R.string.introspeccion_preg_1_op1)),
+                        TextChoice(this.resources.getString(R.string.introspeccion_preg_1_op2))
+                    )
+                )
+            ),
+            QuestionStep(
+                title = this.resources.getString(R.string.introspeccion),
+                text = this.resources.getString(R.string.introspeccion_preg_2),
+                nextButton = this.resources.getString(R.string.survey_next_button_text),
+                answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
+                    textChoices = listOf(
+                        TextChoice(this.resources.getString(R.string.introspeccion_preg_2_op0)),
+                        TextChoice(this.resources.getString(R.string.introspeccion_preg_2_op1)),
+                        TextChoice(this.resources.getString(R.string.introspeccion_preg_2_op2))
+                    )
+                )
+            ),
+            QuestionStep(
+                title = this.resources.getString(R.string.introspeccion),
+                text = this.resources.getString(R.string.introspeccion_preg_3),
+                nextButton = this.resources.getString(R.string.survey_next_button_text),
+                answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
+                    textChoices = listOf(
+                        TextChoice(this.resources.getString(R.string.introspeccion_preg_3_op0)),
+                        TextChoice(this.resources.getString(R.string.introspeccion_preg_3_op1)),
+                        TextChoice(this.resources.getString(R.string.introspeccion_preg_3_op2))
+                    )
+                )
+            ),
+            QuestionStep(
+                title = this.resources.getString(R.string.salud_sexualidad),
+                text = this.resources.getString(R.string.salud_sexualidad_preg_1),
+                nextButton = this.resources.getString(R.string.survey_next_button_text),
+                answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
+                    textChoices = listOf(
+                        TextChoice(this.resources.getString(R.string.salud_sexualidad_preg_1_op0)),
+                        TextChoice(this.resources.getString(R.string.salud_sexualidad_preg_1_op1)),
+                        TextChoice(this.resources.getString(R.string.salud_sexualidad_preg_1_op2))
+                    )
+                )
+            ),
+            QuestionStep(
+                title = this.resources.getString(R.string.salud_sexualidad),
+                text = this.resources.getString(R.string.salud_sexualidad_preg_2),
+                nextButton = this.resources.getString(R.string.survey_next_button_text),
+                answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
+                    textChoices = listOf(
+                        TextChoice(this.resources.getString(R.string.salud_sexualidad_preg_2_op0)),
+                        TextChoice(this.resources.getString(R.string.salud_sexualidad_preg_2_op1)),
+                        TextChoice(this.resources.getString(R.string.salud_sexualidad_preg_2_op2))
+                    )
+                )
+            ),
+            QuestionStep(
+                title = this.resources.getString(R.string.salud_sexualidad),
+                text = this.resources.getString(R.string.salud_sexualidad_preg_3),
+                nextButton = this.resources.getString(R.string.survey_next_button_text),
+                answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
+                    textChoices = listOf(
+                        TextChoice(this.resources.getString(R.string.salud_sexualidad_preg_3_op0)),
+                        TextChoice(this.resources.getString(R.string.salud_sexualidad_preg_3_op1)),
+                        TextChoice(this.resources.getString(R.string.salud_sexualidad_preg_3_op2))
+                    )
+                )
+            ),
+            QuestionStep(
+                title = this.resources.getString(R.string.otros),
+                text = this.resources.getString(R.string.otros_preg_1),
+                nextButton = this.resources.getString(R.string.survey_next_button_text),
+                answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
+                    textChoices = listOf(
+                        TextChoice(this.resources.getString(R.string.otros_preg_1_op0)),
+                        TextChoice(this.resources.getString(R.string.otros_preg_1_op1)),
+                        TextChoice(this.resources.getString(R.string.otros_preg_1_op2))
+                    )
+                )
+            ),
+            QuestionStep(
+                title = this.resources.getString(R.string.otros),
+                text = this.resources.getString(R.string.otros_preg_2),
+                nextButton = this.resources.getString(R.string.survey_next_button_text),
+                answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
+                    textChoices = listOf(
+                        TextChoice(this.resources.getString(R.string.otros_preg_2_op0)),
+                        TextChoice(this.resources.getString(R.string.otros_preg_2_op1)),
+                        TextChoice(this.resources.getString(R.string.otros_preg_2_op2))
+                    )
+                )
+            ),
+            QuestionStep(
+                title = this.resources.getString(R.string.otros),
+                text = this.resources.getString(R.string.otros_preg_3),
+                nextButton = this.resources.getString(R.string.survey_next_button_text),
+                answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
+                    textChoices = listOf(
+                        TextChoice(this.resources.getString(R.string.otros_preg_3_op0)),
+                        TextChoice(this.resources.getString(R.string.otros_preg_3_op1)),
+                        TextChoice(this.resources.getString(R.string.otros_preg_3_op2))
+                    )
+                )
+            ),
+
+            CompletionStep(
+                title = this.resources.getString(R.string.finish_question_title),
+                text = this.resources.getString(R.string.finish_question_text),
+                buttonText = this.resources.getString(R.string.finish_question_submit)
+            )
         )
 
         val task = OrderedTask(steps = steps)
@@ -417,13 +447,19 @@ class TestFantasticoActivity : AppCompatActivity() {
             if (reason == FinishReason.Completed) {
                 taskResult.results.forEach { stepResult ->
                     //Log.e("ASDF", "answer ${stepResult.results.firstOrNull()!!.stringIdentifier}")
-                    suma += calcularResultado(posisicion, stepResult.results.firstOrNull()!!.stringIdentifier)
+                    suma += calcularResultado(
+                        posisicion,
+                        stepResult.results.firstOrNull()!!.stringIdentifier
+                    )
                     posisicion++;
                 }
                 suma *= 2
 
                 //Almacena preferences del login
-                SharedPreferencesManager.setStringValue(Constants.TEST_FANTAS_SCORE, suma.toString())
+                SharedPreferencesManager.setStringValue(
+                    Constants.TEST_FANTAS_SCORE,
+                    suma.toString()
+                )
                 container.removeAllViews()
                 container.visibility = View.INVISIBLE
 
@@ -443,15 +479,15 @@ class TestFantasticoActivity : AppCompatActivity() {
         }
 
         val configuration = SurveyTheme(
-                themeColorDark = ContextCompat.getColor(this, R.color.soft_blue),
-                themeColor = ContextCompat.getColor(this, R.color.cyan_normal),
-                textColor = ContextCompat.getColor(this, R.color.cyan_text),
-                /*abortDialogConfiguration = AbortDialogConfiguration(
-                        title = R.string.title,
-                        message = R.string.message,
-                        neutralMessage = R.string.no,
-                        negativeMessage = R.string.yes
-                )*/
+            themeColorDark = ContextCompat.getColor(this, R.color.soft_blue),
+            themeColor = ContextCompat.getColor(this, R.color.cyan_normal),
+            textColor = ContextCompat.getColor(this, R.color.cyan_text),
+            /*abortDialogConfiguration = AbortDialogConfiguration(
+                    title = R.string.title,
+                    message = R.string.message,
+                    neutralMessage = R.string.no,
+                    negativeMessage = R.string.yes
+            )*/
         )
 
 
@@ -469,7 +505,10 @@ class TestFantasticoActivity : AppCompatActivity() {
         val s = registrarTest.getDataform().toString()
         val call: Call<ResponseRegistrarTests> = hepaqService.registrarTest(s)
         call.enqueue(object : Callback<ResponseRegistrarTests> {
-            override fun onResponse(call: Call<ResponseRegistrarTests>, responseRegistrar: Response<ResponseRegistrarTests>) {
+            override fun onResponse(
+                call: Call<ResponseRegistrarTests>,
+                responseRegistrar: Response<ResponseRegistrarTests>
+            ) {
                 if (responseRegistrar.isSuccessful) {
                     if (responseRegistrar.body()!!.isConfirmado) {
                         //TODO
@@ -493,36 +532,276 @@ class TestFantasticoActivity : AppCompatActivity() {
 
     private fun calcularResultado(pregunta: Int, respuesta: String): Int {
         return when (pregunta) {
-            1 -> if (respuesta.equals(getString(R.string.familia_amigos_preg_1_op0), ignoreCase = true)) 0 else if (respuesta.equals(getString(R.string.familia_amigos_preg_1_op1), ignoreCase = true)) 1 else 2
-            2 -> if (respuesta.equals(getString(R.string.familia_amigos_preg_2_op0), ignoreCase = true)) 0 else if (respuesta.equals(getString(R.string.familia_amigos_preg_2_op1), ignoreCase = true)) 1 else 2
-            3 -> if (respuesta.equals(getString(R.string.familia_amigos_preg_3_op0), ignoreCase = true)) 0 else if (respuesta.equals(getString(R.string.familia_amigos_preg_3_op1), ignoreCase = true)) 1 else 2
-            4 -> if (respuesta.equals(getString(R.string.actividad_fisica_asociativa_preg_1_op0), ignoreCase = true)) 0 else if (respuesta.equals(getString(R.string.actividad_fisica_asociativa_preg_1_op1), ignoreCase = true)) 1 else 2
-            5 -> if (respuesta.equals(getString(R.string.actividad_fisica_asociativa_preg_2_op0), ignoreCase = true)) 0 else if (respuesta.equals(getString(R.string.actividad_fisica_asociativa_preg_2_op1), ignoreCase = true)) 1 else 2
-            6 -> if (respuesta.equals(getString(R.string.actividad_fisica_asociativa_preg_3_op0), ignoreCase = true)) 0 else if (respuesta.equals(getString(R.string.actividad_fisica_asociativa_preg_3_op1), ignoreCase = true)) 1 else 2
-            7 -> if (respuesta.equals(getString(R.string.nutricion_alimentacion_preg_1_op0), ignoreCase = true)) 0 else if (respuesta.equals(getString(R.string.nutricion_alimentacion_preg_1_op1), ignoreCase = true)) 1 else 2
-            8 -> if (respuesta.equals(getString(R.string.nutricion_alimentacion_preg_2_op0), ignoreCase = true)) 0 else if (respuesta.equals(getString(R.string.nutricion_alimentacion_preg_2_op1), ignoreCase = true)) 1 else 2
-            9 -> if (respuesta.equals(getString(R.string.nutricion_alimentacion_preg_3_op0), ignoreCase = true)) 0 else if (respuesta.equals(getString(R.string.nutricion_alimentacion_preg_3_op1), ignoreCase = true)) 1 else 2
-            10 -> if (respuesta.equals(getString(R.string.tabaco_dependencia_preg_1_op0), ignoreCase = true)) 0 else if (respuesta.equals(getString(R.string.tabaco_dependencia_preg_1_op1), ignoreCase = true)) 1 else 2
-            11 -> if (respuesta.equals(getString(R.string.tabaco_dependencia_preg_2_op0), ignoreCase = true)) 0 else if (respuesta.equals(getString(R.string.tabaco_dependencia_preg_2_op1), ignoreCase = true)) 1 else 2
-            12 -> if (respuesta.equals(getString(R.string.tabaco_dependencia_preg_3_op0), ignoreCase = true)) 0 else if (respuesta.equals(getString(R.string.tabaco_dependencia_preg_3_op1), ignoreCase = true)) 1 else 2
-            13 -> if (respuesta.equals(getString(R.string.alcohol_preg_1_op0), ignoreCase = true)) 0 else if (respuesta.equals(getString(R.string.alcohol_preg_1_op1), ignoreCase = true)) 1 else 2
-            14 -> if (respuesta.equals(getString(R.string.alcohol_preg_2_op0), ignoreCase = true)) 0 else if (respuesta.equals(getString(R.string.alcohol_preg_2_op1), ignoreCase = true)) 1 else 2
-            15 -> if (respuesta.equals(getString(R.string.alcohol_preg_3_op0), ignoreCase = true)) 0 else if (respuesta.equals(getString(R.string.alcohol_preg_3_op1), ignoreCase = true)) 1 else 2
-            16 -> if (respuesta.equals(getString(R.string.sueno_estres_preg_1_op0), ignoreCase = true)) 0 else if (respuesta.equals(getString(R.string.sueno_estres_preg_1_op1), ignoreCase = true)) 1 else 2
-            17 -> if (respuesta.equals(getString(R.string.sueno_estres_preg_2_op0), ignoreCase = true)) 0 else if (respuesta.equals(getString(R.string.sueno_estres_preg_2_op1), ignoreCase = true)) 1 else 2
-            18 -> if (respuesta.equals(getString(R.string.sueno_estres_preg_3_op0), ignoreCase = true)) 0 else if (respuesta.equals(getString(R.string.sueno_estres_preg_3_op1), ignoreCase = true)) 1 else 2
-            19 -> if (respuesta.equals(getString(R.string.trabajo_personalidad_preg_1_op0), ignoreCase = true)) 0 else if (respuesta.equals(getString(R.string.trabajo_personalidad_preg_1_op1), ignoreCase = true)) 1 else 2
-            20 -> if (respuesta.equals(getString(R.string.trabajo_personalidad_preg_2_op0), ignoreCase = true)) 0 else if (respuesta.equals(getString(R.string.trabajo_personalidad_preg_2_op1), ignoreCase = true)) 1 else 2
-            21 -> if (respuesta.equals(getString(R.string.trabajo_personalidad_preg_3_op0), ignoreCase = true)) 0 else if (respuesta.equals(getString(R.string.trabajo_personalidad_preg_3_op1), ignoreCase = true)) 1 else 2
-            22 -> if (respuesta.equals(getString(R.string.introspeccion_preg_1_op0), ignoreCase = true)) 0 else if (respuesta.equals(getString(R.string.introspeccion_preg_1_op1), ignoreCase = true)) 1 else 2
-            23 -> if (respuesta.equals(getString(R.string.introspeccion_preg_2_op0), ignoreCase = true)) 0 else if (respuesta.equals(getString(R.string.introspeccion_preg_2_op1), ignoreCase = true)) 1 else 2
-            24 -> if (respuesta.equals(getString(R.string.introspeccion_preg_3_op0), ignoreCase = true)) 0 else if (respuesta.equals(getString(R.string.introspeccion_preg_3_op1), ignoreCase = true)) 1 else 2
-            25 -> if (respuesta.equals(getString(R.string.salud_sexualidad_preg_1_op0), ignoreCase = true)) 0 else if (respuesta.equals(getString(R.string.salud_sexualidad_preg_1_op1), ignoreCase = true)) 1 else 2
-            26 -> if (respuesta.equals(getString(R.string.salud_sexualidad_preg_2_op0), ignoreCase = true)) 0 else if (respuesta.equals(getString(R.string.salud_sexualidad_preg_2_op1), ignoreCase = true)) 1 else 2
-            27 -> if (respuesta.equals(getString(R.string.salud_sexualidad_preg_3_op0), ignoreCase = true)) 0 else if (respuesta.equals(getString(R.string.salud_sexualidad_preg_3_op1), ignoreCase = true)) 1 else 2
-            28 -> if (respuesta.equals(getString(R.string.otros_preg_1_op0), ignoreCase = true)) 0 else if (respuesta.equals(getString(R.string.otros_preg_1_op1), ignoreCase = true)) 1 else 2
-            29 -> if (respuesta.equals(getString(R.string.otros_preg_2_op0), ignoreCase = true)) 0 else if (respuesta.equals(getString(R.string.otros_preg_2_op1), ignoreCase = true)) 1 else 2
-            30 -> if (respuesta.equals(getString(R.string.otros_preg_3_op0), ignoreCase = true)) 0 else if (respuesta.equals(getString(R.string.otros_preg_3_op1), ignoreCase = true)) 1 else 2
+            1 -> if (respuesta.equals(
+                    getString(R.string.familia_amigos_preg_1_op0),
+                    ignoreCase = true
+                )
+            ) 0 else if (respuesta.equals(
+                    getString(R.string.familia_amigos_preg_1_op1),
+                    ignoreCase = true
+                )
+            ) 1 else 2
+            2 -> if (respuesta.equals(
+                    getString(R.string.familia_amigos_preg_2_op0),
+                    ignoreCase = true
+                )
+            ) 0 else if (respuesta.equals(
+                    getString(R.string.familia_amigos_preg_2_op1),
+                    ignoreCase = true
+                )
+            ) 1 else 2
+            3 -> if (respuesta.equals(
+                    getString(R.string.familia_amigos_preg_3_op0),
+                    ignoreCase = true
+                )
+            ) 0 else if (respuesta.equals(
+                    getString(R.string.familia_amigos_preg_3_op1),
+                    ignoreCase = true
+                )
+            ) 1 else 2
+            4 -> if (respuesta.equals(
+                    getString(R.string.actividad_fisica_asociativa_preg_1_op0),
+                    ignoreCase = true
+                )
+            ) 0 else if (respuesta.equals(
+                    getString(R.string.actividad_fisica_asociativa_preg_1_op1),
+                    ignoreCase = true
+                )
+            ) 1 else 2
+            5 -> if (respuesta.equals(
+                    getString(R.string.actividad_fisica_asociativa_preg_2_op0),
+                    ignoreCase = true
+                )
+            ) 0 else if (respuesta.equals(
+                    getString(R.string.actividad_fisica_asociativa_preg_2_op1),
+                    ignoreCase = true
+                )
+            ) 1 else 2
+            6 -> if (respuesta.equals(
+                    getString(R.string.actividad_fisica_asociativa_preg_3_op0),
+                    ignoreCase = true
+                )
+            ) 0 else if (respuesta.equals(
+                    getString(R.string.actividad_fisica_asociativa_preg_3_op1),
+                    ignoreCase = true
+                )
+            ) 1 else 2
+            7 -> if (respuesta.equals(
+                    getString(R.string.nutricion_alimentacion_preg_1_op0),
+                    ignoreCase = true
+                )
+            ) 0 else if (respuesta.equals(
+                    getString(R.string.nutricion_alimentacion_preg_1_op1),
+                    ignoreCase = true
+                )
+            ) 1 else 2
+            8 -> if (respuesta.equals(
+                    getString(R.string.nutricion_alimentacion_preg_2_op0),
+                    ignoreCase = true
+                )
+            ) 0 else if (respuesta.equals(
+                    getString(R.string.nutricion_alimentacion_preg_2_op1),
+                    ignoreCase = true
+                )
+            ) 1 else 2
+            9 -> if (respuesta.equals(
+                    getString(R.string.nutricion_alimentacion_preg_3_op0),
+                    ignoreCase = true
+                )
+            ) 0 else if (respuesta.equals(
+                    getString(R.string.nutricion_alimentacion_preg_3_op1),
+                    ignoreCase = true
+                )
+            ) 1 else 2
+            10 -> if (respuesta.equals(
+                    getString(R.string.tabaco_dependencia_preg_1_op0),
+                    ignoreCase = true
+                )
+            ) 0 else if (respuesta.equals(
+                    getString(R.string.tabaco_dependencia_preg_1_op1),
+                    ignoreCase = true
+                )
+            ) 1 else 2
+            11 -> if (respuesta.equals(
+                    getString(R.string.tabaco_dependencia_preg_2_op0),
+                    ignoreCase = true
+                )
+            ) 0 else if (respuesta.equals(
+                    getString(R.string.tabaco_dependencia_preg_2_op1),
+                    ignoreCase = true
+                )
+            ) 1 else 2
+            12 -> if (respuesta.equals(
+                    getString(R.string.tabaco_dependencia_preg_3_op0),
+                    ignoreCase = true
+                )
+            ) 0 else if (respuesta.equals(
+                    getString(R.string.tabaco_dependencia_preg_3_op1),
+                    ignoreCase = true
+                )
+            ) 1 else 2
+            13 -> if (respuesta.equals(
+                    getString(R.string.alcohol_preg_1_op0),
+                    ignoreCase = true
+                )
+            ) 0 else if (respuesta.equals(
+                    getString(R.string.alcohol_preg_1_op1),
+                    ignoreCase = true
+                )
+            ) 1 else 2
+            14 -> if (respuesta.equals(
+                    getString(R.string.alcohol_preg_2_op0),
+                    ignoreCase = true
+                )
+            ) 0 else if (respuesta.equals(
+                    getString(R.string.alcohol_preg_2_op1),
+                    ignoreCase = true
+                )
+            ) 1 else 2
+            15 -> if (respuesta.equals(
+                    getString(R.string.alcohol_preg_3_op0),
+                    ignoreCase = true
+                )
+            ) 0 else if (respuesta.equals(
+                    getString(R.string.alcohol_preg_3_op1),
+                    ignoreCase = true
+                )
+            ) 1 else 2
+            16 -> if (respuesta.equals(
+                    getString(R.string.sueno_estres_preg_1_op0),
+                    ignoreCase = true
+                )
+            ) 0 else if (respuesta.equals(
+                    getString(R.string.sueno_estres_preg_1_op1),
+                    ignoreCase = true
+                )
+            ) 1 else 2
+            17 -> if (respuesta.equals(
+                    getString(R.string.sueno_estres_preg_2_op0),
+                    ignoreCase = true
+                )
+            ) 0 else if (respuesta.equals(
+                    getString(R.string.sueno_estres_preg_2_op1),
+                    ignoreCase = true
+                )
+            ) 1 else 2
+            18 -> if (respuesta.equals(
+                    getString(R.string.sueno_estres_preg_3_op0),
+                    ignoreCase = true
+                )
+            ) 0 else if (respuesta.equals(
+                    getString(R.string.sueno_estres_preg_3_op1),
+                    ignoreCase = true
+                )
+            ) 1 else 2
+            19 -> if (respuesta.equals(
+                    getString(R.string.trabajo_personalidad_preg_1_op0),
+                    ignoreCase = true
+                )
+            ) 0 else if (respuesta.equals(
+                    getString(R.string.trabajo_personalidad_preg_1_op1),
+                    ignoreCase = true
+                )
+            ) 1 else 2
+            20 -> if (respuesta.equals(
+                    getString(R.string.trabajo_personalidad_preg_2_op0),
+                    ignoreCase = true
+                )
+            ) 0 else if (respuesta.equals(
+                    getString(R.string.trabajo_personalidad_preg_2_op1),
+                    ignoreCase = true
+                )
+            ) 1 else 2
+            21 -> if (respuesta.equals(
+                    getString(R.string.trabajo_personalidad_preg_3_op0),
+                    ignoreCase = true
+                )
+            ) 0 else if (respuesta.equals(
+                    getString(R.string.trabajo_personalidad_preg_3_op1),
+                    ignoreCase = true
+                )
+            ) 1 else 2
+            22 -> if (respuesta.equals(
+                    getString(R.string.introspeccion_preg_1_op0),
+                    ignoreCase = true
+                )
+            ) 0 else if (respuesta.equals(
+                    getString(R.string.introspeccion_preg_1_op1),
+                    ignoreCase = true
+                )
+            ) 1 else 2
+            23 -> if (respuesta.equals(
+                    getString(R.string.introspeccion_preg_2_op0),
+                    ignoreCase = true
+                )
+            ) 0 else if (respuesta.equals(
+                    getString(R.string.introspeccion_preg_2_op1),
+                    ignoreCase = true
+                )
+            ) 1 else 2
+            24 -> if (respuesta.equals(
+                    getString(R.string.introspeccion_preg_3_op0),
+                    ignoreCase = true
+                )
+            ) 0 else if (respuesta.equals(
+                    getString(R.string.introspeccion_preg_3_op1),
+                    ignoreCase = true
+                )
+            ) 1 else 2
+            25 -> if (respuesta.equals(
+                    getString(R.string.salud_sexualidad_preg_1_op0),
+                    ignoreCase = true
+                )
+            ) 0 else if (respuesta.equals(
+                    getString(R.string.salud_sexualidad_preg_1_op1),
+                    ignoreCase = true
+                )
+            ) 1 else 2
+            26 -> if (respuesta.equals(
+                    getString(R.string.salud_sexualidad_preg_2_op0),
+                    ignoreCase = true
+                )
+            ) 0 else if (respuesta.equals(
+                    getString(R.string.salud_sexualidad_preg_2_op1),
+                    ignoreCase = true
+                )
+            ) 1 else 2
+            27 -> if (respuesta.equals(
+                    getString(R.string.salud_sexualidad_preg_3_op0),
+                    ignoreCase = true
+                )
+            ) 0 else if (respuesta.equals(
+                    getString(R.string.salud_sexualidad_preg_3_op1),
+                    ignoreCase = true
+                )
+            ) 1 else 2
+            28 -> if (respuesta.equals(
+                    getString(R.string.otros_preg_1_op0),
+                    ignoreCase = true
+                )
+            ) 0 else if (respuesta.equals(
+                    getString(R.string.otros_preg_1_op1),
+                    ignoreCase = true
+                )
+            ) 1 else 2
+            29 -> if (respuesta.equals(
+                    getString(R.string.otros_preg_2_op0),
+                    ignoreCase = true
+                )
+            ) 0 else if (respuesta.equals(
+                    getString(R.string.otros_preg_2_op1),
+                    ignoreCase = true
+                )
+            ) 1 else 2
+            30 -> if (respuesta.equals(
+                    getString(R.string.otros_preg_3_op0),
+                    ignoreCase = true
+                )
+            ) 0 else if (respuesta.equals(
+                    getString(R.string.otros_preg_3_op1),
+                    ignoreCase = true
+                )
+            ) 1 else 2
             else -> 0
         }
     }

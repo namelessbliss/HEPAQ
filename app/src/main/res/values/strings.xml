@@ -47,9 +47,11 @@
     <string name="intro_text">Contesta este cuestionario, recordando cómo ha sido tu vida este último mes</string>
     <string name="intro_start">¡Empecemos!</string>
 
+    <string name="survey_next_button_text">Siguiente</string>
 
     <string name="finish_question_title">¡Hecho!</string>
     <string name="finish_question_text">Gracias por realizar la prueba</string>
+    <string name="finish_survey_text">Gracias por realizar la encuesta</string>
     <string name="finish_question_submit">Finalizar</string>
 
     <string name="familia_amigos_title">Familia, Amigos</string>
@@ -347,6 +349,7 @@
     <string name="cono_p10_op2">b.	Consumo de verduras  </string>
     <string name="cono_p10_op3">c.	Consumo de aceite de oliva o sacha inchi   </string>
     <string name="cono_p10_op4">d. Todas. </string>
+    <string name="encuesta">Encuesta de Satisfacción</string>
     <string name="test_conocimiento">Test conocimiento</string>
     <string name="cerrar_sesion">Cerrar Sesión</string>
     <string name="recordar_datos">Recordar Datos</string>
@@ -356,5 +359,77 @@
     <string name="no_vacunas_registro">No hay vacunas registradas aun</string>
     <string name="no_ecografias">No hay ecografias registradas aun</string>
     <string name="no_laboratorios">No hay laboratorios registrados aun</string>
+
+    <string name="encuesta_tipo_title">Tipo de usuario</string>
+    <string name="encuesta_tipo">A continuación, seleccione el tipo de usuario:</string>
+    <string name="encuesta_tipo_op1">Titular activo</string>
+    <string name="encuesta_tipo_op2">Regimen especial</string>
+    <string name="encuesta_tipo_op3">Pensionista</string>
+    <string name="encuesta_tipo_op4">Derecho habiente Aporte Regular</string>
+    <string name="encuesta_tipo_op5">Latencia</string>
+    <string name="encuesta_tipo_op6">Protestativo</string>
+
+    <string name="encuesta_grado_title">Grado de instrucción:</string>
+    <string name="encuesta_grado">Seleccione el grado de instrucción:</string>
+    <string name="encuesta_grado_op1">Universitario</string>
+    <string name="encuesta_grado_op2">Técnico</string>
+    <string name="encuesta_grado_op3">Secundario</string>
+    <string name="encuesta_grado_op4">Primario</string>
+
+    <string name="encuesta_ocupacion">Ocupación:</string>
+    <string name="encuesta_profesion">Escriba la Ocupación, profesión u oficio que usted realiza:</string>
+
+    <!-- ENCUESTA -->
+    <string name="encuesta_title">ENCUESTA DE SATISFACCIÓN AL USUARIO EXTERNO - SISTEMA HEPAQ</string>
+    <string name="encuesta_text">PROGRAMA DE REFORMA DE VIDA</string>
+
+    <string name="encuesta_preg1"> ¿Recibió usted la orientación adecuada de qué se trata el Programa Reforma de Vida en ESSALUD?</string>
+
+    <string name="encuesta_preg2"> ¿Qué le pareció la finalidad del Programa de Reforma de Vida de ESSALUD?</string>
+
+    <string name="encuesta_preg3"> ¿Qué le pareció el Sistema HEPAQ - plataforma digital de ESSALUD para realizar el control de su salud?</string>
+
+    <string name="encuesta_preg4"> ¿El personal de ESSALUD estuvo dispuesto a ayudarlo cuando usted lo necesitó?</string>
+
+    <string name="encuesta_preg5"> ¿El personal de ESSALUD le transmitió confianza y seguridad durante el desarrollo del programa?</string>
+
+    <string name="encuesta_preg6"> ¿El personal asistencial que lo atendió le brindó información clara sobre su enfermedad y el tratamiento que requirió?</string>
+
+    <string name="encuesta_preg7"> ¿Su expectativa por la cual usted participó en el programa de Reforma de Vida fue resuelta?</string>
+
+    <string name="encuesta_preg8"> ¿Está dispuesta/o a vencer el sedentarismo mediante actividad física?</string>
+
+    <string name="encuesta_preg9"> ¿Está dispuesto a seguir los 10 mandamientos para una buena salud (viva en plenitud, beba de 4 a 8 vasos diarios, no use tabaco, vigile su peso, evite el estrés, consuma cereales, limite consumo de alcohol, haga ejercicios, etc.)?</string>
+
+    <string name="encuesta_preg10"> ¿Cambió su calidad y estilos de vida saludable el Programa de Reforma de Vida de ESSALUD?</string>
+
+    <string name="encuesta_preg11"> En conclusión, califique la realización de los Talleres del Programa de Reforma de Vida de Essalud.</string>
+
+    <string name="encuesta_resp_si">Sí</string>
+    <string name="encuesta_resp_no">No</string>
+
+    <string name="encuesta_resp_exce">Excelente</string>
+    <string name="encuesta_resp_buena">Buena</string>
+    <string name="encuesta_resp_regular">Regular</string>
+    <string name="encuesta_resp_mala">Mala</string>
+    <string name="encuesta_resp_pesima">Pésima</string>
+
+    <string name="encuesta_resp_siempre">Siempre</string>
+    <string name="encuesta_resp_casis">Casi Siempre</string>
+    <string name="encuesta_resp_aveces">A veces</string>
+    <string name="encuesta_resp_casin">Casi nunca</string>
+    <string name="encuesta_resp_nunca">Nunca</string>
+    <string name="encuesta_title_p1">Pregunta 1</string>
+    <string name="encuesta_title_p2">Pregunta 2</string>
+    <string name="encuesta_title_p3">Pregunta 3</string>
+    <string name="encuesta_title_p4">Pregunta 4</string>
+    <string name="encuesta_title_p5">Pregunta 5</string>
+    <string name="encuesta_title_p6">Pregunta 6</string>
+    <string name="encuesta_title_p7">Pregunta 7</string>
+    <string name="encuesta_title_p8">Pregunta 8</string>
+    <string name="encuesta_title_p9">Pregunta 9</string>
+    <string name="encuesta_title_p10">Pregunta 10</string>
+    <string name="encuesta_title_p11">Pregunta 11</string>
+
 
 </resources>

@@ -137,8 +137,11 @@ public class LoginActivity extends AppCompatActivity implements ProgressGenerato
                                         SharedPreferencesManager.setBooleanValue(Constants.PREF_RECORDAR, false);
                                     }
                                     SharedPreferencesManager.setBooleanValue(Constants.PREF_LOGIN, true);
-                                    SharedPreferencesManager.setStringValue(Constants.PREF_APELLIDO, response.body().getApellidos());
-                                    SharedPreferencesManager.setStringValue(Constants.PREF_NOMBRE, response.body().getNombres());
+/*                                    SharedPreferencesManager.setStringValue(Constants.PREF_APELLIDO, response.body().getApellidos());
+                                    SharedPreferencesManager.setStringValue(Constants.PREF_NOMBRE, response.body().getNombres());*/
+                                    SharedPreferencesManager.setStringValue(Constants.PREF_APELLIDO, " ");
+                                    SharedPreferencesManager.setStringValue(Constants.PREF_NOMBRE, " ");
+                                    SharedPreferencesManager.setStringValue(Constants.PREF_NOMBRE_COMPLETO, response.body().getNombres_completos());
                                     SharedPreferencesManager.setStringValue(Constants.PREF_SEXO, response.body().getApellidos());
                                     SharedPreferencesManager.setStringValue(Constants.PREF_DIRECCION, response.body().getDireccion());
                                     SharedPreferencesManager.setStringValue(Constants.PREF_TELEFONO, response.body().getTelefono());
@@ -166,10 +169,14 @@ public class LoginActivity extends AppCompatActivity implements ProgressGenerato
                                         .show();
                                 loginCorrecto = false;
                             } else {
-                                new SweetAlertDialog(LoginActivity.this, SweetAlertDialog.ERROR_TYPE)
-                                        .setTitleText("ERROR DE CONEXION")
-                                        .setContentText("Revise su conexion a internet")
-                                        .show();
+                                try {
+                                    new SweetAlertDialog(LoginActivity.this, SweetAlertDialog.ERROR_TYPE)
+                                            .setTitleText("ERROR DE CONEXION")
+                                            .setContentText("Revise su conexion a internet")
+                                            .show();
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
                                 loginCorrecto = false;
                             }
 

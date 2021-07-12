@@ -8,9 +8,8 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
-
     <application
-        android:name="com.essaludapp.hepaq.common.MyApp"
+        android:name=".common.MyApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher_v2"
         android:label="@string/app_name"
@@ -20,6 +19,8 @@
         android:theme="@style/Theme.Prototipo"
         android:usesCleartextTraffic="true"
         tools:replace="android:icon">
+        <activity android:name=".ui.resultados.tests.EncuestaActivity"></activity>
+
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.provider"
@@ -30,27 +31,27 @@
                 android:resource="@xml/provider_paths" />
         </provider>
 
-        <activity android:name="com.essaludapp.hepaq.ui.resultados.tests.TestConocimientoActivity"></activity>
+        <activity android:name=".ui.resultados.tests.TestConocimientoActivity" />
         <activity
-            android:name="com.essaludapp.hepaq.ui.acerca.AcercaActivity"
+            android:name=".ui.acerca.AcercaActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.essaludapp.hepaq.ui.resultados.tests.TestEstresActivity"
+            android:name=".ui.resultados.tests.TestEstresActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.essaludapp.hepaq.ui.resultados.tests.TestFantasticoActivity"
+            android:name=".ui.resultados.tests.TestFantasticoActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.essaludapp.hepaq.ui.resultados.ImcActivity"
+            android:name=".ui.resultados.ImcActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.essaludapp.hepaq.ui.resultados.ResultadosActivity"
+            android:name=".ui.resultados.ResultadosActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.essaludapp.hepaq.ui.vacuna.VacunaActivity"
+            android:name=".ui.vacuna.VacunaActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.essaludapp.hepaq.ui.SplashScreen"
+            android:name=".ui.SplashScreen"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -59,21 +60,21 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.essaludapp.hepaq.ui.PdfViewerActivity"
+            android:name=".ui.PdfViewerActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.Prototipo" />
         <activity
-            android:name="com.essaludapp.hepaq.ui.atenciones.AtencionesActivity"
+            android:name=".ui.atenciones.AtencionesActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.essaludapp.hepaq.ui.ProfileActivity"
+            android:name=".ui.ProfileActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
         <activity
-            android:name="com.essaludapp.hepaq.ui.dashboard.DashboardActivity"
+            android:name=".ui.dashboard.DashboardActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.essaludapp.hepaq.ui.LoginActivity"
+            android:name=".ui.LoginActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

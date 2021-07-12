@@ -17,6 +17,9 @@ public class PersonalObj {
     @SerializedName("Nombre")
     @Expose
     public String nombre;
+    @SerializedName("Nombre_completo")
+    @Expose
+    public String nombre_completo;
     @SerializedName("Sexo")
     @Expose
     public String sexo;
@@ -263,5 +266,13 @@ public class PersonalObj {
     }
 
     public PersonalObj() {
+    }
+
+    public String getNombre_completo() {
+        return nombre_completo;
+    }
+
+    public void setNombre_completo(String nombre_completo) {
+        this.nombre_completo = nombre_completo;
     }
 }

@@ -15,6 +15,9 @@ public class PacienteObj {
     @SerializedName("Nombres")
     @Expose
     public String nombres;
+    @SerializedName("Nombres_completos")
+    @Expose
+    public String nombres_completo;
     @SerializedName("Sexo")
     @Expose
     public String sexo;
@@ -218,5 +221,13 @@ public class PacienteObj {
 
     public void setIdSede(Integer idSede) {
         this.idSede = idSede;
+    }
+
+    public String getNombres_completo() {
+        return nombres_completo;
+    }
+
+    public void setNombres_completo(String nombres_completo) {
+        this.nombres_completo = nombres_completo;
     }
 }

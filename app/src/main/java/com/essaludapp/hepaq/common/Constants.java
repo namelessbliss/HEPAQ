@@ -13,6 +13,7 @@ public class Constants {
     public static final String PREF_DOCUMENTO = "PREF_DOCUMENTO";
     public static final String PREF_APELLIDO = "PREF_APELLIDO";
     public static final String PREF_NOMBRE = "PREF_NOMBRE";
+    public static final String PREF_NOMBRE_COMPLETO = "PREF_NOMBRE_COMPLETO";
     public static final String PREF_SEXO = "PREF_SEXO";
     public static final String PREF_DIRECCION = "PREF_DIRECCION";
     public static final String PREF_TELEFONO = "PREF_TELEFONO";
@@ -41,6 +42,9 @@ public class Constants {
     public static final int TEST_FANTASTICO = 2;
     public static final int TEST_ESTRES = 3;
     public static final int TEST_CONOCIMIENTO = 1;
+
+    //ENCUESTA
+    public static final String ENCUESTA_CONTESTADA = "ENCUESTA_CONTESTADA";
 
     //LOGIN
     public static final String PREF_LOGIN = "PREF_LOGIN";

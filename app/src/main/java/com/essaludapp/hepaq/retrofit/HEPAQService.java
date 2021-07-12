@@ -2,12 +2,17 @@ package com.essaludapp.hepaq.retrofit;
 
 
 import com.essaludapp.hepaq.retrofit.request.RequestLogin;
+import com.essaludapp.hepaq.retrofit.request.RequestRegistrarEncuesta;
 import com.essaludapp.hepaq.retrofit.response.ResponseLogin;
 import com.essaludapp.hepaq.retrofit.response.atenciones.ResponseAtenciones;
+import com.essaludapp.hepaq.retrofit.response.encuesta.ResponseConfirmarEncuesta;
 import com.essaludapp.hepaq.retrofit.response.tests.ResponseListarTest;
 import com.essaludapp.hepaq.retrofit.response.tests.ResponseRegistrarTests;
 import com.essaludapp.hepaq.retrofit.response.vacunas.ResponseConfirmarVacuna;
 import com.essaludapp.hepaq.retrofit.response.vacunas.ResponseDosisVacuna;
+import com.google.gson.JsonObject;
+
+import org.json.JSONObject;
 
 import java.util.List;
 
@@ -61,4 +66,11 @@ public interface HEPAQService {
     @POST("listarTest.php")
     @FormUrlEncoded
     Call<ResponseListarTest> getTest(@Field("dni") String dni, @Field("tipo") int tipo);
+
+    @POST("registrarEncuesta.php")
+    Call<ResponseConfirmarEncuesta> registrarEncuesta(@Body RequestRegistrarEncuesta request);
+
+    @POST("verificarEncuesta.php")
+    @FormUrlEncoded
+    Call<ResponseConfirmarEncuesta> confirmarEncuesta(@Field("dni") String dni);
 }

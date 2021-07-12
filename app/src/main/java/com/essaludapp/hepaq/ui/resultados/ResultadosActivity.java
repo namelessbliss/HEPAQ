@@ -11,16 +11,29 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.essaludapp.hepaq.R;
+import com.essaludapp.hepaq.common.Constants;
+import com.essaludapp.hepaq.common.SharedPreferencesManager;
+import com.essaludapp.hepaq.retrofit.HEPAQClient;
+import com.essaludapp.hepaq.retrofit.HEPAQService;
+import com.essaludapp.hepaq.retrofit.response.atenciones.ResponseAtenciones;
+import com.essaludapp.hepaq.retrofit.response.encuesta.ResponseConfirmarEncuesta;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class ResultadosActivity extends AppCompatActivity {
 
     Toolbar toolbar;
     private TabLayout tabLayout;
     public ViewPager viewPager;
+
+    private HEPAQClient hepaqClient;
+    private HEPAQService hepaqService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +50,8 @@ public class ResultadosActivity extends AppCompatActivity {
                 finish();
             }
         });
+        retrofitInit();
+        getEncuesta();
     }
 
     private void bindViews() {
@@ -83,5 +98,38 @@ public class ResultadosActivity extends AppCompatActivity {
         public CharSequence getPageTitle(int position) {
             return mFragmentTitleList.get(position);
         }
+    }
+
+    private void retrofitInit() {
+        hepaqClient = hepaqClient.getInstance();
+        hepaqService = hepaqClient.getHEPAQService();
+    }
+
+    private void getEncuesta() {
+        String documento = SharedPreferencesManager.getStringValue(Constants.PREF_DOCUMENTO);
+
+        Call<ResponseConfirmarEncuesta> call = hepaqService.confirmarEncuesta(documento);
+
+        call.enqueue(new Callback<ResponseConfirmarEncuesta>() {
+            @Override
+            public void onResponse(Call<ResponseConfirmarEncuesta> call, Response<ResponseConfirmarEncuesta> response) {
+                if (response.isSuccessful()) {
+                    if (response.body().isConfirmado()) {
+                        try {
+                            SharedPreferencesManager.setBooleanValue(Constants.ENCUESTA_CONTESTADA, true);
+                        } catch (Exception e) {
+                        }
+                    } else {
+                        SharedPreferencesManager.setBooleanValue(Constants.ENCUESTA_CONTESTADA, false);
+                    }
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<ResponseConfirmarEncuesta> call, Throwable t) {
+                System.out.println("error");
+            }
+        });
     }
 }

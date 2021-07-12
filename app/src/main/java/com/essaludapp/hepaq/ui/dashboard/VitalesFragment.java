@@ -25,6 +25,11 @@ public class VitalesFragment extends Fragment {
     private TextView tvCargando;
     boolean lastError = false;
 
+    float frecCard = 0;
+    float frecRes = 0;
+    float systolic = 0;
+    float diastolic = 0;
+
     public VitalesFragment() {
         // Required empty public constructor
     }
@@ -138,10 +143,6 @@ public class VitalesFragment extends Fragment {
     }
 
     private void moverIndicador() {
-        float frecCard = 0;
-        float frecRes = 0;
-        float systolic = 0;
-        float diastolic = 0;
         try {
             frecCard = Float.parseFloat(SharedPreferencesManager.getStringValue(Constants.FREC_CARDIACA));
 
@@ -163,10 +164,26 @@ public class VitalesFragment extends Fragment {
         } catch (Exception e) {
             Log.e("VitalesFragment", e.getMessage());
         }
-        frecCardiaca.speedTo(frecCard);
-        frecResp.speedTo(frecRes);
-        presSanguineaSys.speedTo(systolic);
-        presSanguineaDia.speedTo(diastolic);
+        try {
+            frecCardiaca.speedTo(frecCard);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        try {
+            frecResp.speedTo(frecRes);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        try {
+            presSanguineaSys.speedTo(systolic);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        try {
+            presSanguineaDia.speedTo(diastolic);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public void visibilidad(boolean error) {
@@ -175,9 +192,13 @@ public class VitalesFragment extends Fragment {
             tvCargando.setText("NO HAY DATOS PARA MOSTRAR");
             tvCargando.setTextColor(getActivity().getResources().getColor(R.color.red_error));
         } else {
-            moverIndicador();
-            graficos.setVisibility(View.VISIBLE);
-            frameCarga.setVisibility(View.INVISIBLE);
+            try {
+                moverIndicador();
+                graficos.setVisibility(View.VISIBLE);
+                frameCarga.setVisibility(View.INVISIBLE);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 

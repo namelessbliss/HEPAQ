@@ -118,10 +118,14 @@ public class VacunaAvisoFragment extends Fragment {
                             .setContentText("Revise su conexion a internet")
                             .show();
                 } else {
-                    new SweetAlertDialog(getActivity(), SweetAlertDialog.ERROR_TYPE)
-                            .setTitleText("ERROR")
-                            .setContentText("Ocurrio un error")
-                            .show();
+                    try {
+                        new SweetAlertDialog(getActivity(), SweetAlertDialog.ERROR_TYPE)
+                                .setTitleText("ERROR")
+                                .setContentText("Ocurrio un error")
+                                .show();
+                    }catch (Exception e){
+                        e.printStackTrace();
+                    }
                 }
             }
         });

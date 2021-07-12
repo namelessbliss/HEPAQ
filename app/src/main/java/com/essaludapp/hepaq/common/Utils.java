@@ -66,8 +66,9 @@ public class Utils {
                 SharedPreferencesManager.setStringValue(Constants.PREF_FECHA_NACIMIENTO, null);
             }
             SharedPreferencesManager.setBooleanValue(Constants.PREF_LOGIN, false);
-            SharedPreferencesManager.setStringValue(Constants.PREF_NOMBRE, null);
-            SharedPreferencesManager.setStringValue(Constants.PREF_APELLIDO, null);
+            /*SharedPreferencesManager.setStringValue(Constants.PREF_NOMBRE, null);
+            SharedPreferencesManager.setStringValue(Constants.PREF_APELLIDO, null);*/
+            SharedPreferencesManager.setStringValue(Constants.PREF_NOMBRE_COMPLETO, null);
             SharedPreferencesManager.setStringValue(Constants.PREF_SEXO, null);
             SharedPreferencesManager.setStringValue(Constants.PREF_DIRECCION, null);
             SharedPreferencesManager.setStringValue(Constants.PREF_TELEFONO, null);
@@ -99,7 +100,7 @@ public class Utils {
 
     public File createPDFVacuna(Context context, ResponseDosisVacuna vacuna) {
         File carpeta;
-        if (android.os.Build.VERSION.SDK_INT == Build.VERSION_CODES.R) {
+        if (android.os.Build.VERSION.SDK_INT == Build.VERSION_CODES.R || android.os.Build.VERSION.SDK_INT == Build.VERSION_CODES.Q) {
             carpeta = new File(context.getExternalCacheDir().toString(), "HEPAQ_ESSALUD_APP");
         }else{
             carpeta = new File(Environment.getExternalStorageDirectory().toString(), "HEPAQ_ESSALUD_APP");
@@ -180,7 +181,7 @@ public class Utils {
 
     public File createPDFLaboratorio(Context context, ResponseAtenciones atencion) {
         File carpeta;
-        if (android.os.Build.VERSION.SDK_INT == Build.VERSION_CODES.R) {
+        if (android.os.Build.VERSION.SDK_INT == Build.VERSION_CODES.R || android.os.Build.VERSION.SDK_INT == Build.VERSION_CODES.Q) {
             carpeta = new File(context.getExternalCacheDir().toString(), "HEPAQ_ESSALUD_APP");
         }else{
             carpeta = new File(Environment.getExternalStorageDirectory().toString(), "HEPAQ_ESSALUD_APP");
@@ -256,7 +257,8 @@ public class Utils {
 
             document.add(paragraph2);
 
-            Paragraph paragraph3 = new Paragraph(atencion.getPacienteObj().getApellidos() + " " + atencion.getPacienteObj().getNombres(), fNormal);
+            //Paragraph paragraph3 = new Paragraph(atencion.getPacienteObj().getApellidos() + " " + atencion.getPacienteObj().getNombres(), fNormal);
+            Paragraph paragraph3 = new Paragraph(atencion.getPacienteObj().getNombres_completo(), fNormal);
 
             document.add(paragraph3);
 
@@ -388,7 +390,7 @@ public class Utils {
 
     public File createPDFEcografia(Context context, ResponseAtenciones atencion) {
         File carpeta;
-        if (android.os.Build.VERSION.SDK_INT == Build.VERSION_CODES.R) {
+        if (android.os.Build.VERSION.SDK_INT == Build.VERSION_CODES.R || android.os.Build.VERSION.SDK_INT == Build.VERSION_CODES.Q) {
             carpeta = new File(context.getExternalCacheDir().toString(), "HEPAQ_ESSALUD_APP");
         }else{
             carpeta = new File(Environment.getExternalStorageDirectory().toString(), "HEPAQ_ESSALUD_APP");
@@ -621,7 +623,7 @@ public class Utils {
 
     public File createPDFAtencion(Context context, ResponseAtenciones atencion) {
         File carpeta;
-        if (android.os.Build.VERSION.SDK_INT == Build.VERSION_CODES.R) {
+        if (android.os.Build.VERSION.SDK_INT == Build.VERSION_CODES.R || android.os.Build.VERSION.SDK_INT == Build.VERSION_CODES.Q) {
             carpeta = new File(context.getExternalCacheDir().toString(), "HEPAQ_ESSALUD_APP");
         }else{
             carpeta = new File(Environment.getExternalStorageDirectory().toString(), "HEPAQ_ESSALUD_APP");
@@ -692,7 +694,8 @@ public class Utils {
 
             document.add(paragraph3);
 
-            String cabecera2[] = new String[]{"Apellido Paterno", "Apellido Materno", "Nombres"};
+            //String cabecera2[] = new String[]{"Apellido Paterno", "Apellido Materno", "Nombres"};
+            String cabecera2[] = new String[]{"Nombre Completo"};
             Paragraph pt2 = new Paragraph("", fText);
             pt2.setSpacingBefore(spacing);
             pt2.setSpacingAfter(spacing);
@@ -704,16 +707,16 @@ public class Utils {
             }
             table2.setHeaderRows(1);
 
-            try {
+            /*try {
                 String apellidos = validaString(atencion.getPacienteObj().getApellidos());
                 String[] splited = apellidos.split("\\s+");
                 table2.addCell(validaString(splited[0]));
                 table2.addCell(validaString(splited[1]));
             } catch (Exception e) {
                 table2.addCell(" ");
-            }
+            }*/
             try {
-                table2.addCell(validaString(atencion.getPacienteObj().getNombres()));
+                table2.addCell(validaString(atencion.getPacienteObj().getNombres_completo()));
             } catch (Exception e) {
                 table2.addCell(" ");
             }
@@ -1020,7 +1023,8 @@ public class Utils {
             table13.setHeaderRows(1);
 
             try {
-                table13.addCell(validaString(atencion.getPersonalObj().getApellido() + " " + atencion.getPersonalObj().getNombre()));
+                //table13.addCell(validaString(atencion.getPersonalObj().getApellido() + " " + atencion.getPersonalObj().getNombre()));
+                table13.addCell(validaString(atencion.getPersonalObj().getNombre_completo()));
             } catch (Exception e) {
                 table13.addCell(" ");
             }
@@ -1242,14 +1246,19 @@ public class Utils {
         Calendar dob = Calendar.getInstance();
         Calendar today = Calendar.getInstance();
 
-        try {
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            Date date = sdf.parse(fecha);
+        if (fecha != null && !fecha.equalsIgnoreCase("")){
+            try {
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd",Locale.US);
+                Date date = sdf.parse(fecha);
 
-            startDate = date.getTime();
+                startDate = date.getTime();
 
-        } catch (ParseException e) {
-            e.printStackTrace();
+            } catch (ParseException e) {
+                e.printStackTrace();
+                return "0";
+            }
+        }else {
+            return "0";
         }
 
         Calendar c = Calendar.getInstance();
@@ -1279,6 +1288,5 @@ public class Utils {
         double truncado = decimal / 100.0f;
         return truncado;
     }
-
 
 }

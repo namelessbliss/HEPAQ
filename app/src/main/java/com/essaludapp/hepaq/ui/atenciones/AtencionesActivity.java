@@ -9,8 +9,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.view.View;
+import android.widget.Toast;
 
 import com.essaludapp.hepaq.R;
+import com.essaludapp.hepaq.ui.resultados.tests.EncuestaActivity;
 import com.karumi.dexter.Dexter;
 import com.karumi.dexter.PermissionToken;
 import com.karumi.dexter.listener.PermissionDeniedResponse;
@@ -32,6 +34,7 @@ public class AtencionesActivity extends AppCompatActivity {
         getSupportActionBar().hide();
 
         bindViews();
+
 
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override

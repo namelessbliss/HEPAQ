@@ -15,6 +15,9 @@ public class ResponseLogin {
     @SerializedName("Nombres")
     @Expose
     private String nombres;
+    @SerializedName("Nombres_completos")
+    @Expose
+    private String nombres_completos;
     @SerializedName("Sexo")
     @Expose
     private String sexo;
@@ -216,4 +219,11 @@ public class ResponseLogin {
         this.sedeObj = sedeObj;
     }
 
+    public void setNombres_completos(String nombres_completos) {
+        this.nombres_completos = nombres_completos;
+    }
+
+    public String getNombres_completos() {
+        return nombres_completos;
+    }
 }

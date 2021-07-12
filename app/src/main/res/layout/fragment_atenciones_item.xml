@@ -60,11 +60,12 @@
 
     <TextView
         android:id="@+id/tvMedico"
-        android:layout_width="317dp"
+        android:layout_width="0dp"
         android:layout_height="19dp"
         android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
         android:theme="@style/texto_pequeño"
-        app:layout_constraintBottom_toBottomOf="@+id/textViewMessage"
+        app:layout_constraintEnd_toStartOf="@+id/btnPdf"
         app:layout_constraintStart_toEndOf="@+id/textViewMessage"
         app:layout_constraintTop_toTopOf="@+id/textViewMessage" />
 

@@ -188,9 +188,13 @@ public class MentalFragment extends Fragment {
             tvCargando.setText("No hay valores registrados, realice las pruebas");
             tvCargando.setTextColor(getActivity().getResources().getColor(R.color.red_error));
         } else {
-            moverIndicador();
-            frameCarga.setVisibility(View.INVISIBLE);
-            graficos.setVisibility(View.VISIBLE);
+            try {
+                moverIndicador();
+                frameCarga.setVisibility(View.INVISIBLE);
+                graficos.setVisibility(View.VISIBLE);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 

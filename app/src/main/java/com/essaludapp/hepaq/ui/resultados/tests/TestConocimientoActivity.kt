@@ -65,137 +65,147 @@ class TestConocimientoActivity : AppCompatActivity() {
 
     private fun setupSurvey(surveyView: SurveyView?) {
         val steps = listOf(
-                InstructionStep(
-                        title = this.resources.getString(R.string.cono_title),
-                        text = this.resources.getString(R.string.cono_text),
-                        buttonText = this.resources.getString(R.string.intro_start)
-                ),
-                QuestionStep(
-                        title = this.resources.getString(R.string.cono_p1_t),
-                        text = this.resources.getString(R.string.cono_p1),
-                        answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
-                                textChoices = listOf(
-                                        TextChoice(this.resources.getString(R.string.cono_p1_op1)),
-                                        TextChoice(this.resources.getString(R.string.cono_p1_op2)),
-                                        TextChoice(this.resources.getString(R.string.cono_p1_op3)),
-                                        TextChoice(this.resources.getString(R.string.cono_p1_op4))
-                                )
-                        )
-                ),
-                QuestionStep(
-                        title = this.resources.getString(R.string.cono_p2_t),
-                        text = this.resources.getString(R.string.cono_p2),
-                        answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
-                                textChoices = listOf(
-                                        TextChoice(this.resources.getString(R.string.cono_p2_op1)),
-                                        TextChoice(this.resources.getString(R.string.cono_p2_op2)),
-                                        TextChoice(this.resources.getString(R.string.cono_p2_op3)),
-                                        TextChoice(this.resources.getString(R.string.cono_p2_op4))
-                                )
-                        )
-                ),
-                QuestionStep(
-                        title = this.resources.getString(R.string.cono_p3_t),
-                        text = this.resources.getString(R.string.cono_p3),
-                        answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
-                                textChoices = listOf(
-                                        TextChoice(this.resources.getString(R.string.cono_p3_op1)),
-                                        TextChoice(this.resources.getString(R.string.cono_p3_op2)),
-                                        TextChoice(this.resources.getString(R.string.cono_p3_op3)),
-                                        TextChoice(this.resources.getString(R.string.cono_p3_op4))
-                                )
-                        )
-                ),
-                QuestionStep(
-                        title = this.resources.getString(R.string.cono_p4_t),
-                        text = this.resources.getString(R.string.cono_p4),
-                        answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
-                                textChoices = listOf(
-                                        TextChoice(this.resources.getString(R.string.cono_p4_op1)),
-                                        TextChoice(this.resources.getString(R.string.cono_p4_op2)),
-                                        TextChoice(this.resources.getString(R.string.cono_p4_op3)),
-                                        TextChoice(this.resources.getString(R.string.cono_p4_op4))
-                                )
-                        )
-                ),
-                QuestionStep(
-                        title = this.resources.getString(R.string.cono_p5_t),
-                        text = this.resources.getString(R.string.cono_p5),
-                        answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
-                                textChoices = listOf(
-                                        TextChoice(this.resources.getString(R.string.cono_p5_op1)),
-                                        TextChoice(this.resources.getString(R.string.cono_p5_op2)),
-                                        TextChoice(this.resources.getString(R.string.cono_p5_op3)),
-                                        TextChoice(this.resources.getString(R.string.cono_p5_op4))
-                                )
-                        )
-                ),
-                QuestionStep(
-                        title = this.resources.getString(R.string.cono_p6_t),
-                        text = this.resources.getString(R.string.cono_p6),
-                        answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
-                                textChoices = listOf(
-                                        TextChoice(this.resources.getString(R.string.cono_p6_op1)),
-                                        TextChoice(this.resources.getString(R.string.cono_p6_op2)),
-                                        TextChoice(this.resources.getString(R.string.cono_p6_op3)),
-                                        TextChoice(this.resources.getString(R.string.cono_p6_op4))
-                                )
-                        )
-                ),
-                QuestionStep(
-                        title = this.resources.getString(R.string.cono_p7_t),
-                        text = this.resources.getString(R.string.cono_p7),
-                        answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
-                                textChoices = listOf(
-                                        TextChoice(this.resources.getString(R.string.cono_p7_op1)),
-                                        TextChoice(this.resources.getString(R.string.cono_p7_op2)),
-                                        TextChoice(this.resources.getString(R.string.cono_p7_op3)),
-                                        TextChoice(this.resources.getString(R.string.cono_p7_op4))
-                                )
-                        )
-                ),
-                QuestionStep(
-                        title = this.resources.getString(R.string.cono_p8_t),
-                        text = this.resources.getString(R.string.cono_p8),
-                        answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
-                                textChoices = listOf(
-                                        TextChoice(this.resources.getString(R.string.cono_p8_op1)),
-                                        TextChoice(this.resources.getString(R.string.cono_p8_op2)),
-                                        TextChoice(this.resources.getString(R.string.cono_p8_op3)),
-                                        TextChoice(this.resources.getString(R.string.cono_p8_op4))
-                                )
-                        )
-                ),
-                QuestionStep(
-                        title = this.resources.getString(R.string.cono_p9_t),
-                        text = this.resources.getString(R.string.cono_p9),
-                        answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
-                                textChoices = listOf(
-                                        TextChoice(this.resources.getString(R.string.cono_p9_op1)),
-                                        TextChoice(this.resources.getString(R.string.cono_p9_op2)),
-                                        TextChoice(this.resources.getString(R.string.cono_p9_op3)),
-                                        TextChoice(this.resources.getString(R.string.cono_p9_op4))
-                                )
-                        )
-                ),
-                QuestionStep(
-                        title = this.resources.getString(R.string.cono_p10_t),
-                        text = this.resources.getString(R.string.cono_p10),
-                        answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
-                                textChoices = listOf(
-                                        TextChoice(this.resources.getString(R.string.cono_p10_op1)),
-                                        TextChoice(this.resources.getString(R.string.cono_p10_op2)),
-                                        TextChoice(this.resources.getString(R.string.cono_p10_op3)),
-                                        TextChoice(this.resources.getString(R.string.cono_p10_op4))
-                                )
-                        )
-                ),
-
-                CompletionStep(
-                        title = this.resources.getString(R.string.finish_question_title),
-                        text = this.resources.getString(R.string.finish_question_text),
-                        buttonText = this.resources.getString(R.string.finish_question_submit)
+            InstructionStep(
+                title = this.resources.getString(R.string.cono_title),
+                text = this.resources.getString(R.string.cono_text),
+                buttonText = this.resources.getString(R.string.intro_start)
+            ),
+            QuestionStep(
+                title = this.resources.getString(R.string.cono_p1_t),
+                text = this.resources.getString(R.string.cono_p1),
+                nextButton = this.resources.getString(R.string.survey_next_button_text),
+                answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
+                    textChoices = listOf(
+                        TextChoice(this.resources.getString(R.string.cono_p1_op1)),
+                        TextChoice(this.resources.getString(R.string.cono_p1_op2)),
+                        TextChoice(this.resources.getString(R.string.cono_p1_op3)),
+                        TextChoice(this.resources.getString(R.string.cono_p1_op4))
+                    )
                 )
+            ),
+            QuestionStep(
+                title = this.resources.getString(R.string.cono_p2_t),
+                text = this.resources.getString(R.string.cono_p2),
+                nextButton = this.resources.getString(R.string.survey_next_button_text),
+                answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
+                    textChoices = listOf(
+                        TextChoice(this.resources.getString(R.string.cono_p2_op1)),
+                        TextChoice(this.resources.getString(R.string.cono_p2_op2)),
+                        TextChoice(this.resources.getString(R.string.cono_p2_op3)),
+                        TextChoice(this.resources.getString(R.string.cono_p2_op4))
+                    )
+                )
+            ),
+            QuestionStep(
+                title = this.resources.getString(R.string.cono_p3_t),
+                text = this.resources.getString(R.string.cono_p3),
+                nextButton = this.resources.getString(R.string.survey_next_button_text),
+                answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
+                    textChoices = listOf(
+                        TextChoice(this.resources.getString(R.string.cono_p3_op1)),
+                        TextChoice(this.resources.getString(R.string.cono_p3_op2)),
+                        TextChoice(this.resources.getString(R.string.cono_p3_op3)),
+                        TextChoice(this.resources.getString(R.string.cono_p3_op4))
+                    )
+                )
+            ),
+            QuestionStep(
+                title = this.resources.getString(R.string.cono_p4_t),
+                text = this.resources.getString(R.string.cono_p4),
+                nextButton = this.resources.getString(R.string.survey_next_button_text),
+                answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
+                    textChoices = listOf(
+                        TextChoice(this.resources.getString(R.string.cono_p4_op1)),
+                        TextChoice(this.resources.getString(R.string.cono_p4_op2)),
+                        TextChoice(this.resources.getString(R.string.cono_p4_op3)),
+                        TextChoice(this.resources.getString(R.string.cono_p4_op4))
+                    )
+                )
+            ),
+            QuestionStep(
+                title = this.resources.getString(R.string.cono_p5_t),
+                text = this.resources.getString(R.string.cono_p5),
+                nextButton = this.resources.getString(R.string.survey_next_button_text),
+                answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
+                    textChoices = listOf(
+                        TextChoice(this.resources.getString(R.string.cono_p5_op1)),
+                        TextChoice(this.resources.getString(R.string.cono_p5_op2)),
+                        TextChoice(this.resources.getString(R.string.cono_p5_op3)),
+                        TextChoice(this.resources.getString(R.string.cono_p5_op4))
+                    )
+                )
+            ),
+            QuestionStep(
+                title = this.resources.getString(R.string.cono_p6_t),
+                text = this.resources.getString(R.string.cono_p6),
+                nextButton = this.resources.getString(R.string.survey_next_button_text),
+                answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
+                    textChoices = listOf(
+                        TextChoice(this.resources.getString(R.string.cono_p6_op1)),
+                        TextChoice(this.resources.getString(R.string.cono_p6_op2)),
+                        TextChoice(this.resources.getString(R.string.cono_p6_op3)),
+                        TextChoice(this.resources.getString(R.string.cono_p6_op4))
+                    )
+                )
+            ),
+            QuestionStep(
+                title = this.resources.getString(R.string.cono_p7_t),
+                text = this.resources.getString(R.string.cono_p7),
+                nextButton = this.resources.getString(R.string.survey_next_button_text),
+                answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
+                    textChoices = listOf(
+                        TextChoice(this.resources.getString(R.string.cono_p7_op1)),
+                        TextChoice(this.resources.getString(R.string.cono_p7_op2)),
+                        TextChoice(this.resources.getString(R.string.cono_p7_op3)),
+                        TextChoice(this.resources.getString(R.string.cono_p7_op4))
+                    )
+                )
+            ),
+            QuestionStep(
+                title = this.resources.getString(R.string.cono_p8_t),
+                text = this.resources.getString(R.string.cono_p8),
+                nextButton = this.resources.getString(R.string.survey_next_button_text),
+                answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
+                    textChoices = listOf(
+                        TextChoice(this.resources.getString(R.string.cono_p8_op1)),
+                        TextChoice(this.resources.getString(R.string.cono_p8_op2)),
+                        TextChoice(this.resources.getString(R.string.cono_p8_op3)),
+                        TextChoice(this.resources.getString(R.string.cono_p8_op4))
+                    )
+                )
+            ),
+            QuestionStep(
+                title = this.resources.getString(R.string.cono_p9_t),
+                text = this.resources.getString(R.string.cono_p9),
+                nextButton = this.resources.getString(R.string.survey_next_button_text),
+                answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
+                    textChoices = listOf(
+                        TextChoice(this.resources.getString(R.string.cono_p9_op1)),
+                        TextChoice(this.resources.getString(R.string.cono_p9_op2)),
+                        TextChoice(this.resources.getString(R.string.cono_p9_op3)),
+                        TextChoice(this.resources.getString(R.string.cono_p9_op4))
+                    )
+                )
+            ),
+            QuestionStep(
+                title = this.resources.getString(R.string.cono_p10_t),
+                text = this.resources.getString(R.string.cono_p10),
+                nextButton = this.resources.getString(R.string.survey_next_button_text),
+                answerFormat = AnswerFormat.SingleChoiceAnswerFormat(
+                    textChoices = listOf(
+                        TextChoice(this.resources.getString(R.string.cono_p10_op1)),
+                        TextChoice(this.resources.getString(R.string.cono_p10_op2)),
+                        TextChoice(this.resources.getString(R.string.cono_p10_op3)),
+                        TextChoice(this.resources.getString(R.string.cono_p10_op4))
+                    )
+                )
+            ),
+
+            CompletionStep(
+                title = this.resources.getString(R.string.finish_question_title),
+                text = this.resources.getString(R.string.finish_question_text),
+                buttonText = this.resources.getString(R.string.finish_question_submit)
+            )
         )
 
         val task = OrderedTask(steps = steps)
@@ -206,7 +216,10 @@ class TestConocimientoActivity : AppCompatActivity() {
             if (reason == FinishReason.Completed) {
                 taskResult.results.forEach { stepResult ->
                     //Log.e("ASDF", "answer ${stepResult.results.firstOrNull()!!.stringIdentifier}")
-                    suma += calcularResultado(posisicion, stepResult.results.firstOrNull()!!.stringIdentifier)
+                    suma += calcularResultado(
+                        posisicion,
+                        stepResult.results.firstOrNull()!!.stringIdentifier
+                    )
                     posisicion++;
                 }
 
@@ -232,15 +245,15 @@ class TestConocimientoActivity : AppCompatActivity() {
         }
 
         val configuration = SurveyTheme(
-                themeColorDark = ContextCompat.getColor(this, R.color.soft_blue),
-                themeColor = ContextCompat.getColor(this, R.color.cyan_normal),
-                textColor = ContextCompat.getColor(this, R.color.cyan_text),
-                /*abortDialogConfiguration = AbortDialogConfiguration(
-                        title = R.string.title,
-                        message = R.string.message,
-                        neutralMessage = R.string.no,
-                        negativeMessage = R.string.yes
-                )*/
+            themeColorDark = ContextCompat.getColor(this, R.color.soft_blue),
+            themeColor = ContextCompat.getColor(this, R.color.cyan_normal),
+            textColor = ContextCompat.getColor(this, R.color.cyan_text),
+            /*abortDialogConfiguration = AbortDialogConfiguration(
+                    title = R.string.title,
+                    message = R.string.message,
+                    neutralMessage = R.string.no,
+                    negativeMessage = R.string.yes
+            )*/
         )
 
 
@@ -251,7 +264,10 @@ class TestConocimientoActivity : AppCompatActivity() {
         val s = registrarTest.getDataform().toString()
         val call: Call<ResponseRegistrarTests> = hepaqService.registrarTest(s)
         call.enqueue(object : Callback<ResponseRegistrarTests> {
-            override fun onResponse(call: Call<ResponseRegistrarTests>, responseRegistrar: Response<ResponseRegistrarTests>) {
+            override fun onResponse(
+                call: Call<ResponseRegistrarTests>,
+                responseRegistrar: Response<ResponseRegistrarTests>
+            ) {
                 if (responseRegistrar.isSuccessful) {
                     if (responseRegistrar.body()!!.isConfirmado) {
                         //TODO

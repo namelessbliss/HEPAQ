@@ -62,8 +62,7 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void getSharedPreferencesData() {
-        tvNombre.setText(SharedPreferencesManager.getStringValue(Constants.PREF_NOMBRE) + " " +
-                SharedPreferencesManager.getStringValue(Constants.PREF_APELLIDO));
+        tvNombre.setText(SharedPreferencesManager.getStringValue(Constants.PREF_NOMBRE_COMPLETO));
         tvEdad.setText(SharedPreferencesManager.getStringValue(Constants.PREF_FECHA_NACIMIENTO));
         tvDni.setText(SharedPreferencesManager.getStringValue(Constants.PREF_DOCUMENTO));
         tvTelefono.setText(SharedPreferencesManager.getStringValue(Constants.PREF_TELEFONO));

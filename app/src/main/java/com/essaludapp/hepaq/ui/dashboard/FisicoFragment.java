@@ -130,9 +130,13 @@ public class FisicoFragment extends Fragment {
             tvCargando.setText("NO HAY DATOS PARA MOSTRAR");
             tvCargando.setTextColor(getActivity().getResources().getColor(R.color.red_error));
         } else {
-            moverIndicador();
-            graficos.setVisibility(View.VISIBLE);
-            frameCarga.setVisibility(View.INVISIBLE);
+            try {
+                moverIndicador();
+                graficos.setVisibility(View.VISIBLE);
+                frameCarga.setVisibility(View.INVISIBLE);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 

@@ -89,7 +89,7 @@ public class LaboratorioFragment extends Fragment {
             public void onResponse(Call<List<ResponseAtenciones>> call, Response<List<ResponseAtenciones>> response) {
                 if (response.isSuccessful()) {
                     lista = response.body();
-                    if (lista.get(0).getLaboratorioObj() == null ||
+                    if (lista == null || lista.get(0).getLaboratorioObj() == null ||
                             lista.get(0).getLaboratorioObj().getListaLaboratorioCitas().size() == 0) {
                         frameCarga.setVisibility(View.VISIBLE);
                     } else {
@@ -114,10 +114,14 @@ public class LaboratorioFragment extends Fragment {
                             .setContentText("Revise su conexion a internet")
                             .show();
                 } else {
-                    new SweetAlertDialog(getActivity(), SweetAlertDialog.ERROR_TYPE)
-                            .setTitleText("ERROR")
-                            .setContentText("Ocurrio un error")
-                            .show();
+                    try {
+                        new SweetAlertDialog(getActivity(), SweetAlertDialog.ERROR_TYPE)
+                                .setTitleText("ERROR")
+                                .setContentText("Ocurrio un error")
+                                .show();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
             }
         });

@@ -16,6 +16,7 @@ public class SplashScreen extends AppCompatActivity {
 
     private LineTextView lineTextView;
     private boolean isLogin = false;
+    private boolean isSetNombre = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +27,11 @@ public class SplashScreen extends AppCompatActivity {
 
         try {
             isLogin = SharedPreferencesManager.getBooleanValue(Constants.PREF_LOGIN);
+            String nombre = SharedPreferencesManager.getStringValue(Constants.PREF_NOMBRE);
+            if (nombre != null && !nombre.equalsIgnoreCase("null"))
+                isSetNombre = true;
+            else
+                isSetNombre = false;
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -37,7 +43,12 @@ public class SplashScreen extends AppCompatActivity {
             public void run() {
                 Intent i;
                 if (isLogin)
+                    if (isSetNombre)
                     i = new Intent(SplashScreen.this, DashboardActivity.class);
+                    else {
+                        isLogin=false;
+                        i = new Intent(SplashScreen.this, LoginActivity.class);
+                    }
                 else
                     i = new Intent(SplashScreen.this, LoginActivity.class);
                 startActivity(i);
